@@ -37,6 +37,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64214A492B975C1D008F1EE2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				644C2F182B97527C00DC2007 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		64214A4A2B975C31008F1EE2 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				644C2F1A2B97527C00DC2007 /* Main.storyboard */,
+				644C2F1F2B97527D00DC2007 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		64214A4B2B975C45008F1EE2 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				644C2F142B97527C00DC2007 /* AppDelegate.swift */,
+				644C2F162B97527C00DC2007 /* SceneDelegate.swift */,
+				644C2F222B97527D00DC2007 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		64214A4C2B975C52008F1EE2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		64214A4D2B975C5E008F1EE2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		644C2F082B97527C00DC2007 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +97,12 @@
 		644C2F132B97527C00DC2007 /* MoneyAccounting */ = {
 			isa = PBXGroup;
 			children = (
-				644C2F142B97527C00DC2007 /* AppDelegate.swift */,
-				644C2F162B97527C00DC2007 /* SceneDelegate.swift */,
-				644C2F182B97527C00DC2007 /* ViewController.swift */,
-				644C2F1A2B97527C00DC2007 /* Main.storyboard */,
+				64214A4A2B975C31008F1EE2 /* Storyboards */,
+				64214A492B975C1D008F1EE2 /* ViewControllers */,
+				64214A4C2B975C52008F1EE2 /* Models */,
+				64214A4D2B975C5E008F1EE2 /* Services */,
+				64214A4B2B975C45008F1EE2 /* App */,
 				644C2F1D2B97527D00DC2007 /* Assets.xcassets */,
-				644C2F1F2B97527D00DC2007 /* LaunchScreen.storyboard */,
-				644C2F222B97527D00DC2007 /* Info.plist */,
 			);
 			path = MoneyAccounting;
 			sourceTree = "<group>";
@@ -294,7 +334,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KJ5ADFMG28;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MoneyAccounting/Info.plist;
+				INFOPLIST_FILE = MoneyAccounting/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -306,7 +346,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = swift.MoneyAccounting;
+				PRODUCT_BUNDLE_IDENTIFIER = dreamteam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -327,7 +367,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KJ5ADFMG28;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MoneyAccounting/Info.plist;
+				INFOPLIST_FILE = MoneyAccounting/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -339,7 +379,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = swift.MoneyAccounting;
+				PRODUCT_BUNDLE_IDENTIFIER = dreamteam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
