@@ -64,20 +64,6 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		64214A4C2B975C52008F1EE2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		64214A4D2B975C5E008F1EE2 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		644C2F082B97527C00DC2007 = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +85,6 @@
 			children = (
 				64214A4A2B975C31008F1EE2 /* Storyboards */,
 				64214A492B975C1D008F1EE2 /* ViewControllers */,
-				64214A4C2B975C52008F1EE2 /* Models */,
-				64214A4D2B975C5E008F1EE2 /* Services */,
 				64214A4B2B975C45008F1EE2 /* App */,
 				644C2F1D2B97527D00DC2007 /* Assets.xcassets */,
 			);
