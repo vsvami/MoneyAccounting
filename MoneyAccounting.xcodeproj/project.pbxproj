@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20C1618B2B98DA0000AD22B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1618A2B98DA0000AD22B4 /* User.swift */; };
+		20C1618D2B98DA0F00AD22B4 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1618C2B98DA0F00AD22B4 /* Person.swift */; };
+		20C161902B98DA4500AD22B4 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1618F2B98DA4500AD22B4 /* DataStore.swift */; };
+		20C161932B98DA9800AD22B4 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C161922B98DA9800AD22B4 /* Transaction.swift */; };
+		20C161952B98DAA600AD22B4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C161942B98DAA600AD22B4 /* Category.swift */; };
+		20C161972B98DAB600AD22B4 /* FinancialGoalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C161962B98DAB600AD22B4 /* FinancialGoalSettings.swift */; };
+		20C161992B98DAC200AD22B4 /* FinancialPortfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C161982B98DAC200AD22B4 /* FinancialPortfolio.swift */; };
 		644C2F152B97527C00DC2007 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644C2F142B97527C00DC2007 /* AppDelegate.swift */; };
 		644C2F172B97527C00DC2007 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644C2F162B97527C00DC2007 /* SceneDelegate.swift */; };
 		644C2F192B97527C00DC2007 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644C2F182B97527C00DC2007 /* MainViewController.swift */; };
@@ -38,6 +45,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20C1618A2B98DA0000AD22B4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		20C1618C2B98DA0F00AD22B4 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		20C1618F2B98DA4500AD22B4 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		20C161922B98DA9800AD22B4 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		20C161942B98DAA600AD22B4 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		20C161962B98DAB600AD22B4 /* FinancialGoalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialGoalSettings.swift; sourceTree = "<group>"; };
+		20C161982B98DAC200AD22B4 /* FinancialPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialPortfolio.swift; sourceTree = "<group>"; };
 		644C2F112B97527C00DC2007 /* MoneyAccounting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyAccounting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		644C2F142B97527C00DC2007 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		644C2F162B97527C00DC2007 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +95,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20C1618E2B98DA1600AD22B4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				20C1618A2B98DA0000AD22B4 /* User.swift */,
+				20C1618C2B98DA0F00AD22B4 /* Person.swift */,
+				20C161922B98DA9800AD22B4 /* Transaction.swift */,
+				20C161942B98DAA600AD22B4 /* Category.swift */,
+				20C161962B98DAB600AD22B4 /* FinancialGoalSettings.swift */,
+				20C161982B98DAC200AD22B4 /* FinancialPortfolio.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		20C161912B98DA4F00AD22B4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				20C1618F2B98DA4500AD22B4 /* DataStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		64214A4B2B975C45008F1EE2 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,8 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				793CF8322B97BA8000C048B5 /* Scenes */,
-				793CF8622B97BC8F00C048B5 /* Models */,
-				793CF8632B97BC9700C048B5 /* Services */,
+				20C1618E2B98DA1600AD22B4 /* Models */,
+				20C161912B98DA4F00AD22B4 /* Services */,
 				64214A4B2B975C45008F1EE2 /* App */,
 				644C2F1D2B97527D00DC2007 /* Assets.xcassets */,
 			);
@@ -237,20 +272,6 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		793CF8622B97BC8F00C048B5 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		793CF8632B97BC9700C048B5 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		793CF8642B9876F900C048B5 /* AddIncome */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,18 +374,25 @@
 			files = (
 				793CF8392B97BAE000C048B5 /* LoginViewController.swift in Sources */,
 				793CF8682B98771E00C048B5 /* AddIncomeViewController.swift in Sources */,
+				20C161952B98DAA600AD22B4 /* Category.swift in Sources */,
+				20C161902B98DA4500AD22B4 /* DataStore.swift in Sources */,
 				644C2F192B97527C00DC2007 /* MainViewController.swift in Sources */,
 				644C2F152B97527C00DC2007 /* AppDelegate.swift in Sources */,
 				793CF84D2B97BB8F00C048B5 /* PersonViewController.swift in Sources */,
 				793CF8572B97BBFB00C048B5 /* RegistrationViewController.swift in Sources */,
 				793CF8522B97BBBB00C048B5 /* DevelopersViewController.swift in Sources */,
+				20C161932B98DA9800AD22B4 /* Transaction.swift in Sources */,
 				793CF8482B97BB5F00C048B5 /* TargetViewController.swift in Sources */,
+				20C161972B98DAB600AD22B4 /* FinancialGoalSettings.swift in Sources */,
+				20C1618B2B98DA0000AD22B4 /* User.swift in Sources */,
 				793CF83E2B97BB1200C048B5 /* HistoryViewController.swift in Sources */,
 				793CF8432B97BB3E00C048B5 /* CategoryViewController.swift in Sources */,
 				644C2F172B97527C00DC2007 /* SceneDelegate.swift in Sources */,
 				793CF85C2B97BC3100C048B5 /* EditPersonViewController.swift in Sources */,
 				793CF8612B97BC4F00C048B5 /* SettingsViewController.swift in Sources */,
+				20C1618D2B98DA0F00AD22B4 /* Person.swift in Sources */,
 				793CF86D2B98776500C048B5 /* AddExpenseViewController.swift in Sources */,
+				20C161992B98DAC200AD22B4 /* FinancialPortfolio.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
