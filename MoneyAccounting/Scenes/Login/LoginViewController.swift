@@ -7,23 +7,23 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
 
+    @IBOutlet var passwordView: UIView!
+    @IBOutlet var loginView: UIView!
+    
+    @IBOutlet var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.white.cgColor
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLayoutSubviews() {
+        loginView.layer.cornerRadius = loginView.frame.height / 2
+        passwordView.layer.cornerRadius = passwordView.frame.height / 2
+        loginButton.layer.cornerRadius = loginButton.frame.height / 2
     }
-    */
-
 }
