@@ -19,6 +19,12 @@ final class LoginViewController: UIViewController {
         
         loginButton.layer.borderWidth = 1
         loginButton.layer.borderColor = UIColor.white.cgColor
+        
+        let backgroundImage = UIImageView(image: UIImage(named: "backgroundLogin"))
+        backgroundImage.frame = view.bounds
+        backgroundImage.contentMode = .scaleAspectFill
+        view.addSubview(backgroundImage)
+        view.sendSubviewToBack(backgroundImage)
     }
     
     override func viewDidLayoutSubviews() {
