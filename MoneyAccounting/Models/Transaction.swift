@@ -17,7 +17,7 @@ struct Transaction {
     let type: TransactionType
     let currency: Character
     let amount: Double
-    let category: Category?
+    let category: Category
     let date: Date
     let description: String?
 }
