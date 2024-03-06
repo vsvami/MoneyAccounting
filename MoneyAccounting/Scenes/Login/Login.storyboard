@@ -17,12 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMG-MA-HAM">
-                                <rect key="frame" x="173.66666666666666" y="103" width="46" height="25.333333333333343"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="cXn-ys-fu9">
                                 <rect key="frame" x="45" y="269.66666666666669" width="303" height="313.00000000000006"/>
                                 <subviews>
@@ -133,12 +127,29 @@
                                     <segue destination="uRv-Qt-y6u" kind="presentation" id="9qv-PQ-Jq8"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZNQ-dK-PUa">
+                                <rect key="frame" x="84" y="38.999999999999986" width="225" height="222.66666666666663"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMG-MA-HAM">
+                                        <rect key="frame" x="89.666666666666657" y="98.666666666666657" width="46" height="25.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="DMG-MA-HAM" firstAttribute="centerY" secondItem="ZNQ-dK-PUa" secondAttribute="centerY" id="X26-z7-ga0"/>
+                                    <constraint firstAttribute="width" constant="225" id="hgQ-Fo-VL4"/>
+                                    <constraint firstItem="DMG-MA-HAM" firstAttribute="centerX" secondItem="ZNQ-dK-PUa" secondAttribute="centerX" id="vz1-Os-dgQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="DMG-MA-HAM" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="18a-Cj-J62"/>
-                            <constraint firstItem="DMG-MA-HAM" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="JMt-D4-bbd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="ZNQ-dK-PUa" secondAttribute="top" constant="64" id="4hX-AB-Hmp"/>
+                            <constraint firstItem="ZNQ-dK-PUa" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Hcg-qv-8F4"/>
+                            <constraint firstItem="fXe-cc-dxo" firstAttribute="firstBaseline" secondItem="ZNQ-dK-PUa" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="JrN-ai-ZNb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="TmZ-s5-WS6" secondAttribute="bottom" constant="20" id="QQD-Ke-piJ"/>
                             <constraint firstItem="TmZ-s5-WS6" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="TPp-CW-yW0"/>
                             <constraint firstItem="cXn-ys-fu9" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="Xle-ZZ-Mxj"/>
@@ -155,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="973.28244274809151" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="973.125" y="-2.112676056338028"/>
         </scene>
         <!--MainViewController-->
         <scene sceneID="9jb-hT-EA2">
