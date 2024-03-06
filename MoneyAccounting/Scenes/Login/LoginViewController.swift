@@ -8,9 +8,9 @@
 import UIKit
 
 final class LoginViewController: UIViewController {
-
-    @IBOutlet var passwordView: UIView!
-    @IBOutlet var loginView: UIView!
+    
+    @IBOutlet var logInTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
     
     @IBOutlet var loginButton: UIButton!
     
@@ -28,8 +28,47 @@ final class LoginViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        loginView.layer.cornerRadius = loginView.frame.height / 2
-        passwordView.layer.cornerRadius = passwordView.frame.height / 2
+        logInTextField.layer.cornerRadius = logInTextField.frame.height / 2
+        passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 2
+        
+        logInTextField.borderStyle = .none
+        passwordTextField.borderStyle = .none
+        
+        logInTextField.setLeftPaddingPoints(20)
+        logInTextField.setRightPaddingPoints(20)
+        
+        passwordTextField.setLeftPaddingPoints(20)
+        passwordTextField.setRightPaddingPoints(20)
+        
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
+    }
+}
+
+// MARK: - UITextField
+extension UITextField {
+    func setLeftPaddingPoints(_ amount:CGFloat){
+        let paddingView = UIView(
+            frame: CGRect(
+                x: 0,
+                y: 0,
+                width: amount,
+                height: self.frame.size.height
+            )
+        )
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
+    
+    func setRightPaddingPoints(_ amount:CGFloat) {
+        let paddingView = UIView(
+            frame: CGRect(
+                x: 0,
+                y: 0,
+                width: amount,
+                height: self.frame.size.height
+            )
+        )
+        self.rightView = paddingView
+        self.rightViewMode = .always
     }
 }
