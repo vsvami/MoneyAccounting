@@ -7,23 +7,68 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
-
+final class LoginViewController: UIViewController {
+    
+    @IBOutlet var logInTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    
+    @IBOutlet var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.white.cgColor
+        
+        let backgroundImage = UIImageView(image: UIImage(named: "backgroundLogin"))
+        backgroundImage.frame = view.bounds
+        backgroundImage.contentMode = .scaleAspectFill
+        view.addSubview(backgroundImage)
+        view.sendSubviewToBack(backgroundImage)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLayoutSubviews() {
+        logInTextField.layer.cornerRadius = logInTextField.frame.height / 2
+        passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 2
+        
+        logInTextField.borderStyle = .none
+        passwordTextField.borderStyle = .none
+        
+        logInTextField.setLeftPaddingPoints(20)
+        logInTextField.setRightPaddingPoints(20)
+        
+        passwordTextField.setLeftPaddingPoints(20)
+        passwordTextField.setRightPaddingPoints(20)
+        
+        loginButton.layer.cornerRadius = loginButton.frame.height / 2
     }
-    */
+}
 
+// MARK: - UITextField
+extension UITextField {
+    func setLeftPaddingPoints(_ amount:CGFloat){
+        let paddingView = UIView(
+            frame: CGRect(
+                x: 0,
+                y: 0,
+                width: amount,
+                height: self.frame.size.height
+            )
+        )
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
+    
+    func setRightPaddingPoints(_ amount:CGFloat) {
+        let paddingView = UIView(
+            frame: CGRect(
+                x: 0,
+                y: 0,
+                width: amount,
+                height: self.frame.size.height
+            )
+        )
+        self.rightView = paddingView
+        self.rightViewMode = .always
+    }
 }

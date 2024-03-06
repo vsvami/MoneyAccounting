@@ -32,7 +32,6 @@
 		793CF84D2B97BB8F00C048B5 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF84C2B97BB8F00C048B5 /* PersonViewController.swift */; };
 		793CF8502B97BBB100C048B5 /* Developers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF84F2B97BBB100C048B5 /* Developers.storyboard */; };
 		793CF8522B97BBBB00C048B5 /* DevelopersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF8512B97BBBB00C048B5 /* DevelopersViewController.swift */; };
-		793CF8552B97BBEC00C048B5 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF8542B97BBEC00C048B5 /* Registration.storyboard */; };
 		793CF8572B97BBFB00C048B5 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF8562B97BBFB00C048B5 /* RegistrationViewController.swift */; };
 		793CF85A2B97BC2500C048B5 /* EditPerson.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF8592B97BC2500C048B5 /* EditPerson.storyboard */; };
 		793CF85C2B97BC3100C048B5 /* EditPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF85B2B97BC3100C048B5 /* EditPersonViewController.swift */; };
@@ -42,6 +41,7 @@
 		793CF8682B98771E00C048B5 /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF8672B98771E00C048B5 /* AddIncomeViewController.swift */; };
 		793CF86B2B98775900C048B5 /* AddExpense.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF86A2B98775900C048B5 /* AddExpense.storyboard */; };
 		793CF86D2B98776500C048B5 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF86C2B98776500C048B5 /* AddExpenseViewController.swift */; };
+		793CF8902B990DB700C048B5 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF88F2B990DB700C048B5 /* Registration.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,7 +72,6 @@
 		793CF84C2B97BB8F00C048B5 /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		793CF84F2B97BBB100C048B5 /* Developers.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Developers.storyboard; sourceTree = "<group>"; };
 		793CF8512B97BBBB00C048B5 /* DevelopersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopersViewController.swift; sourceTree = "<group>"; };
-		793CF8542B97BBEC00C048B5 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 		793CF8562B97BBFB00C048B5 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		793CF8592B97BC2500C048B5 /* EditPerson.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPerson.storyboard; sourceTree = "<group>"; };
 		793CF85B2B97BC3100C048B5 /* EditPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +81,7 @@
 		793CF8672B98771E00C048B5 /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
 		793CF86A2B98775900C048B5 /* AddExpense.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddExpense.storyboard; sourceTree = "<group>"; };
 		793CF86C2B98776500C048B5 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
+		793CF88F2B990DB700C048B5 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,7 +248,7 @@
 		793CF8532B97BBDD00C048B5 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				793CF8542B97BBEC00C048B5 /* Registration.storyboard */,
+				793CF88F2B990DB700C048B5 /* Registration.storyboard */,
 				793CF8562B97BBFB00C048B5 /* RegistrationViewController.swift */,
 			);
 			path = Registration;
@@ -351,13 +351,13 @@
 				793CF8412B97BB3200C048B5 /* Category.storyboard in Resources */,
 				793CF8372B97BAD700C048B5 /* Login.storyboard in Resources */,
 				644C2F212B97527D00DC2007 /* LaunchScreen.storyboard in Resources */,
+				793CF8902B990DB700C048B5 /* Registration.storyboard in Resources */,
 				793CF86B2B98775900C048B5 /* AddExpense.storyboard in Resources */,
 				793CF85F2B97BC4600C048B5 /* Settings.storyboard in Resources */,
 				793CF8662B98771000C048B5 /* AddIncome.storyboard in Resources */,
 				644C2F1E2B97527D00DC2007 /* Assets.xcassets in Resources */,
 				793CF83C2B97BB0600C048B5 /* History.storyboard in Resources */,
 				793CF85A2B97BC2500C048B5 /* EditPerson.storyboard in Resources */,
-				793CF8552B97BBEC00C048B5 /* Registration.storyboard in Resources */,
 				644C2F1C2B97527C00DC2007 /* Main.storyboard in Resources */,
 				793CF8462B97BB5600C048B5 /* Target.storyboard in Resources */,
 				793CF8502B97BBB100C048B5 /* Developers.storyboard in Resources */,
