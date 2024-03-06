@@ -10,4 +10,5 @@ import Foundation
 struct Category {
     let name: String
     let icon: String
+    let color: String
 }
