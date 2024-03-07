@@ -13,11 +13,6 @@ final class PersonViewController: UIViewController {
     
     @IBOutlet var grayView: UIView!
     
-    @IBOutlet var firstNameLabel: UILabel!
-    @IBOutlet var lastNameLabel: UILabel!
-    @IBOutlet var passwordLabel: UILabel!
-    @IBOutlet var emailLabel: UILabel!
-    
     //MARK: Life Circle
     override func viewDidLoad() {
         super.viewDidLoad()
