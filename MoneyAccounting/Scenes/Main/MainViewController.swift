@@ -66,8 +66,8 @@ private extension MainViewController {
     
     func setupNavigationBar() {
         navigationItem.title = "Tim Cook"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.tintColor = .white
-        navigationItem.titleView?.tintColor = .white
         
         navigationItem.hidesBackButton = true
         
@@ -75,10 +75,20 @@ private extension MainViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person"), style: .plain, target: self, action: #selector(leftButtonTapped))
         
-        //        let image = UIImage(named: "timcook")
-        //        let leftButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(rightButtonTapped))
-        //
-        //        navigationItem.leftBarButtonItem = leftButton
-                
+        
+//        let image = UIImage(named: "tc")
+//        let scaledImage = image?.resized(to: CGSize(width: 30, height: 30))
+//        let leftButton = UIBarButtonItem(image: scaledImage, style: .plain, target: self, action: #selector(leftButtonTapped))
+//        navigationItem.leftBarButtonItem = leftButton
     }
 }
+
+// Extension to resize the image
+//extension UIImage {
+//    func resized(to size: CGSize) -> UIImage? {
+//        let renderer = UIGraphicsImageRenderer(size: size)
+//        return renderer.image { (context) in
+//            self.draw(in: CGRect(origin: .zero, size: size))
+//        }
+//    }
+//}
