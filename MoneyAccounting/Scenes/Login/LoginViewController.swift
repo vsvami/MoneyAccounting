@@ -19,20 +19,14 @@ final class LoginViewController: UIViewController {
         
         loginButton.layer.borderWidth = 1
         loginButton.layer.borderColor = UIColor.white.cgColor
+        loginButton.layer.cornerRadius = loginButton.frame.height / 2
         
-        let backgroundImage = UIImageView(image: UIImage(named: "backgroundLogin"))
-        backgroundImage.frame = view.bounds
-        backgroundImage.contentMode = .scaleAspectFill
-        view.addSubview(backgroundImage)
-        view.sendSubviewToBack(backgroundImage)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        logInTextField.layer.cornerRadius = logInTextField.frame.height / 2
-        passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 2
         
-        logInTextField.borderStyle = .none
-        passwordTextField.borderStyle = .none
+        logInTextField.setCornerRadius()
+        passwordTextField.setCornerRadius()
+        
+        logInTextField.setBorderStyle()
+        passwordTextField.setBorderStyle()
         
         logInTextField.setLeftPaddingPoints(20)
         logInTextField.setRightPaddingPoints(20)
@@ -40,35 +34,10 @@ final class LoginViewController: UIViewController {
         passwordTextField.setLeftPaddingPoints(20)
         passwordTextField.setRightPaddingPoints(20)
         
-        loginButton.layer.cornerRadius = loginButton.frame.height / 2
-    }
-}
-
-// MARK: - UITextField
-extension UITextField {
-    func setLeftPaddingPoints(_ amount:CGFloat){
-        let paddingView = UIView(
-            frame: CGRect(
-                x: 0,
-                y: 0,
-                width: amount,
-                height: self.frame.size.height
-            )
-        )
-        self.leftView = paddingView
-        self.leftViewMode = .always
-    }
-    
-    func setRightPaddingPoints(_ amount:CGFloat) {
-        let paddingView = UIView(
-            frame: CGRect(
-                x: 0,
-                y: 0,
-                width: amount,
-                height: self.frame.size.height
-            )
-        )
-        self.rightView = paddingView
-        self.rightViewMode = .always
+        let backgroundImage = UIImageView(image: UIImage(named: "backgroundLogin"))
+        backgroundImage.frame = view.bounds
+        backgroundImage.contentMode = .scaleAspectFill
+        view.addSubview(backgroundImage)
+        view.sendSubviewToBack(backgroundImage)
     }
 }
