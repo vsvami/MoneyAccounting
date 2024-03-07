@@ -82,23 +82,30 @@ private extension MainViewController {
         
         navigationItem.hidesBackButton = true
         
-        let personButton = UIButton(type: .system)
-        personButton.setImage(
-            UIImage(named: "tc")?.withRenderingMode(.alwaysTemplate),
-            for: .normal
-        )
-        personButton.imageView?.contentMode = .scaleAspectFit
-        personButton.contentVerticalAlignment = .fill
-        personButton.contentHorizontalAlignment = .fill
-        personButton.addTarget(
-            self,
-            action: #selector(leftButtonTapped),
-            for: .touchUpInside
-        )
-                
-        let leftButton = UIBarButtonItem(customView: personButton)
+//        let personButton = UIButton(type: .system)
+//        personButton.setImage(
+//            UIImage(named: "tc")?.withRenderingMode(.alwaysTemplate),
+//            for: .normal
+//        )
+//        personButton.imageView?.contentMode = .scaleAspectFit
+//        personButton.contentVerticalAlignment = .fill
+//        personButton.contentHorizontalAlignment = .fill
+//        personButton.addTarget(
+//            self,
+//            action: #selector(leftButtonTapped),
+//            for: .touchUpInside
+//        )
+//                
+//        let leftButton = UIBarButtonItem(customView: personButton)
+//        
+//        navigationItem.leftBarButtonItem = leftButton
         
-        navigationItem.leftBarButtonItem = leftButton
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "person"),
+            style: .plain,
+            target: self,
+            action: #selector(leftButtonTapped)
+        )
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "gearshape"),
@@ -106,12 +113,5 @@ private extension MainViewController {
             target: self,
             action: #selector(rightButtonTapped)
         )
-        
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(
-//            image: UIImage(systemName: "person"),
-//            style: .plain,
-//            target: self,
-//            action: #selector(leftButtonTapped)
-//        )
     }
 }
