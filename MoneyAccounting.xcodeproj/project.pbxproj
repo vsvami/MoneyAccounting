@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A30663B2B99A9C400B27EA5 /* TextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A30663A2B99A9C400B27EA5 /* TextField+Ext.swift */; };
 		20C1618B2B98DA0000AD22B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1618A2B98DA0000AD22B4 /* User.swift */; };
 		20C1618D2B98DA0F00AD22B4 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1618C2B98DA0F00AD22B4 /* Person.swift */; };
 		20C161902B98DA4500AD22B4 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1618F2B98DA4500AD22B4 /* DataStore.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A30663A2B99A9C400B27EA5 /* TextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Ext.swift"; sourceTree = "<group>"; };
 		20C1618A2B98DA0000AD22B4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		20C1618C2B98DA0F00AD22B4 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		20C1618F2B98DA4500AD22B4 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				6486CFDF2B99476C00CE14F1 /* UIView+Ext.swift */,
+				1A30663A2B99A9C400B27EA5 /* TextField+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				644C2F192B97527C00DC2007 /* MainViewController.swift in Sources */,
 				644C2F152B97527C00DC2007 /* AppDelegate.swift in Sources */,
 				793CF84D2B97BB8F00C048B5 /* PersonViewController.swift in Sources */,
+				1A30663B2B99A9C400B27EA5 /* TextField+Ext.swift in Sources */,
 				793CF8572B97BBFB00C048B5 /* RegistrationViewController.swift in Sources */,
 				793CF8522B97BBBB00C048B5 /* DevelopersViewController.swift in Sources */,
 				20C161932B98DA9800AD22B4 /* Transaction.swift in Sources */,
