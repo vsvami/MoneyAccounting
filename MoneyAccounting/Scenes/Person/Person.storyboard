@@ -197,10 +197,10 @@
             </objects>
             <point key="canvasLocation" x="1741" y="-226"/>
         </scene>
-        <!--RegistrationViewController-->
+        <!--LoginViewController-->
         <scene sceneID="Ltu-JC-DCV">
             <objects>
-                <viewControllerPlaceholder storyboardName="Registration" referencedIdentifier="RegistrationViewController" id="LCm-aP-gcq" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Login" referencedIdentifier="LoginViewController" id="LCm-aP-gcq" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="cOm-lu-U6Z"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUO-eh-NI2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
