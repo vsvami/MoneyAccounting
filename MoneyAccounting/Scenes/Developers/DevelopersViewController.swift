@@ -25,13 +25,15 @@ class DevelopersViewController: UIViewController {
         nikitaImageView.image = UIImage(named: "nikita")
         tatianaImageView.image = UIImage(named: "tatiana")
         vladimirImageView.image = UIImage(named: "vladimir")
-        dariaImageView.image = UIImage(named: "tc")
-        ivanImageView.image = UIImage(named: "tc")
+        dariaImageView.image = UIImage(named: "daria")
+        ivanImageView.image = UIImage(named: "ivan")
         
         alexeyImageView.layer.cornerRadius = alexeyImageView.frame.height / 2
         nikitaImageView.layer.cornerRadius = nikitaImageView.frame.height / 2
         tatianaImageView.layer.cornerRadius = tatianaImageView.frame.height / 2
         vladimirImageView.layer.cornerRadius = vladimirImageView.frame.height / 2
+        dariaImageView.layer.cornerRadius = dariaImageView.frame.height / 2
+        ivanImageView.layer.cornerRadius = ivanImageView.frame.height / 2
         
         donationButton.backgroundColor = UIColor(
             red: 249/255,
