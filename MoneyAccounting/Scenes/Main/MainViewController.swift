@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     //MARK: - IB Outlets
     @IBOutlet var balanceLabel: UILabel!
@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet var targetExpenseLabel: UILabel!
     
     @IBOutlet var whiteView: UIView!
+    @IBOutlet var greyView: UIView!
     
     //MARK: - View Life Cycles
     override func viewDidLoad() {
@@ -24,7 +25,6 @@ class MainViewController: UIViewController {
         
         title = "Tim Cook"
         setupBackground()
-    
         setupNavigationBar()
 
     }
@@ -32,6 +32,8 @@ class MainViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         whiteView.roundCorners(corners: [.topLeft, .topRight], radius: 15.0)
+//        greyView.roundCorners(corners: [.topLeft, .topRight], radius: 15.0)
+        greyView.layer.cornerRadius = 15 // TODO: - fix
     }
     
     //MARK: - IB Actions
@@ -50,6 +52,11 @@ class MainViewController: UIViewController {
     @IBAction func showExpenseButtonTapped(_ sender: UIButton) {
         
     }
+    
+    @IBAction func addCategoryButtonTapped(_ sender: UIButton) {
+        
+    }
+    
     
     //MARK: - Public Methods
     @objc func rightButtonTapped() {
