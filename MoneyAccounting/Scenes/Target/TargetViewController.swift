@@ -7,23 +7,25 @@
 
 import UIKit
 
-class TargetViewController: UIViewController {
+final class TargetViewController: UIViewController {
 
+    @IBOutlet var sadImageView: UIImageView!
+    
+    @IBOutlet var okayButton: UIButton!
+    @IBOutlet var expenceLimitButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        expenceLimitButton.layer.cornerRadius = expenceLimitButton.frame.height / 2
+        expenceLimitButton.backgroundColor = UIColor(
+            red: 249/255,
+            green: 249/255,
+            blue: 252/255,
+            alpha: 1
+        )
+        
+        okayButton.layer.cornerRadius = okayButton.frame.height / 2
+        okayButton.backgroundColor = .systemBlue
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
