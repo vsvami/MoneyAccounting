@@ -20,6 +20,7 @@
 		644C2F1C2B97527C00DC2007 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644C2F1A2B97527C00DC2007 /* Main.storyboard */; };
 		644C2F1E2B97527D00DC2007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 644C2F1D2B97527D00DC2007 /* Assets.xcassets */; };
 		644C2F212B97527D00DC2007 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644C2F1F2B97527D00DC2007 /* LaunchScreen.storyboard */; };
+		6486CFE02B99476C00CE14F1 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6486CFDF2B99476C00CE14F1 /* UIView+Ext.swift */; };
 		793CF8372B97BAD700C048B5 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF8362B97BAD700C048B5 /* Login.storyboard */; };
 		793CF8392B97BAE000C048B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF8382B97BAE000C048B5 /* LoginViewController.swift */; };
 		793CF83C2B97BB0600C048B5 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF83B2B97BB0600C048B5 /* History.storyboard */; };
@@ -60,6 +61,7 @@
 		644C2F1D2B97527D00DC2007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		644C2F202B97527D00DC2007 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		644C2F222B97527D00DC2007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6486CFDF2B99476C00CE14F1 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		793CF8362B97BAD700C048B5 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		793CF8382B97BAE000C048B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		793CF83B2B97BB0600C048B5 /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		644C2F132B97527C00DC2007 /* MoneyAccounting */ = {
 			isa = PBXGroup;
 			children = (
+				6486CFDE2B99472000CE14F1 /* Extensions */,
 				793CF8322B97BA8000C048B5 /* Scenes */,
 				20C1618E2B98DA1600AD22B4 /* Models */,
 				20C161912B98DA4F00AD22B4 /* Services */,
@@ -152,6 +155,14 @@
 				644C2F1D2B97527D00DC2007 /* Assets.xcassets */,
 			);
 			path = MoneyAccounting;
+			sourceTree = "<group>";
+		};
+		6486CFDE2B99472000CE14F1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6486CFDF2B99476C00CE14F1 /* UIView+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		793CF8322B97BA8000C048B5 /* Scenes */ = {
@@ -384,6 +395,7 @@
 				20C161932B98DA9800AD22B4 /* Transaction.swift in Sources */,
 				793CF8482B97BB5F00C048B5 /* TargetViewController.swift in Sources */,
 				20C161972B98DAB600AD22B4 /* FinancialGoalSettings.swift in Sources */,
+				6486CFE02B99476C00CE14F1 /* UIView+Ext.swift in Sources */,
 				20C1618B2B98DA0000AD22B4 /* User.swift in Sources */,
 				793CF83E2B97BB1200C048B5 /* HistoryViewController.swift in Sources */,
 				793CF8432B97BB3E00C048B5 /* CategoryViewController.swift in Sources */,
