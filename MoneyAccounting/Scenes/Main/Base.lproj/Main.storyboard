@@ -29,6 +29,7 @@
                                                 <buttonConfiguration key="configuration" style="plain" image="iconPlusButton" title=""/>
                                                 <connections>
                                                     <action selector="addIncomeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d4U-2N-4MN"/>
+                                                    <segue destination="lIh-dt-5sS" kind="presentation" id="vWw-mP-h2f"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZF-0c-99v">
@@ -67,6 +68,7 @@
                                                 <buttonConfiguration key="configuration" style="plain" image="iconMinusButton" title=""/>
                                                 <connections>
                                                     <action selector="addExpenseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2zH-SH-pD3"/>
+                                                    <segue destination="W6w-GL-U3W" kind="presentation" id="TKy-p1-v8G"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ao0-bk-cG3">
@@ -110,6 +112,7 @@
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="showIncomeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="751-Y1-Vhr"/>
+                                                            <segue destination="oPS-aL-Nf0" kind="show" id="I3t-De-zBv"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5x-Pd-kxV">
@@ -122,6 +125,7 @@
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="showExpenseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="762-OQ-SDy"/>
+                                                            <segue destination="oPS-aL-Nf0" kind="show" id="y6J-xL-im3"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -208,7 +212,36 @@
             </objects>
             <point key="canvasLocation" x="34.399999999999999" y="3.1484257871064472"/>
         </scene>
+        <!--AddIncomeViewController-->
+        <scene sceneID="4fi-OG-Qyn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddIncome" referencedIdentifier="AddIncomeViewController" id="lIh-dt-5sS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YOu-Fh-fOk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="763" y="-275"/>
+        </scene>
+        <!--AddExpenseViewController-->
+        <scene sceneID="odO-Ba-k9e">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddExpense" referencedIdentifier="AddExpenseViewController" id="W6w-GL-U3W" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P2Z-hx-HvF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="759" y="-130"/>
+        </scene>
+        <!--HistoryViewController-->
+        <scene sceneID="vDg-IU-bOB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="History" referencedIdentifier="HistoryViewController" id="oPS-aL-Nf0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="uBr-si-Cot"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vRJ-aZ-DPP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="782" y="118"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="I3t-De-zBv"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="iconMinusButton" width="50" height="50"/>
         <image name="iconPlusButton" width="50" height="50"/>
