@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    //MARK: - Public Properties
+    //MARK: - IB Outlets
     @IBOutlet var balanceLabel: UILabel!
     @IBOutlet var incomeLabel: UILabel!
     @IBOutlet var targetIncomeLabel: UILabel!
@@ -18,12 +18,13 @@ class MainViewController: UIViewController {
     
     @IBOutlet var whiteView: UIView!
     
-    //MARK: - Life Cycle
+    //MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupBackground()
         
+        title = "Tim Cook"
+        setupBackground()
+    
         setupNavigationBar()
 
     }
@@ -33,21 +34,32 @@ class MainViewController: UIViewController {
         whiteView.roundCorners(corners: [.topLeft, .topRight], radius: 15.0)
     }
     
-    @objc func rightButtonTapped() {
-    }
-    @objc func leftButtonTapped() {
-    }
-    
     //MARK: - IB Actions
     @IBAction func addIncomeButtonTapped(_ sender: UIButton) {
+        
     }
     
     @IBAction func addExpenseButton(_ sender: UIButton) {
+        
     }
     
     @IBAction func showIncomeButtonTapped(_ sender: Any) {
+        
     }
+    
     @IBAction func showExpenseButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+    //MARK: - Public Methods
+    @objc func rightButtonTapped() {
+        let personVC = PersonViewController()
+        navigationController?.pushViewController(personVC, animated: true)
+    }
+    
+    @objc func leftButtonTapped() {
+        let settingsVC = SettingsViewController()
+        navigationController?.pushViewController(settingsVC, animated: true)
     }
     
 }
@@ -65,30 +77,41 @@ private extension MainViewController {
     }
     
     func setupNavigationBar() {
-        navigationItem.title = "Tim Cook"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.tintColor = .white
         
         navigationItem.hidesBackButton = true
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(rightButtonTapped))
+        let personButton = UIButton(type: .system)
+        personButton.setImage(
+            UIImage(named: "tc")?.withRenderingMode(.alwaysTemplate),
+            for: .normal
+        )
+        personButton.imageView?.contentMode = .scaleAspectFit
+        personButton.contentVerticalAlignment = .fill
+        personButton.contentHorizontalAlignment = .fill
+        personButton.addTarget(
+            self,
+            action: #selector(leftButtonTapped),
+            for: .touchUpInside
+        )
+                
+        let leftButton = UIBarButtonItem(customView: personButton)
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person"), style: .plain, target: self, action: #selector(leftButtonTapped))
+        navigationItem.leftBarButtonItem = leftButton
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "gearshape"),
+            style: .plain,
+            target: self,
+            action: #selector(rightButtonTapped)
+        )
         
-//        let image = UIImage(named: "tc")
-//        let scaledImage = image?.resized(to: CGSize(width: 30, height: 30))
-//        let leftButton = UIBarButtonItem(image: scaledImage, style: .plain, target: self, action: #selector(leftButtonTapped))
-//        navigationItem.leftBarButtonItem = leftButton
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(
+//            image: UIImage(systemName: "person"),
+//            style: .plain,
+//            target: self,
+//            action: #selector(leftButtonTapped)
+//        )
     }
 }
-
-// Extension to resize the image
-//extension UIImage {
-//    func resized(to size: CGSize) -> UIImage? {
-//        let renderer = UIGraphicsImageRenderer(size: size)
-//        return renderer.image { (context) in
-//            self.draw(in: CGRect(origin: .zero, size: size))
-//        }
-//    }
-//}
