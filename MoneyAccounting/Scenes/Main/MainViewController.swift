@@ -59,13 +59,15 @@ final class MainViewController: UIViewController {
     
     
     //MARK: - Public Methods
-    @objc func rightButtonTapped() {
-        let personVC = PersonViewController()
+    @objc func leftButtonTapped() {
+        let storyboard = UIStoryboard(name: "Person", bundle: nil)
+        let personVC = storyboard.instantiateViewController(withIdentifier: "PersonViewController") as! PersonViewController
         navigationController?.pushViewController(personVC, animated: true)
     }
     
-    @objc func leftButtonTapped() {
-        let settingsVC = SettingsViewController()
+    @objc func rightButtonTapped() {
+        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+        let settingsVC = storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
         navigationController?.pushViewController(settingsVC, animated: true)
     }
     
