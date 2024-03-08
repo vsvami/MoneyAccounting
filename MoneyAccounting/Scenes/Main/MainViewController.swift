@@ -91,6 +91,8 @@ private extension MainViewController {
         
         navigationItem.hidesBackButton = true
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+        
 //        let personButton = UIButton(type: .system)
 //        personButton.setImage(
 //            UIImage(named: "tc")?.withRenderingMode(.alwaysTemplate),
@@ -123,4 +125,40 @@ private extension MainViewController {
             action: #selector(rightButtonTapped)
         )
     }
+}
+
+//MARK: - UITableViewDataSource
+extension MainViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+        
+        cell.textLabel?.text = "Cell index: \(indexPath.description)"
+        
+        return cell
+    }
+    
+    // добавление удаление ячеек
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        <#code#>
+    }
+    // сортировка
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        <#code#>
+    }
+    
+    // изменения индекса в массиве после сортировки
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        <#code#>
+    }
+}
+
+extension MainViewController: UITableViewDelegate {
+    
+    
+    
+    
 }
