@@ -11,14 +11,20 @@ final class AddIncomeViewController: UIViewController {
 
     @IBOutlet var amountTF: UITextField!
     @IBOutlet var chooseDateButton: UIButton!
+    @IBOutlet var addButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextField(amountTF, withText: "Введите сумму")
-        setButton(chooseDateButton)
+        chooseDateButton.setOrdinaryButton()
+        addButton.setAccentButton()
     }
     
     @IBAction func chooseDateButtonAction() {
+    }
+    
+    @IBAction func addAction() {
+        dismiss(animated: true)
     }
 }
 
@@ -38,25 +44,6 @@ extension AddIncomeViewController {
                 blue: 165/255,
                 alpha: 1
             )]
-        )
-    }
-    
-    private func setButton(_ button: UIButton) {
-        button.backgroundColor = UIColor(
-            red: 249/255,
-            green: 249/255,
-            blue: 252/255,
-            alpha: 1
-        )
-        button.layer.cornerRadius = button.frame.height / 2
-        button.setTitleColor(
-            UIColor(
-                red: 134/255,
-                green: 143/255,
-                blue: 165/255,
-                alpha: 1
-            ),
-            for: .normal
         )
     }
 }
