@@ -35,9 +35,9 @@ final class PersonViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         // Восстановление стандартного цвета и предыдущих настроек navigationBar
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = false
+//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//        navigationController?.navigationBar.tintColor = .white
+//        navigationController?.navigationBar.prefersLargeTitles = false
         
     }
     
