@@ -9,7 +9,7 @@ import UIKit
 
 final class MainViewController: UIViewController {
 
-    //MARK: - IB Outlets
+    // MARK: - IB Outlets
     @IBOutlet var balanceLabel: UILabel!
     @IBOutlet var incomeLabel: UILabel!
     @IBOutlet var targetIncomeLabel: UILabel!
@@ -19,7 +19,12 @@ final class MainViewController: UIViewController {
     @IBOutlet var whiteView: UIView!
     @IBOutlet var greyView: UIView!
     
-    //MARK: - View Life Cycles
+    @IBOutlet var categoriesTableView: UITableView!
+    
+    // MARK: - Private Properties
+    private let categories = DataStore.shared
+    
+    // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +41,13 @@ final class MainViewController: UIViewController {
         greyView.layer.cornerRadius = 15 // TODO: - fix
     }
     
-    //MARK: - IB Actions
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let indexPath = categoriesTableView.indexPathForSelectedRow else { return }
+//        let categoryVC = segue.destination as? CategoryViewController
+//        categoryVC.table = categories[indexPath.row]
+    }
+    
+    // MARK: - IB Actions
     @IBAction func addIncomeButtonTapped(_ sender: UIButton) {
         
     }
@@ -58,7 +69,7 @@ final class MainViewController: UIViewController {
     }
     
     
-    //MARK: - Public Methods
+    // MARK: - Public Methods
     @objc func leftButtonTapped() {
         let storyboard = UIStoryboard(name: "Person", bundle: nil)
         let personVC = storyboard.instantiateViewController(withIdentifier: "PersonViewController") as! PersonViewController
@@ -73,7 +84,7 @@ final class MainViewController: UIViewController {
     
 }
 
-//MARK: - Private Methods
+// MARK: - Private Methods
 private extension MainViewController {
     func setupBackground() {
         let backgroundImage = UIImage(named: "backgroundMain")
@@ -127,38 +138,64 @@ private extension MainViewController {
     }
 }
 
-//MARK: - UITableViewDataSource
+// MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        categories.categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
         
-        cell.textLabel?.text = "Cell index: \(indexPath.description)"
+        var content = cell.defaultContentConfiguration()
+        let category = categories.categories[indexPath.row]
         
+        cell.textLabel?.text = "Cell index: \(indexPath.description)"
+        content.text = category.name
+        content.textProperties.font = UIFont.systemFont(ofSize: 14)
+        
+        content.secondaryText = "3564 ₽"
+        content.secondaryTextProperties.font = UIFont.systemFont(ofSize: 18)
+        content.secondaryTextProperties.color = UIColor.black
+        
+        content.image = category.colorImage
+        content.imageProperties.cornerRadius = tableView.rowHeight / 2
+        
+        cell.contentConfiguration = content
         return cell
     }
     
-    // добавление удаление ячеек
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        <#code#>
-    }
-    // сортировка
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        <#code#>
-    }
-    
-    // изменения индекса в массиве после сортировки
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        <#code#>
-    }
+//    // добавление удаление ячеек
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        <#code#>
+//    }
+//    // сортировка
+//    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+//        <#code#>
+//    }
+//    
+//    // изменения индекса в массиве после сортировки
+//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+//        <#code#>
+//    }
 }
 
 extension MainViewController: UITableViewDelegate {
-    
-    
-    
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        50
+    }
+//    // для отслеживания выбора пользователя ячейки, переход
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        <#code#>
+//    }
+//    
+//    // для кастомизации заголовков
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        <#code#>
+//    }
+//    
+//    // высота хедера
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        <#code#>
+//    }
 }
