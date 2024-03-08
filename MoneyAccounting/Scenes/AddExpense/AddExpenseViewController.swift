@@ -15,22 +15,18 @@ final class AddExpenseViewController: UIViewController {
     @IBOutlet var dateButton: UIButton!
     @IBOutlet var chooseCategoryButton: UIButton!
     
+    @IBOutlet var addButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setTextField(nameExpenceTextField, withText: "Название расхода")
         setTextField(addAmountTextField, withText: "Введите сумму")
         
-        setButton(dateButton)
-        setButton(chooseCategoryButton)
-    }
-    
-    @IBAction func addAction() {
-        dismiss(animated: true)
-    }
-    
-    @IBAction func cancelAction() {
-        dismiss(animated: true)
+        dateButton.setOrdinaryButton()
+        chooseCategoryButton.setOrdinaryButton()
+        
+        addButton.setAccentButton()
     }
     
     private func setTextField(_ textField: UITextField, withText placeholder: String) {
@@ -55,22 +51,4 @@ final class AddExpenseViewController: UIViewController {
         )
     }
     
-    private func setButton(_ button: UIButton) {
-        button.backgroundColor = UIColor(
-            red: 249/255,
-            green: 249/255,
-            blue: 252/255,
-            alpha: 1
-        )
-        button.layer.cornerRadius = button.frame.height / 2
-        button.setTitleColor(
-            UIColor(
-                red: 134/255,
-                green: 143/255,
-                blue: 165/255,
-                alpha: 1
-            ),
-            for: .normal
-        )
-    }
 }
