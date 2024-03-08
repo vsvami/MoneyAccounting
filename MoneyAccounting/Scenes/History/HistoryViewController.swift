@@ -91,7 +91,7 @@ extension HistoryViewController {
     }
     
     private func setupBackBarButtonItem() {
-        let arrowImage = UIImage(systemName: "arrow.left")
+        let arrowImage = UIImage(systemName: "chevron.backward")
         
         let backButton = UIButton(type: .system)
         backButton.setImage(arrowImage, for: .normal)
