@@ -27,11 +27,12 @@ final class MainViewController: UIViewController {
     // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "Tim Cook"
+        
         setupBackground()
         setupNavigationBar()
-
+        
+        categoriesTableView.rowHeight = 50
     }
     
     override func viewDidLayoutSubviews() {
@@ -164,38 +165,11 @@ extension MainViewController: UITableViewDataSource {
         cell.contentConfiguration = content
         return cell
     }
-    
-//    // добавление удаление ячеек
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
-//    // сортировка
-//    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-//        <#code#>
-//    }
-//    
-//    // изменения индекса в массиве после сортировки
-//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-//        <#code#>
-//    }
 }
 
+// MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        50
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-//    // для отслеживания выбора пользователя ячейки, переход
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
-//    
-//    // для кастомизации заголовков
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        <#code#>
-//    }
-//    
-//    // высота хедера
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        <#code#>
-//    }
 }

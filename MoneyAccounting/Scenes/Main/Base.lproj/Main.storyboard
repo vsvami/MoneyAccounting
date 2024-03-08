@@ -162,6 +162,7 @@
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="addCategoryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="owP-Ug-Fen"/>
+                                                    <segue destination="Z4g-t5-WNF" kind="presentation" id="v6d-py-lbW"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -303,6 +304,14 @@
             </objects>
             <point key="canvasLocation" x="759" y="-130"/>
         </scene>
+        <!--AddCategoryViewController-->
+        <scene sceneID="3xC-Gp-D27">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddCategory" referencedIdentifier="AddCategoryViewController" id="Z4g-t5-WNF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dk2-p7-gzY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="752" y="180"/>
+        </scene>
         <!--HistoryViewController-->
         <scene sceneID="vDg-IU-bOB">
             <objects>
@@ -321,7 +330,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAH-4s-Zbb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="243"/>
+            <point key="canvasLocation" x="781" y="305"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -331,13 +340,13 @@
         <image name="iconMinusButton" width="50" height="50"/>
         <image name="iconPlusButton" width="50" height="50"/>
         <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
