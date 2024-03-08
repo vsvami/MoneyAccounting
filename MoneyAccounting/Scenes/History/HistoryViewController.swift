@@ -98,7 +98,7 @@ extension HistoryViewController {
         backButton.setTitle("Назад", for: .normal)
         backButton.sizeToFit()
         backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
-        backButton.tintColor = .blue
+        backButton.tintColor = .systemBlue
         
         let backBarButtonItem = UIBarButtonItem(customView: backButton)
         
