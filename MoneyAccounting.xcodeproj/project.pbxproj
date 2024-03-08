@@ -45,6 +45,8 @@
 		793CF86B2B98775900C048B5 /* AddExpense.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF86A2B98775900C048B5 /* AddExpense.storyboard */; };
 		793CF86D2B98776500C048B5 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF86C2B98776500C048B5 /* AddExpenseViewController.swift */; };
 		793CF8902B990DB700C048B5 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF88F2B990DB700C048B5 /* Registration.storyboard */; };
+		793CF8932B9BA29700C048B5 /* AddCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF8922B9BA29700C048B5 /* AddCategory.storyboard */; };
+		793CF8952B9BA2BF00C048B5 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF8942B9BA2BF00C048B5 /* AddCategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		793CF86A2B98775900C048B5 /* AddExpense.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddExpense.storyboard; sourceTree = "<group>"; };
 		793CF86C2B98776500C048B5 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		793CF88F2B990DB700C048B5 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
+		793CF8922B9BA29700C048B5 /* AddCategory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddCategory.storyboard; sourceTree = "<group>"; };
+		793CF8942B9BA2BF00C048B5 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +178,7 @@
 		793CF8322B97BA8000C048B5 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				793CF8912B9BA28000C048B5 /* AddCategory */,
 				793CF8352B97BAC900C048B5 /* Login */,
 				793CF8532B97BBDD00C048B5 /* Registration */,
 				793CF8332B97BA8700C048B5 /* Main */,
@@ -307,6 +312,15 @@
 			path = AddExpense;
 			sourceTree = "<group>";
 		};
+		793CF8912B9BA28000C048B5 /* AddCategory */ = {
+			isa = PBXGroup;
+			children = (
+				793CF8922B9BA29700C048B5 /* AddCategory.storyboard */,
+				793CF8942B9BA2BF00C048B5 /* AddCategoryViewController.swift */,
+			);
+			path = AddCategory;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -376,6 +390,7 @@
 				793CF83C2B97BB0600C048B5 /* History.storyboard in Resources */,
 				793CF85A2B97BC2500C048B5 /* EditPerson.storyboard in Resources */,
 				644C2F1C2B97527C00DC2007 /* Main.storyboard in Resources */,
+				793CF8932B9BA29700C048B5 /* AddCategory.storyboard in Resources */,
 				793CF8462B97BB5600C048B5 /* Target.storyboard in Resources */,
 				793CF8502B97BBB100C048B5 /* Developers.storyboard in Resources */,
 				793CF84B2B97BB8500C048B5 /* Person.storyboard in Resources */,
@@ -400,6 +415,7 @@
 				793CF8572B97BBFB00C048B5 /* RegistrationViewController.swift in Sources */,
 				793CF8522B97BBBB00C048B5 /* DevelopersViewController.swift in Sources */,
 				20C161932B98DA9800AD22B4 /* Transaction.swift in Sources */,
+				793CF8952B9BA2BF00C048B5 /* AddCategoryViewController.swift in Sources */,
 				1A30663D2B9B6CE900B27EA5 /* UIButton+Ext.swift in Sources */,
 				793CF8482B97BB5F00C048B5 /* TargetViewController.swift in Sources */,
 				20C161972B98DAB600AD22B4 /* FinancialGoalSettings.swift in Sources */,
