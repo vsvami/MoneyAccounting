@@ -7,23 +7,36 @@
 
 import UIKit
 
-class RegistrationViewController: UIViewController {
+final class RegistrationViewController: UIViewController {
 
+    @IBOutlet var loginTF: UITextField!
+    @IBOutlet var passwordTF: UITextField!
+    @IBOutlet var emailTF: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setTextFields()
+        view.roundCorners(corners: [.topLeft, .topRight], radius: 15.0)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func backAction() {
+        self.dismiss(animated: true)
     }
-    */
-
+    
+    @IBAction func saveAction() {
+        self.dismiss(animated: true)
+    }
+    
+    private func setTextFields() {
+        loginTF.setCornerRadius()
+        passwordTF.setCornerRadius()
+        emailTF.setCornerRadius()
+        
+        loginTF.setBorderStyle()
+        passwordTF.setBorderStyle()
+        emailTF.setBorderStyle()
+        
+        loginTF.setLeftPaddingPoints(20)
+        loginTF.setRightPaddingPoints(20)
+    }
 }
