@@ -10,7 +10,7 @@ enum TransactionType {
     case expense
 }
 
-//Модель для добавления расходов/доходов
+//Модель для добавления расходов/доходов(можно разделить на доход и расход)
 struct Transaction {
     let type: TransactionType
     let currency: Character
