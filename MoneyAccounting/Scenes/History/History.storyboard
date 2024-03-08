@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1wA-qh-EVb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -17,22 +17,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lVL-X6-LKr">
-                                <rect key="frame" x="32" y="133" width="329" height="41"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lVL-X6-LKr" customClass="CustomizableSegmentControl" customModule="MoneyAccounting" customModuleProvider="target">
+                                <rect key="frame" x="46.666666666666657" y="199" width="300" height="51"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="RrK-NL-nST"/>
+                                    <constraint firstAttribute="height" constant="50" id="RrK-NL-nST"/>
+                                    <constraint firstAttribute="width" constant="300" id="VeG-Th-GL0"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Доходы"/>
                                     <segment title="Расходы"/>
                                     <segment title="Все операции"/>
                                 </segments>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <action selector="segmentedControlAction:" destination="Y6W-OH-hqX" eventType="valueChanged" id="37O-Uy-qgE"/>
+                                    <action selector="segmentedControlAction" destination="Y6W-OH-hqX" eventType="valueChanged" id="Pmb-TY-Itc"/>
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KGp-Mc-ptP">
-                                <rect key="frame" x="16" y="193" width="361" height="609"/>
+                                <rect key="frame" x="16" y="279" width="361" height="523"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="historyCell" id="YVH-nR-Ssg">
@@ -45,43 +47,52 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="История" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5A-he-VXg">
+                                <rect key="frame" x="16" y="133" width="125" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="KGp-Mc-ptP" secondAttribute="trailing" constant="16" id="6EV-Re-P5S"/>
                             <constraint firstItem="KGp-Mc-ptP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="DYH-v7-ci3"/>
+                            <constraint firstItem="KGp-Mc-ptP" firstAttribute="top" secondItem="lVL-X6-LKr" secondAttribute="bottom" constant="30" id="OPF-cr-jth"/>
                             <constraint firstItem="lVL-X6-LKr" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Q4N-B4-Kh5"/>
+                            <constraint firstItem="A5A-he-VXg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="QV4-vF-x3w"/>
+                            <constraint firstItem="lVL-X6-LKr" firstAttribute="top" secondItem="A5A-he-VXg" secondAttribute="bottom" constant="30" id="bKz-e1-GhZ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="KGp-Mc-ptP" secondAttribute="bottom" constant="16" id="khe-Cc-oSH"/>
-                            <constraint firstItem="lVL-X6-LKr" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="m29-ib-3ts"/>
-                            <constraint firstItem="KGp-Mc-ptP" firstAttribute="top" secondItem="lVL-X6-LKr" secondAttribute="bottom" constant="20" id="ujs-BP-srj"/>
+                            <constraint firstItem="A5A-he-VXg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="vp4-fP-bZ5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9WV-pD-2VQ">
-                        <barButtonItem key="leftBarButtonItem" title="Назад" id="XQo-IE-yA7"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="9WV-pD-2VQ"/>
+                    <connections>
+                        <outlet property="segmentedControl" destination="lVL-X6-LKr" id="5rO-5W-Vgz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="823.66412213740455" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="1550" y="-2"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="gkl-0Z-poS">
+        <scene sceneID="6i0-kJ-Qjh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1wA-qh-EVb" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Lol" automaticallyAdjustsScrollViewInsets="NO" id="W6Z-Rw-CbE" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IbI-AD-MaH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TLB-C0-zpA">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="FE6-YN-qFA"/>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="I20-X6-BFP"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="axL-8n-kt0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dhx-kZ-T2m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="823.66412213740455" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
