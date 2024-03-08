@@ -28,7 +28,7 @@ struct Person {
         
         var transactions: [Transaction] = []
         
-        for iteration in 0...20 {
+        for _ in 0...20 {
             transactions.append(
                 Transaction(
                     type: .expense,
