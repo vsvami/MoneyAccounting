@@ -11,15 +11,7 @@ extension UIButton {
     func setAccentButton() {
         self.layer.cornerRadius = self.frame.height / 2
         self.backgroundColor = .systemBlue
-        self.setTitleColor(
-            UIColor(
-                red: 255/255,
-                green: 255/255,
-                blue: 255/255,
-                alpha: 1
-            ),
-            for: .normal
-        )
+        self.setTitleColor(.white, for: .normal)
     }
     
     func setOrdinaryButton() {

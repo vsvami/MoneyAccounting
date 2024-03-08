@@ -71,6 +71,9 @@
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Добавить"/>
+                                        <connections>
+                                            <action selector="addAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Fiw-Lh-Fm0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

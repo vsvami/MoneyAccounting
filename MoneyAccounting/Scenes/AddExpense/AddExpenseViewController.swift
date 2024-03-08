@@ -29,6 +29,10 @@ final class AddExpenseViewController: UIViewController {
         addButton.setAccentButton()
     }
     
+    @IBAction func addAction() {
+        dismiss(animated: true)
+    }
+    
     private func setTextField(_ textField: UITextField, withText placeholder: String) {
         textField.setLeftPaddingPoints(20)
         textField.setRightPaddingPoints(20)
