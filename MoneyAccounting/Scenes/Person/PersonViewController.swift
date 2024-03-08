@@ -27,6 +27,8 @@ final class PersonViewController: UIViewController {
         logOutButton.layer.cornerRadius = logOutButton.frame.height / 2
     }
     
+    
+    //MARK: - IB Actions
     @IBAction func addPhotoAction() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
