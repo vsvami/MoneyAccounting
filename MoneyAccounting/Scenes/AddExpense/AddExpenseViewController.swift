@@ -38,20 +38,13 @@ final class AddExpenseViewController: UIViewController {
         textField.setRightPaddingPoints(20)
         textField.setBorderStyle()
         textField.setCornerRadius()
-        textField.backgroundColor = UIColor(
-            red: 249/255,
-            green: 249/255,
-            blue: 252/255,
-            alpha: 1
-        )
+        
+        textField.backgroundColor = .customLightGray
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(
-                red: 134/255,
-                green: 143/255,
-                blue: 165/255,
-                alpha: 1
-            )]
+                named: "customDarkGray"
+            ) ?? .customDarkGray]
         )
     }
     
