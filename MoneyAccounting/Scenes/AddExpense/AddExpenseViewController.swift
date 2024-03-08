@@ -7,23 +7,40 @@
 
 import UIKit
 
-class AddExpenseViewController: UIViewController {
+final class AddExpenseViewController: UIViewController {
 
+    @IBOutlet var dateTextField: UITextField!
+    @IBOutlet var nameExpenceTextField: UITextField!
+    @IBOutlet var chooseCategoryTextField: UITextField!
+    @IBOutlet var addAmountTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setTextField(dateTextField)
+        setTextField(nameExpenceTextField)
+        setTextField(chooseCategoryTextField)
+        setTextField(addAmountTextField)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addAction() {
+        dismiss(animated: true)
     }
-    */
-
+    
+    @IBAction func cancelAction() {
+        dismiss(animated: true)
+    }
+    
+    private func setTextField(_ textField: UITextField) {
+        textField.setLeftPaddingPoints(20)
+        textField.setRightPaddingPoints(20)
+        textField.setBorderStyle()
+        textField.setCornerRadius()
+        textField.backgroundColor = UIColor(
+            red: 249/255,
+            green: 249/255,
+            blue: 252/255,
+            alpha: 1
+        )
+    }
 }
