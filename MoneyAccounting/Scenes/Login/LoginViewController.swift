@@ -7,23 +7,37 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
-
+final class LoginViewController: UIViewController {
+    
+    @IBOutlet var logInTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    
+    @IBOutlet var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.white.cgColor
+        loginButton.layer.cornerRadius = loginButton.frame.height / 2
+        
+        
+        logInTextField.setCornerRadius()
+        passwordTextField.setCornerRadius()
+        
+        logInTextField.setBorderStyle()
+        passwordTextField.setBorderStyle()
+        
+        logInTextField.setLeftPaddingPoints(20)
+        logInTextField.setRightPaddingPoints(20)
+        
+        passwordTextField.setLeftPaddingPoints(20)
+        passwordTextField.setRightPaddingPoints(20)
+        
+        let backgroundImage = UIImageView(image: UIImage(named: "backgroundLogin"))
+        backgroundImage.frame = view.bounds
+        backgroundImage.contentMode = .scaleAspectFill
+        view.addSubview(backgroundImage)
+        view.sendSubviewToBack(backgroundImage)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

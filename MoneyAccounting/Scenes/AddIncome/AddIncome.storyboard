@@ -16,13 +16,70 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="YKV-LL-qmB">
+                                <rect key="frame" x="72" y="74" width="249" height="245"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите сумму" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fst-1x-jsF">
+                                        <rect key="frame" x="0.0" y="0.0" width="249" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="249" id="X48-5e-fRq"/>
+                                            <constraint firstAttribute="height" constant="50" id="har-FY-OOV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите сумму" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zr5-wx-oY6">
+                                        <rect key="frame" x="0.0" y="65" width="249" height="50"/>
+                                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGb-wi-MqF">
+                                        <rect key="frame" x="0.0" y="130" width="249" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Дата">
+                                            <color key="titleColor" red="0.52549019607843139" green="0.5607843137254902" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="chooseDateButtonAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Jwp-fJ-pTs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOW-Dm-Wks">
+                                        <rect key="frame" x="0.0" y="195" width="249" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Добавить"/>
+                                        <connections>
+                                            <action selector="addAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="l2e-YQ-hhK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YKV-LL-qmB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="15" id="tEq-Jn-7bu"/>
+                            <constraint firstItem="YKV-LL-qmB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="xYL-Vb-Xfl"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="3ZA-rt-2Da">
+                        <barButtonItem key="leftBarButtonItem" title="Отмена" id="OVs-6U-cAv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Добавить" id="pJD-7q-QER"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="XOW-Dm-Wks" id="ZmU-W7-z48"/>
+                        <outlet property="amountTF" destination="zr5-wx-oY6" id="t47-FP-1WZ"/>
+                        <outlet property="chooseDateButton" destination="JGb-wi-MqF" id="dMD-nQ-B1v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="-2"/>
+            <point key="canvasLocation" x="771.75572519083971" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>

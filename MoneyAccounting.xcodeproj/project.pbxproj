@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A30663B2B99A9C400B27EA5 /* TextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A30663A2B99A9C400B27EA5 /* TextField+Ext.swift */; };
+		1A30663D2B9B6CE900B27EA5 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A30663C2B9B6CE900B27EA5 /* UIButton+Ext.swift */; };
 		20C1618B2B98DA0000AD22B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1618A2B98DA0000AD22B4 /* User.swift */; };
 		20C1618D2B98DA0F00AD22B4 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1618C2B98DA0F00AD22B4 /* Person.swift */; };
 		20C161902B98DA4500AD22B4 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1618F2B98DA4500AD22B4 /* DataStore.swift */; };
@@ -20,6 +22,7 @@
 		644C2F1C2B97527C00DC2007 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644C2F1A2B97527C00DC2007 /* Main.storyboard */; };
 		644C2F1E2B97527D00DC2007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 644C2F1D2B97527D00DC2007 /* Assets.xcassets */; };
 		644C2F212B97527D00DC2007 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644C2F1F2B97527D00DC2007 /* LaunchScreen.storyboard */; };
+		6486CFE02B99476C00CE14F1 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6486CFDF2B99476C00CE14F1 /* UIView+Ext.swift */; };
 		793CF8372B97BAD700C048B5 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF8362B97BAD700C048B5 /* Login.storyboard */; };
 		793CF8392B97BAE000C048B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF8382B97BAE000C048B5 /* LoginViewController.swift */; };
 		793CF83C2B97BB0600C048B5 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF83B2B97BB0600C048B5 /* History.storyboard */; };
@@ -32,7 +35,6 @@
 		793CF84D2B97BB8F00C048B5 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF84C2B97BB8F00C048B5 /* PersonViewController.swift */; };
 		793CF8502B97BBB100C048B5 /* Developers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF84F2B97BBB100C048B5 /* Developers.storyboard */; };
 		793CF8522B97BBBB00C048B5 /* DevelopersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF8512B97BBBB00C048B5 /* DevelopersViewController.swift */; };
-		793CF8552B97BBEC00C048B5 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF8542B97BBEC00C048B5 /* Registration.storyboard */; };
 		793CF8572B97BBFB00C048B5 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF8562B97BBFB00C048B5 /* RegistrationViewController.swift */; };
 		793CF85A2B97BC2500C048B5 /* EditPerson.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF8592B97BC2500C048B5 /* EditPerson.storyboard */; };
 		793CF85C2B97BC3100C048B5 /* EditPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF85B2B97BC3100C048B5 /* EditPersonViewController.swift */; };
@@ -42,9 +44,14 @@
 		793CF8682B98771E00C048B5 /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF8672B98771E00C048B5 /* AddIncomeViewController.swift */; };
 		793CF86B2B98775900C048B5 /* AddExpense.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF86A2B98775900C048B5 /* AddExpense.storyboard */; };
 		793CF86D2B98776500C048B5 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF86C2B98776500C048B5 /* AddExpenseViewController.swift */; };
+		793CF8902B990DB700C048B5 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF88F2B990DB700C048B5 /* Registration.storyboard */; };
+		793CF8932B9BA29700C048B5 /* AddCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF8922B9BA29700C048B5 /* AddCategory.storyboard */; };
+		793CF8952B9BA2BF00C048B5 /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF8942B9BA2BF00C048B5 /* AddCategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A30663A2B99A9C400B27EA5 /* TextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Ext.swift"; sourceTree = "<group>"; };
+		1A30663C2B9B6CE900B27EA5 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		20C1618A2B98DA0000AD22B4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		20C1618C2B98DA0F00AD22B4 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		20C1618F2B98DA4500AD22B4 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
@@ -60,6 +67,7 @@
 		644C2F1D2B97527D00DC2007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		644C2F202B97527D00DC2007 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		644C2F222B97527D00DC2007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6486CFDF2B99476C00CE14F1 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		793CF8362B97BAD700C048B5 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		793CF8382B97BAE000C048B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		793CF83B2B97BB0600C048B5 /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
@@ -72,7 +80,6 @@
 		793CF84C2B97BB8F00C048B5 /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		793CF84F2B97BBB100C048B5 /* Developers.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Developers.storyboard; sourceTree = "<group>"; };
 		793CF8512B97BBBB00C048B5 /* DevelopersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopersViewController.swift; sourceTree = "<group>"; };
-		793CF8542B97BBEC00C048B5 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 		793CF8562B97BBFB00C048B5 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		793CF8592B97BC2500C048B5 /* EditPerson.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPerson.storyboard; sourceTree = "<group>"; };
 		793CF85B2B97BC3100C048B5 /* EditPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +89,9 @@
 		793CF8672B98771E00C048B5 /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
 		793CF86A2B98775900C048B5 /* AddExpense.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddExpense.storyboard; sourceTree = "<group>"; };
 		793CF86C2B98776500C048B5 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
+		793CF88F2B990DB700C048B5 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
+		793CF8922B9BA29700C048B5 /* AddCategory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddCategory.storyboard; sourceTree = "<group>"; };
+		793CF8942B9BA2BF00C048B5 /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +155,7 @@
 		644C2F132B97527C00DC2007 /* MoneyAccounting */ = {
 			isa = PBXGroup;
 			children = (
+				6486CFDE2B99472000CE14F1 /* Extensions */,
 				793CF8322B97BA8000C048B5 /* Scenes */,
 				20C1618E2B98DA1600AD22B4 /* Models */,
 				20C161912B98DA4F00AD22B4 /* Services */,
@@ -152,6 +163,16 @@
 				644C2F1D2B97527D00DC2007 /* Assets.xcassets */,
 			);
 			path = MoneyAccounting;
+			sourceTree = "<group>";
+		};
+		6486CFDE2B99472000CE14F1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6486CFDF2B99476C00CE14F1 /* UIView+Ext.swift */,
+				1A30663A2B99A9C400B27EA5 /* TextField+Ext.swift */,
+				1A30663C2B9B6CE900B27EA5 /* UIButton+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		793CF8322B97BA8000C048B5 /* Scenes */ = {
@@ -165,6 +186,7 @@
 				793CF85D2B97BC3A00C048B5 /* Settings */,
 				793CF83A2B97BAF400C048B5 /* History */,
 				793CF83F2B97BB2300C048B5 /* Category */,
+				793CF8912B9BA28000C048B5 /* AddCategory */,
 				793CF8642B9876F900C048B5 /* AddIncome */,
 				793CF8692B98773800C048B5 /* AddExpense */,
 				793CF8442B97BB4D00C048B5 /* Target */,
@@ -248,7 +270,7 @@
 		793CF8532B97BBDD00C048B5 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				793CF8542B97BBEC00C048B5 /* Registration.storyboard */,
+				793CF88F2B990DB700C048B5 /* Registration.storyboard */,
 				793CF8562B97BBFB00C048B5 /* RegistrationViewController.swift */,
 			);
 			path = Registration;
@@ -288,6 +310,15 @@
 				793CF86C2B98776500C048B5 /* AddExpenseViewController.swift */,
 			);
 			path = AddExpense;
+			sourceTree = "<group>";
+		};
+		793CF8912B9BA28000C048B5 /* AddCategory */ = {
+			isa = PBXGroup;
+			children = (
+				793CF8922B9BA29700C048B5 /* AddCategory.storyboard */,
+				793CF8942B9BA2BF00C048B5 /* AddCategoryViewController.swift */,
+			);
+			path = AddCategory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,14 +382,15 @@
 				793CF8412B97BB3200C048B5 /* Category.storyboard in Resources */,
 				793CF8372B97BAD700C048B5 /* Login.storyboard in Resources */,
 				644C2F212B97527D00DC2007 /* LaunchScreen.storyboard in Resources */,
+				793CF8902B990DB700C048B5 /* Registration.storyboard in Resources */,
 				793CF86B2B98775900C048B5 /* AddExpense.storyboard in Resources */,
 				793CF85F2B97BC4600C048B5 /* Settings.storyboard in Resources */,
 				793CF8662B98771000C048B5 /* AddIncome.storyboard in Resources */,
 				644C2F1E2B97527D00DC2007 /* Assets.xcassets in Resources */,
 				793CF83C2B97BB0600C048B5 /* History.storyboard in Resources */,
 				793CF85A2B97BC2500C048B5 /* EditPerson.storyboard in Resources */,
-				793CF8552B97BBEC00C048B5 /* Registration.storyboard in Resources */,
 				644C2F1C2B97527C00DC2007 /* Main.storyboard in Resources */,
+				793CF8932B9BA29700C048B5 /* AddCategory.storyboard in Resources */,
 				793CF8462B97BB5600C048B5 /* Target.storyboard in Resources */,
 				793CF8502B97BBB100C048B5 /* Developers.storyboard in Resources */,
 				793CF84B2B97BB8500C048B5 /* Person.storyboard in Resources */,
@@ -379,11 +411,15 @@
 				644C2F192B97527C00DC2007 /* MainViewController.swift in Sources */,
 				644C2F152B97527C00DC2007 /* AppDelegate.swift in Sources */,
 				793CF84D2B97BB8F00C048B5 /* PersonViewController.swift in Sources */,
+				1A30663B2B99A9C400B27EA5 /* TextField+Ext.swift in Sources */,
 				793CF8572B97BBFB00C048B5 /* RegistrationViewController.swift in Sources */,
 				793CF8522B97BBBB00C048B5 /* DevelopersViewController.swift in Sources */,
 				20C161932B98DA9800AD22B4 /* Transaction.swift in Sources */,
+				793CF8952B9BA2BF00C048B5 /* AddCategoryViewController.swift in Sources */,
+				1A30663D2B9B6CE900B27EA5 /* UIButton+Ext.swift in Sources */,
 				793CF8482B97BB5F00C048B5 /* TargetViewController.swift in Sources */,
 				20C161972B98DAB600AD22B4 /* FinancialGoalSettings.swift in Sources */,
+				6486CFE02B99476C00CE14F1 /* UIView+Ext.swift in Sources */,
 				20C1618B2B98DA0000AD22B4 /* User.swift in Sources */,
 				793CF83E2B97BB1200C048B5 /* HistoryViewController.swift in Sources */,
 				793CF8432B97BB3E00C048B5 /* CategoryViewController.swift in Sources */,
@@ -544,7 +580,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KJ5ADFMG28;
+				DEVELOPMENT_TEAM = 5L2MC4PZSS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoneyAccounting/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -577,7 +613,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KJ5ADFMG28;
+				DEVELOPMENT_TEAM = 5L2MC4PZSS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoneyAccounting/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
