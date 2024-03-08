@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="YKV-LL-qmB">
-                                <rect key="frame" x="72" y="74" width="249" height="180"/>
+                                <rect key="frame" x="72" y="74" width="249" height="245"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите сумму" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fst-1x-jsF">
                                         <rect key="frame" x="0.0" y="0.0" width="249" height="50"/>
@@ -47,6 +47,11 @@
                                         <connections>
                                             <action selector="chooseDateButtonAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Jwp-fJ-pTs"/>
                                         </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOW-Dm-Wks">
+                                        <rect key="frame" x="0.0" y="195" width="249" height="50"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                     </button>
                                 </subviews>
                             </stackView>
