@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="YKV-LL-qmB">
-                                <rect key="frame" x="72" y="74" width="249" height="180"/>
+                                <rect key="frame" x="72" y="74" width="249" height="245"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите сумму" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fst-1x-jsF">
                                         <rect key="frame" x="0.0" y="0.0" width="249" height="50"/>
@@ -48,6 +48,15 @@
                                             <action selector="chooseDateButtonAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Jwp-fJ-pTs"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOW-Dm-Wks">
+                                        <rect key="frame" x="0.0" y="195" width="249" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Добавить"/>
+                                        <connections>
+                                            <action selector="addAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="l2e-YQ-hhK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -63,6 +72,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Добавить" id="pJD-7q-QER"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="XOW-Dm-Wks" id="ZmU-W7-z48"/>
                         <outlet property="amountTF" destination="zr5-wx-oY6" id="t47-FP-1WZ"/>
                         <outlet property="chooseDateButton" destination="JGb-wi-MqF" id="dMD-nQ-B1v"/>
                     </connections>
