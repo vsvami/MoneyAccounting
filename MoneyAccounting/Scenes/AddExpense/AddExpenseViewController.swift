@@ -15,21 +15,21 @@ final class AddExpenseViewController: UIViewController {
     @IBOutlet var dateButton: UIButton!
     @IBOutlet var chooseCategoryButton: UIButton!
     
+    @IBOutlet var addButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setTextField(nameExpenceTextField, withText: "Название расхода")
         setTextField(addAmountTextField, withText: "Введите сумму")
         
-        setButton(dateButton)
-        setButton(chooseCategoryButton)
+        dateButton.setOrdinaryButton()
+        chooseCategoryButton.setOrdinaryButton()
+        
+        addButton.setAccentButton()
     }
     
     @IBAction func addAction() {
-        dismiss(animated: true)
-    }
-    
-    @IBAction func cancelAction() {
         dismiss(animated: true)
     }
     
@@ -38,39 +38,14 @@ final class AddExpenseViewController: UIViewController {
         textField.setRightPaddingPoints(20)
         textField.setBorderStyle()
         textField.setCornerRadius()
-        textField.backgroundColor = UIColor(
-            red: 249/255,
-            green: 249/255,
-            blue: 252/255,
-            alpha: 1
-        )
+        
+        textField.backgroundColor = .customLightGray
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(
-                red: 134/255,
-                green: 143/255,
-                blue: 165/255,
-                alpha: 1
-            )]
+                named: "customDarkGray"
+            ) ?? .customDarkGray]
         )
     }
     
-    private func setButton(_ button: UIButton) {
-        button.backgroundColor = UIColor(
-            red: 249/255,
-            green: 249/255,
-            blue: 252/255,
-            alpha: 1
-        )
-        button.layer.cornerRadius = button.frame.height / 2
-        button.setTitleColor(
-            UIColor(
-                red: 134/255,
-                green: 143/255,
-                blue: 165/255,
-                alpha: 1
-            ),
-            for: .normal
-        )
-    }
 }

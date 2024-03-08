@@ -17,32 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fD-pQ-ELh">
-                                <rect key="frame" x="20" y="79" width="52" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Отмена"/>
-                                <connections>
-                                    <action selector="cancelAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ceK-Ko-gdx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fxp-7G-wkD">
-                                <rect key="frame" x="308" y="79" width="65" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Добавить"/>
-                                <connections>
-                                    <action selector="addAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="k6V-vZ-LcS"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите сумму" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPI-W1-nJG">
-                                <rect key="frame" x="132" y="129" width="129" height="21.666666666666657"/>
+                                <rect key="frame" x="132" y="109" width="129" height="21.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wRv-y6-Rk7">
-                                <rect key="frame" x="70" y="190.66666666666663" width="253" height="260"/>
+                                <rect key="frame" x="70" y="170.66666666666663" width="253" height="330"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Введите сумму" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nVk-2E-3P8">
                                         <rect key="frame" x="0.0" y="0.0" width="253" height="50"/>
@@ -53,7 +35,7 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnM-i7-prU">
-                                        <rect key="frame" x="0.0" y="70.000000000000028" width="253" height="50"/>
+                                        <rect key="frame" x="0.0" y="70" width="253" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="ZHc-yL-Vsh"/>
                                         </constraints>
@@ -82,25 +64,33 @@
                                             <color key="titleColor" systemColor="systemGray3Color"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssF-UI-vZ3">
+                                        <rect key="frame" x="0.0" y="280" width="253" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="o4r-7w-CAi"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Добавить"/>
+                                        <connections>
+                                            <action selector="addAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Fiw-Lh-Fm0"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="mPI-W1-nJG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="70" id="0rt-fS-LtM"/>
+                            <constraint firstItem="mPI-W1-nJG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="0rt-fS-LtM"/>
                             <constraint firstItem="mPI-W1-nJG" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="6br-3T-D9H"/>
-                            <constraint firstItem="3fD-pQ-ELh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="H0j-Ak-bLU"/>
                             <constraint firstItem="wRv-y6-Rk7" firstAttribute="top" secondItem="mPI-W1-nJG" secondAttribute="bottom" constant="40" id="Msa-d9-P7P"/>
-                            <constraint firstItem="Fxp-7G-wkD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Zfh-gu-ESq"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Fxp-7G-wkD" secondAttribute="trailing" constant="20" id="deT-Du-GZV"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wRv-y6-Rk7" secondAttribute="trailing" constant="70" id="hEX-cW-Iz7"/>
-                            <constraint firstItem="3fD-pQ-ELh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="piH-8l-dby"/>
                             <constraint firstItem="wRv-y6-Rk7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="70" id="xlK-Xx-s6d"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addAmountTextField" destination="nVk-2E-3P8" id="mXd-MY-uxG"/>
+                        <outlet property="addButton" destination="ssF-UI-vZ3" id="6GM-g4-f0n"/>
                         <outlet property="chooseCategoryButton" destination="fnM-i7-prU" id="pgQ-ry-Bea"/>
                         <outlet property="dateButton" destination="Qbh-z5-4oS" id="d7z-jl-Jlw"/>
                         <outlet property="nameExpenceTextField" destination="S0w-bE-Bpj" id="qZw-io-Bdk"/>
