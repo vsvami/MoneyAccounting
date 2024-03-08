@@ -16,17 +16,37 @@ final class PersonViewController: UIViewController {
     //MARK: Life Circle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
         photoImageView.layer.cornerRadius = photoImageView.frame.height / 2
         photoImageView.image = UIImage.tc
+        photoImageView.contentMode = .scaleAspectFill
+        photoImageView.clipsToBounds = true
         
         grayView.layer.cornerRadius = 15
         
         logOutButton.backgroundColor = .systemBlue
         logOutButton.tintColor = .white
         logOutButton.layer.cornerRadius = logOutButton.frame.height / 2
+        
+        setupNavigationBar()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Восстановление стандартного цвета и предыдущих настроек navigationBar
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+    }
+    
+    //MARK: - Public Methods
+    @objc func editButtonTapped() {
+        let storyboard = UIStoryboard(name: "EditPerson", bundle: nil)
+        let editPersonVC = storyboard.instantiateViewController(withIdentifier: "EditPersonViewController") as! EditPersonViewController
+        navigationController?.pushViewController(editPersonVC, animated: true)
+    }
     
     //MARK: - IB Actions
     @IBAction func addPhotoAction() {
@@ -73,3 +93,21 @@ extension PersonViewController: UINavigationControllerDelegate, UIImagePickerCon
     }
 }
 
+//MARK: - NavigationBar
+extension PersonViewController {
+    func setupNavigationBar() {
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
+        navigationController?.navigationBar.tintColor = .systemBlue
+        
+        navigationItem.hidesBackButton = false
+        
+        navigationItem.title = "Tim Cook"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+        navigationItem.leftBarButtonItem?.tintColor = .systemBlue
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Править", style: .plain, target: self, action: #selector(editButtonTapped))
+        navigationItem.rightBarButtonItem?.tintColor = .systemBlue
+    }
+}
