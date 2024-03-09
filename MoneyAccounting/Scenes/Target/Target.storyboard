@@ -76,6 +76,7 @@
                     <connections>
                         <outlet property="emotionImageView" destination="Mhi-g2-YHn" id="f2m-1f-82n"/>
                         <outlet property="expenceLimitButton" destination="LHe-u4-Bli" id="BHo-4C-wu5"/>
+                        <outlet property="mainLabel" destination="57H-Xo-db2" id="4gf-cf-MsF"/>
                         <outlet property="okayButton" destination="1P5-0Q-3E4" id="fOk-ca-ZcA"/>
                     </connections>
                 </viewController>
