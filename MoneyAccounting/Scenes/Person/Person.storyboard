@@ -136,16 +136,6 @@
             </objects>
             <point key="canvasLocation" x="965.60000000000002" y="-5.8470764617691158"/>
         </scene>
-        <!--LoginViewController-->
-        <scene sceneID="Ltu-JC-DCV">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Login" referencedIdentifier="LoginViewController" id="LCm-aP-gcq" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="cOm-lu-U6Z"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aUO-eh-NI2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1642" y="88"/>
-        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
