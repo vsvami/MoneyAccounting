@@ -36,16 +36,6 @@ final class PersonViewController: UIViewController {
         setupBarButtonItems()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Восстановление стандартного цвета и предыдущих настроек navigationBar
-//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-//        navigationController?.navigationBar.tintColor = .white
-//        navigationController?.navigationBar.prefersLargeTitles = false
-        
-    }
-    
     //MARK: - Public Methods
     @objc func editButtonTapped() {
         let storyboard = UIStoryboard(name: "EditPerson", bundle: nil)
