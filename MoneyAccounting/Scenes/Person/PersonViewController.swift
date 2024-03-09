@@ -11,13 +11,13 @@ final class PersonViewController: UIViewController {
     
     @IBOutlet var logOutButton: UIButton!
     
-    private var infoUser: (name: String, surname: String, email: String, password: String) {
+    private var infoUser: [String: String] {
         let name = Person.getPerson().firstName
         let surname = Person.getPerson().lastName
         let email = User.getUser().email
-        let password = User.getUser().password
+        let password = String(User.getUser().password.map { _ in "*" })
         
-        return (name, surname, email, password)
+        return ["Имя": name, "Фамилия": surname, "Почта": email, "Пароль": password]
     }
     
     //MARK: Life Circle
@@ -78,11 +78,55 @@ final class PersonViewController: UIViewController {
 
 extension PersonViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        infoUser.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath)
+        let positions = ["Имя", "Фамилия", "Почта", "Пароль"]
+        let target = infoUser[positions[indexPath.row]]
+        
+        var content = cell.defaultContentConfiguration()
+        content.text = positions[indexPath.row]
+        content.textProperties.font = UIFont.systemFont(ofSize: 14)
+        
+        content.secondaryText = target
+        content.secondaryTextProperties.font = UIFont.systemFont(ofSize: 18)
+        content.secondaryTextProperties.color = .black
+        
+        cell.contentConfiguration = content
+        cell.contentView.backgroundColor = UIColor(hex: "#F9F9FC")
+        
+        let cornerRadius: CGFloat = 10
+        let maskLayer = CAShapeLayer()
+        
+        if tableView.numberOfRows(inSection: indexPath.section) == 1 {
+            // Если в секции только одна ячейка, скругляем все углы
+            let bounds = cell.bounds
+            let rectPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
+            maskLayer.path = rectPath.cgPath
+        } else {
+            if indexPath.row == 0 {
+                // Скругление верхних углов первой ячейки
+                let bounds = cell.bounds
+                let rectPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+                maskLayer.path = rectPath.cgPath
+            } else if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
+                // Скругление нижних углов последней ячейки
+                let bounds = cell.bounds
+                let rectPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+                maskLayer.path = rectPath.cgPath
+            } else {
+                // Для остальных ячеек не применяем скругление углов
+                maskLayer.path = UIBezierPath(rect: cell.bounds).cgPath
+            }
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        65
     }
 }
 
