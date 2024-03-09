@@ -72,6 +72,11 @@ final class TransactionStore {
         )
     ]
     
+    // Получить список всех транзакций
+    func getAllTransactions() -> [Transaction] {
+        transactions
+    }
+    
     // Добавление транзакции
     func addTransaction(_ transaction: Transaction) {
         transactions.append(transaction)
