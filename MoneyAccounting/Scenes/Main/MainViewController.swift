@@ -163,6 +163,22 @@ extension MainViewController: UITableViewDataSource {
         content.imageProperties.cornerRadius = tableView.rowHeight / 2
         
         cell.contentConfiguration = content
+        
+//        // Проверка, является ли ячейка первой или последней в секции
+//            if indexPath.row == 0 {
+//                // Скругление верхних углов первой ячейки
+//                cell.layer.cornerRadius = 20
+//                cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+//            } else if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
+//                // Скругление нижних углов последней ячейки
+//                cell.layer.cornerRadius = 20
+//                cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+//            } else {
+//                // Сброс скругления для других ячеек
+//                cell.layer.cornerRadius = 0
+//                cell.layer.maskedCorners = []
+//            }
+        
         return cell
     }
 }
@@ -172,4 +188,36 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        
+//        // установка хедера
+//        let contentView = UIView()
+//        let nameSection = UILabel(
+//            frame: CGRect(
+//                x: 20,
+//                y: 15,
+//                width: tableView.frame.width - 40,
+//                height: 20
+//            )
+//        )
+//        nameSection.text = "Header"
+//        nameSection.font = UIFont.systemFont(ofSize: 18)
+//        contentView.addSubview(nameSection)
+//        
+//        return contentView
+//    }
+    
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        50
+//    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        // Установка цвета выделения ячейки
+        let backgroundColorView = UIView()
+        backgroundColorView.backgroundColor = UIColor.white
+        cell.selectedBackgroundView = backgroundColorView
+    }
+    
 }
