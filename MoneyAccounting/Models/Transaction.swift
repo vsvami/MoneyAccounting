@@ -12,10 +12,10 @@ enum TransactionType {
 
 //Модель для добавления расходов/доходов(можно разделить на доход и расход)
 struct Transaction {
-    let type: TransactionType
-    let currency: Character
-    let amount: Double
-    let category: Category
-    let date: Date
-    let description: String?
+    var type: TransactionType
+    var currency: Character
+    var amount: Double
+    var category: Category
+    var date: Date
+    var description: String?
 }
