@@ -7,9 +7,11 @@ import UIKit
 
 final class PersonViewController: UIViewController {
     //MARK: - IB Outlets
+    @IBOutlet var fullnameLabel: UILabel!
     @IBOutlet var photoImageView: UIImageView!
-    
     @IBOutlet var logOutButton: UIButton!
+    
+    private var person = Person.getPerson()
     
     private var infoUser: [String: String] {
         let name = Person.getPerson().firstName
@@ -23,6 +25,7 @@ final class PersonViewController: UIViewController {
     //MARK: Life Circle
     override func viewDidLoad() {
         super.viewDidLoad()
+        fullnameLabel.text = person.fullName
       
         photoImageView.layer.cornerRadius = photoImageView.frame.height / 2
         photoImageView.image = UIImage.tc
