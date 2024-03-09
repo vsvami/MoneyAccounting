@@ -21,7 +21,7 @@ class CategoryViewController: UIViewController {
     }
     
     private func setupBackBarButtonItem() {
-        let arrowImage = UIImage(systemName: "arrow.backward")
+        let arrowImage = UIImage(systemName: "chevron.backward")
         
         let backButton = UIButton(type: .system)
         backButton.setImage(arrowImage, for: .normal)

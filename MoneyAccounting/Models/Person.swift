@@ -6,12 +6,24 @@
 import Foundation
 
 struct Person {
+    
     let firstName: String
     let lastName: String
     let profileImage: Data?
-    var financialPortfolio: FinancialPortfolio?
+    let financialPortfolio: TransactionStore
     
     var fullName: String {
         "\(firstName) \(lastName)"
+    }
+    
+    static func getPerson() -> Person {
+        
+        Person(
+            firstName: "Tommy",
+            lastName: "Shelby",
+            profileImage: nil,
+            financialPortfolio: TransactionStore.shared
+        )
+        
     }
 }
