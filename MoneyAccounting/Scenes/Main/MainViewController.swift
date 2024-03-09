@@ -26,6 +26,12 @@ final class MainViewController: UIViewController {
     private let transactions = TransactionStore.shared
     
     // MARK: - View Life Cycles
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupBackground()
+        setupNavigationBar()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Tim Cook"
@@ -36,9 +42,6 @@ final class MainViewController: UIViewController {
         
         incomeLabel.text = "1000"
         expenseLabel.text = "2000"
-        
-        setupBackground()
-        setupNavigationBar()
         
         categoriesTableView.rowHeight = 50
     }
@@ -114,6 +117,8 @@ private extension MainViewController {
     
     func setupNavigationBar() {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = .white
         navigationItem.hidesBackButton = true
         

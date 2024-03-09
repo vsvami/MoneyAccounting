@@ -7,7 +7,6 @@ import UIKit
 
 final class PersonViewController: UIViewController {
     //MARK: - IB Outlets
-    @IBOutlet var fullnameLabel: UILabel!
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var logOutButton: UIButton!
     
@@ -23,9 +22,15 @@ final class PersonViewController: UIViewController {
     }
     
     //MARK: Life Circle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationTittle()
+        setupBarButtonItems()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        fullnameLabel.text = person.fullName
       
         photoImageView.layer.cornerRadius = photoImageView.frame.height / 2
         photoImageView.image = UIImage.tc
@@ -36,7 +41,7 @@ final class PersonViewController: UIViewController {
         logOutButton.tintColor = .white
         logOutButton.layer.cornerRadius = logOutButton.frame.height / 2
 
-        setupBarButtonItems()
+        
     }
     
     //MARK: - Public Methods
@@ -179,5 +184,15 @@ extension PersonViewController {
         let editBarButtonItem = UIBarButtonItem(customView: editButton)
         
         navigationItem.rightBarButtonItem = editBarButtonItem
+    }
+
+    func setupNavigationTittle() {
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
+        navigationController?.navigationBar.tintColor = .systemBlue
+        navigationItem.hidesBackButton = false
+        navigationItem.title = person.fullName
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+      
     }
 }
