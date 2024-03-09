@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="40n-Ow-6wc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="40n-Ow-6wc">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -113,17 +113,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZNQ-dK-PUa">
                                 <rect key="frame" x="85.666666666666686" y="39.000000000000014" width="222" height="231.33333333333337"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMG-MA-HAM">
-                                        <rect key="frame" x="87.999999999999986" y="103" width="46.000000000000014" height="25.333333333333343"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ww_w" translatesAutoresizingMaskIntoConstraints="NO" id="Eqp-4U-W7S">
+                                        <rect key="frame" x="66" y="70.666666666666657" width="90" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="LT9-g4-Sb0"/>
+                                            <constraint firstAttribute="height" constant="90" id="g4O-tk-5nZ"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="222" id="5mK-zg-Gu3"/>
-                                    <constraint firstItem="DMG-MA-HAM" firstAttribute="centerY" secondItem="ZNQ-dK-PUa" secondAttribute="centerY" id="BE3-5y-x76"/>
-                                    <constraint firstItem="DMG-MA-HAM" firstAttribute="centerX" secondItem="ZNQ-dK-PUa" secondAttribute="centerX" id="sEB-Gz-SzZ"/>
+                                    <constraint firstItem="Eqp-4U-W7S" firstAttribute="centerY" secondItem="ZNQ-dK-PUa" secondAttribute="centerY" id="CKW-zE-b9N"/>
+                                    <constraint firstItem="Eqp-4U-W7S" firstAttribute="centerX" secondItem="ZNQ-dK-PUa" secondAttribute="centerX" id="SGN-rt-Sd5"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -197,6 +198,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ww_w" width="174.17999267578125" height="116.56999969482422"/>
         <systemColor name="scrollViewTexturedBackgroundColor">
             <color red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

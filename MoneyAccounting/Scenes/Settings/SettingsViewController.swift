@@ -10,7 +10,7 @@ import UIKit
 final class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Properties
-    var incomeGoal: Double? = 542.5  //Тестовое значение
+    var incomeGoal: Double?
     var expenseLimit: Double?
     
     //MARK: - IB Outlets
@@ -25,8 +25,18 @@ final class SettingsViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         grayView.layer.cornerRadius = 15
+        
+        setupNavigationBar()
+        
         configureTextFields()
+        updateFinancialGoals()
         updateTextFields()
+    }
+    
+    private func updateFinancialGoals() {
+        let goalsStore = GoalsStore.shared
+        incomeGoal = goalsStore.goals.incomeGoal
+        expenseLimit = goalsStore.goals.expenseLimit
     }
     
     private func configureTextFields() {
@@ -54,16 +64,18 @@ final class SettingsViewController: UIViewController, UITextFieldDelegate {
     // MARK: IB Actions
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        if let incomeGoalText = incomeGoalTF.text, let incomeGoalValue = Double(incomeGoalText) {
+        if let incomeGoalText = incomeGoalTF.text, let incomeGoalValue = Double(incomeGoalText),
+           let expenseLimitText = expenseLimitTF.text, let expenseLimitValue = Double(expenseLimitText) {
+            
             incomeGoal = incomeGoalValue
-        }
-        
-        if let expenseLimitText = expenseLimitTF.text, let expenseLimitValue = Double(expenseLimitText) {
             expenseLimit = expenseLimitValue
+            
+            let goalsStore = GoalsStore.shared
+            goalsStore.goals.incomeGoal = incomeGoalValue
+            goalsStore.goals.expenseLimit = expenseLimitValue
+            
+            navigationController?.popViewController(animated: true)
         }
-        
-        // код для сохранения значений
-        
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -82,6 +94,25 @@ func textFieldDidEndEditing(_ textField: UITextField) {
     guard let text = textField.text, !text.isEmpty else {
         textField.rightViewMode = .always
         return
+    }
+}
+
+//MARK: - NavigationBar
+extension SettingsViewController {
+    func setupNavigationBar() {
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
+        navigationController?.navigationBar.tintColor = .systemBlue
+        
+        navigationItem.hidesBackButton = false
+        
+        navigationItem.title = "Параметры"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+        navigationItem.leftBarButtonItem?.tintColor = .systemBlue
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .plain, target: self, action: #selector(saveButtonTapped))
+        navigationItem.rightBarButtonItem?.tintColor = .systemBlue
     }
 }
 
@@ -108,7 +139,7 @@ extension UITextField {
 }
 
 extension SettingsViewController {
-    
+    //Управляет вводом в текстовое поле, разрешая только числовые значения
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string.count > 0 {
             guard let oldText = textField.text, let stringRange = Range(range, in: oldText) else {
