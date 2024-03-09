@@ -19,8 +19,8 @@ struct Person {
     static func getPerson() -> Person {
         
         Person(
-            firstName: "Tommy",
-            lastName: "Shelby",
+            firstName: "Tim",
+            lastName: "Cook",
             profileImage: nil,
             financialPortfolio: TransactionStore.shared
         )
