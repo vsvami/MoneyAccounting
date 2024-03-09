@@ -9,6 +9,8 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
+    @IBOutlet var categoryLabel: UILabel!
+    
     var category: Category!
     
     private var transactions: (dates: [Date], transactionArrays: [[Transaction]]) {
@@ -32,15 +34,11 @@ class CategoryViewController: UIViewController {
         return (dates, transactionArrays)
     }
 
-    @IBOutlet var categoryLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryLabel.text = category.name
         setupBackBarButtonItem()
-        
-        print(transactions)
-        print(transactions.dates)
     }
     
     @objc private func backButtonPressed() {
@@ -70,13 +68,11 @@ extension CategoryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return transactions.transactionArrays[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
-        let date = transactions.dates[indexPath.section]
         let transactionsForDate = transactions.transactionArrays[indexPath.section]
         let transaction = transactionsForDate[indexPath.row]
         
@@ -117,11 +113,11 @@ extension CategoryViewController: UITableViewDataSource {
         }
         
         cell.layer.mask = maskLayer
-        
         return cell
     }
 }
 
+// MARK: - UITableViewDelegate
 extension CategoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
