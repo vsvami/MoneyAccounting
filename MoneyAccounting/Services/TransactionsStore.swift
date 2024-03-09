@@ -8,10 +8,74 @@
 import Foundation
 
 final class TransactionStore {
+    let categoriesStore = CategoriesStore.shared
+    
     static let shared = TransactionStore()
     
     // Список всех транзакций
-    private var transactions: [Transaction] = []
+    private var transactions: [Transaction] = [
+        Transaction(
+            type: .expense,
+            currency: CategoriesStore.shared.currency[0],
+            amount: 1200,
+            category: CategoriesStore.shared.categories[0],
+            date: Date.parse("2024-03-09"),
+            description: "Something"
+        ),
+        Transaction(
+            type: .expense,
+            currency: CategoriesStore.shared.currency[1],
+            amount: 348,
+            category: CategoriesStore.shared.categories[0],
+            date: Date.parse("2024-03-09"),
+            description: "Something yet"
+        ),
+        Transaction(
+            type: .expense,
+            currency: CategoriesStore.shared.currency[2],
+            amount: 540,
+            category: CategoriesStore.shared.categories[0],
+            date: Date.parse("2024-03-09"),
+            description: "Do something"
+        ),
+        Transaction(
+            type: .expense,
+            currency: CategoriesStore.shared.currency[0],
+            amount: 820,
+            category: CategoriesStore.shared.categories[0],
+            date: Date.parse("2024-03-09"),
+            description: "Buy something"
+        ),
+        Transaction(
+            type: .expense,
+            currency: CategoriesStore.shared.currency[3],
+            amount: 235,
+            category: CategoriesStore.shared.categories[0],
+            date: Date.parse("2024-03-09"),
+            description: "Put something"
+        ),
+        Transaction(
+            type: .expense,
+            currency: CategoriesStore.shared.currency[2],
+            amount: 140,
+            category: CategoriesStore.shared.categories[0],
+            date: Date.parse("2024-03-09"),
+            description: "Sell something"
+        ),
+        Transaction(
+            type: .expense,
+            currency: CategoriesStore.shared.currency[0],
+            amount: 740,
+            category: CategoriesStore.shared.categories[0],
+            date: Date.parse("2024-03-09"),
+            description: "Fly something"
+        )
+    ]
+    
+    // Получить список всех транзакций
+    func getAllTransactions() -> [Transaction] {
+        transactions
+    }
     
     // Добавление транзакции
     func addTransaction(_ transaction: Transaction) {
@@ -36,4 +100,41 @@ final class TransactionStore {
         return incomeTotal - expenseTotal
     }
     private init() {}
+}
+
+// MARK: - Date parse
+extension Date {
+    
+    static func randomBetween(start: String, end: String, format: String = "yyyy-MM-dd") -> String {
+        let date1 = Date.parse(start, format: format)
+        let date2 = Date.parse(end, format: format)
+        return Date.randomBetween(start: date1, end: date2).dateString(format)
+    }
+    
+    static func randomBetween(start: Date, end: Date) -> Date {
+        var date1 = start
+        var date2 = end
+        if date2 < date1 {
+            let temp = date1
+            date1 = date2
+            date2 = temp
+        }
+        let span = TimeInterval.random(in: date1.timeIntervalSinceNow...date2.timeIntervalSinceNow)
+        return Date(timeIntervalSinceNow: span)
+    }
+    
+    func dateString(_ format: String = "yyyy-MM-dd") -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
+    
+    static func parse(_ string: String, format: String = "yyyy-MM-dd") -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = NSTimeZone.default
+        dateFormatter.dateFormat = format
+        
+        let date = dateFormatter.date(from: string)!
+        return date
+    }
 }
