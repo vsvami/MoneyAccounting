@@ -7,23 +7,52 @@
 
 import UIKit
 
-class TargetViewController: UIViewController {
+final class TargetViewController: UIViewController {
 
+    @IBOutlet var emotionImageView: UIImageView!
+    
+    @IBOutlet var okayButton: UIButton!
+    @IBOutlet var expenceLimitButton: UIButton!
+    
+    @IBOutlet var mainLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        expenceLimitButton.setOrdinaryButton()
+        okayButton.setAccentButton()
+        
+        setupUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func doneAction() {
+        dismiss(animated: true)
     }
-    */
-
+    
+    private func setupUI() {
+        let transactionStore = TransactionStore.shared
+        let goalsStore = GoalsStore.shared
+        
+        let transactions = transactionStore.getAllTransactions()
+        
+        let incomes = transactions.filter({ $0.type == .income })
+        let incomeTotal = incomes.reduce(0) { $0 + $1.amount }
+        
+        let expenses = transactions.filter { $0.type == .expense }
+        let expenseTotal = expenses.reduce(0) { $0 + $1.amount }
+        
+        let incomeGoal = goalsStore.goals.incomeGoal
+        let expenseLimit = goalsStore.goals.expenseLimit
+        
+        if expenseTotal > expenseLimit {
+            emotionImageView.image = UIImage(named: "sad")
+            mainLabel.text = "Слишком много расходов"
+        }
+        
+        if incomeTotal > incomeGoal {
+            emotionImageView.image = UIImage(named: "happy")
+            mainLabel.text = "Красавчик!"
+        }
+        
+    }
 }
