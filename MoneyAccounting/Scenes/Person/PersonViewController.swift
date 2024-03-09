@@ -7,38 +7,36 @@ import UIKit
 
 final class PersonViewController: UIViewController {
     //MARK: - IB Outlets
+    @IBOutlet var fullnameLabel: UILabel!
     @IBOutlet var photoImageView: UIImageView!
-    
     @IBOutlet var logOutButton: UIButton!
     
-    @IBOutlet var grayView: UIView!
+    private var person = Person.getPerson()
+    
+    private var infoUser: [String: String] {
+        let name = Person.getPerson().firstName
+        let surname = Person.getPerson().lastName
+        let email = User.getUser().email
+        let password = String(User.getUser().password.map { _ in "*" })
+        
+        return ["Имя": name, "Фамилия": surname, "Почта": email, "Пароль": password]
+    }
     
     //MARK: Life Circle
     override func viewDidLoad() {
         super.viewDidLoad()
+        fullnameLabel.text = person.fullName
       
         photoImageView.layer.cornerRadius = photoImageView.frame.height / 2
         photoImageView.image = UIImage.tc
         photoImageView.contentMode = .scaleAspectFill
         photoImageView.clipsToBounds = true
         
-        grayView.layer.cornerRadius = 15
-        
         logOutButton.backgroundColor = .systemBlue
         logOutButton.tintColor = .white
         logOutButton.layer.cornerRadius = logOutButton.frame.height / 2
-        
-        setupNavigationBar()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Восстановление стандартного цвета и предыдущих настроек navigationBar
-//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-//        navigationController?.navigationBar.tintColor = .white
-//        navigationController?.navigationBar.prefersLargeTitles = false
-        
+
+        setupBarButtonItems()
     }
     
     //MARK: - Public Methods
@@ -69,6 +67,67 @@ final class PersonViewController: UIViewController {
         present(actionSheet, animated: true)
     }
     
+    
+    @IBAction func logOutButtonAction() {
+        if let navigationController = self.navigationController {
+            // Возвращаемся на первый экран в стеке навигации
+            navigationController.popToRootViewController(animated: true)
+        }
+    }
+    
+    @objc private func backButtonPressed() {
+        navigationController?.popViewController(animated: true)
+    }
+}
+
+// MARK: - UITableViewDataSource, UITableViewDelegate
+extension PersonViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        infoUser.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath)
+        let positions = ["Имя", "Фамилия", "Почта", "Пароль"]
+        let target = infoUser[positions[indexPath.row]]
+        
+        var content = cell.defaultContentConfiguration()
+        content.text = positions[indexPath.row]
+        content.textProperties.font = UIFont.systemFont(ofSize: 14)
+        
+        content.secondaryText = target
+        content.secondaryTextProperties.font = UIFont.systemFont(ofSize: 18)
+        content.secondaryTextProperties.color = .black
+        
+        cell.contentConfiguration = content
+        cell.contentView.backgroundColor = UIColor(hex: "#F9F9FC")
+        
+        let cornerRadius: CGFloat = 10
+        let maskLayer = CAShapeLayer()
+
+        if tableView.numberOfSections == 1 && tableView.numberOfRows(inSection: indexPath.section) == 4 {
+            if indexPath.row == 0 {
+                // Скругление верхних углов первой ячейки
+                let bounds = cell.bounds
+                let rectPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+                maskLayer.path = rectPath.cgPath
+            } else if indexPath.row == 3 {
+                // Скругление нижних углов последней ячейки
+                let bounds = cell.bounds
+                let rectPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+                maskLayer.path = rectPath.cgPath
+            } else {
+                maskLayer.path = UIBezierPath(rect: cell.bounds).cgPath
+            }
+            cell.layer.mask = maskLayer
+        }
+
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        65
+    }
 }
 
 //MARK: Work with image
@@ -95,19 +154,30 @@ extension PersonViewController: UINavigationControllerDelegate, UIImagePickerCon
 
 //MARK: - NavigationBar
 extension PersonViewController {
-    func setupNavigationBar() {
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
-        navigationController?.navigationBar.tintColor = .systemBlue
+    private func setupBarButtonItems() {
+        // Back Button
+        let arrowImage = UIImage(systemName: "chevron.backward")
         
-        navigationItem.hidesBackButton = false
+        let backButton = UIButton(type: .system)
+        backButton.setImage(arrowImage, for: .normal)
+        backButton.setTitle("Назад", for: .normal)
+        backButton.sizeToFit()
+        backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
+        backButton.tintColor = .systemBlue
         
-        navigationItem.title = "Tim Cook"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        let backBarButtonItem = UIBarButtonItem(customView: backButton)
         
-        navigationItem.largeTitleDisplayMode = .always
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
-        navigationItem.leftBarButtonItem?.tintColor = .systemBlue
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Править", style: .plain, target: self, action: #selector(editButtonTapped))
-        navigationItem.rightBarButtonItem?.tintColor = .systemBlue
+        navigationItem.leftBarButtonItem = backBarButtonItem
+        
+        // Edit Button
+        let editButton = UIButton(type: .system)
+        editButton.setTitle("Править", for: .normal)
+        editButton.sizeToFit()
+        editButton.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
+        editButton.tintColor = .systemBlue
+        
+        let editBarButtonItem = UIBarButtonItem(customView: editButton)
+        
+        navigationItem.rightBarButtonItem = editBarButtonItem
     }
 }
