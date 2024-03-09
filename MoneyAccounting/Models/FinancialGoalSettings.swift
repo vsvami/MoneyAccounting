@@ -4,6 +4,6 @@
 //
 
 struct FinancialGoalSettings {
-    let incomeGoal: Double
-    let expenseLimit: Double
+    var incomeGoal: Double
+    var expenseLimit: Double
 }
