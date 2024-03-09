@@ -22,7 +22,7 @@ final class MainViewController: UIViewController {
     @IBOutlet var categoriesTableView: UITableView!
     
     // MARK: - Private Properties
-    private let categories = DataStore.shared
+    private let categories = CategoriesStore.shared
     
     // MARK: - View Life Cycles
     override func viewDidLoad() {
@@ -159,7 +159,7 @@ extension MainViewController: UITableViewDataSource {
         content.secondaryTextProperties.font = UIFont.systemFont(ofSize: 18)
         content.secondaryTextProperties.color = UIColor.black
         
-        content.image = category.colorImage
+        content.image = UIImage(named: category.colorImage)
         content.imageProperties.cornerRadius = tableView.rowHeight / 2
         
         cell.contentConfiguration = content
