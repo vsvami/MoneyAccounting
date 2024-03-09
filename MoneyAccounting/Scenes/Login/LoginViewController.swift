@@ -21,7 +21,6 @@ final class LoginViewController: UIViewController {
         loginButton.layer.borderColor = UIColor.white.cgColor
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
         
-        
         logInTextField.setCornerRadius()
         passwordTextField.setCornerRadius()
         
@@ -39,5 +38,9 @@ final class LoginViewController: UIViewController {
         backgroundImage.contentMode = .scaleAspectFill
         view.addSubview(backgroundImage)
         view.sendSubviewToBack(backgroundImage)
+        
+        //
+        logInTextField.text = "Timcook666"
+        passwordTextField.text = "param-pam-pam"
     }
 }
