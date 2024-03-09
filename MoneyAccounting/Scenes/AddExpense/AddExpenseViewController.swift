@@ -104,16 +104,20 @@ extension AddExpenseViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == addAmountTextField {
+        switch textField {
+        case addAmountTextField:
             guard let text = Double(textField.text ?? "") else {
                 showAlert(withTitle: "Wrong format!", andMessage: "Please enter correct value")
                 return
             }
+            transaction?.amount = text
+        default:
+            guard let text = textField.text else {
+                showAlert(withTitle: "Wrong format!", andMessage: "Please enter correct value")
+                return
+            }
+            transaction?.description = text
         }
-        
-        
-        
-        
     }
     
     
