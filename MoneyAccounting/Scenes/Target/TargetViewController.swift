@@ -9,7 +9,7 @@ import UIKit
 
 final class TargetViewController: UIViewController {
 
-    @IBOutlet var sadImageView: UIImageView!
+    @IBOutlet var emotionImageView: UIImageView!
     
     @IBOutlet var okayButton: UIButton!
     @IBOutlet var expenceLimitButton: UIButton!
@@ -17,15 +17,13 @@ final class TargetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        expenceLimitButton.layer.cornerRadius = expenceLimitButton.frame.height / 2
-        expenceLimitButton.backgroundColor = UIColor(
-            red: 249/255,
-            green: 249/255,
-            blue: 252/255,
-            alpha: 1
-        )
+        expenceLimitButton.setOrdinaryButton()
+        okayButton.setAccentButton()
         
-        okayButton.layer.cornerRadius = okayButton.frame.height / 2
-        okayButton.backgroundColor = .systemBlue
+        emotionImageView.image = UIImage(named: "sad")
+    }
+    
+    @IBAction func doneAction() {
+        dismiss(animated: true)
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -51,6 +51,9 @@
                                         <state key="normal" title="Буду меньше тратить">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="doneAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="LxG-6z-9WI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -71,9 +74,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emotionImageView" destination="Mhi-g2-YHn" id="f2m-1f-82n"/>
                         <outlet property="expenceLimitButton" destination="LHe-u4-Bli" id="BHo-4C-wu5"/>
                         <outlet property="okayButton" destination="1P5-0Q-3E4" id="fOk-ca-ZcA"/>
-                        <outlet property="sadImageView" destination="Mhi-g2-YHn" id="f2m-1f-82n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
