@@ -8,6 +8,10 @@
 import UIKit
 
 class CategoryViewController: UIViewController {
+    
+    var category: Category!
+    
+    private var person = Person.getPerson()
 
     @IBOutlet var categoryLabel: UILabel!
     
