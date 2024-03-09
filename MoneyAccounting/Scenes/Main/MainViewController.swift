@@ -39,40 +39,34 @@ final class MainViewController: UIViewController {
         super.viewDidLayoutSubviews()
         whiteView.roundCorners(corners: [.topLeft, .topRight], radius: 15.0)
         
-        // FIXME: - временный код для UITableView+Ext
+        // FIXME: - исправить скругдения
 //        greyView.roundCorners(corners: [.topLeft, .topRight], radius: 15.0)
         greyView.layer.cornerRadius = 15 // TODO: - fix
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        // FIXME: - временный код для UITableView+Ext
+        // FIXME: - жду параметр
 //        guard let indexPath = categoriesTableView.indexPathForSelectedRow else { return }
 //        let categoryVC = segue.destination as? CategoryViewController
-//        categoryVC.table = categories[indexPath.row]
+//        categoryVC.category = categories[indexPath.row]
     }
     
-    // MARK: - IB Actions
+//    // MARK: - IB Actions
     @IBAction func addIncomeButtonTapped(_ sender: UIButton) {
-        
     }
     
     @IBAction func addExpenseButton(_ sender: UIButton) {
-        
     }
     
-    @IBAction func showIncomeButtonTapped(_ sender: Any) {
-        
+    @IBAction func showIncomeButtonTapped(_ sender: UIButton) {
     }
     
     @IBAction func showExpenseButtonTapped(_ sender: UIButton) {
-        
     }
     
     @IBAction func addCategoryButtonTapped(_ sender: UIButton) {
-        
     }
-    
     
     // MARK: - Public Methods
     @objc func leftButtonTapped() {
@@ -117,7 +111,7 @@ private extension MainViewController {
             action: nil
         )
         
-        // FIXME: - временный код для UITableView+Ext
+        // FIXME: - настройки для отображения фото в левой кнопке
         
 //        let personButton = UIButton(type: .system)
 //        personButton.setImage(

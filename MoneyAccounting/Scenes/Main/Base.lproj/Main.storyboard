@@ -220,7 +220,7 @@
                                                             <fontDescription key="subtitleFontDescription" type="system" pointSize="10"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <action selector="showIncomeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="751-Y1-Vhr"/>
+                                                            <action selector="showIncomeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PBY-EA-CFU"/>
                                                             <segue destination="oPS-aL-Nf0" kind="show" id="I3t-De-zBv"/>
                                                         </connections>
                                                     </button>
