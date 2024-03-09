@@ -11,29 +11,38 @@ final class AddExpenseViewController: UIViewController {
 
     @IBOutlet var nameExpenceTextField: UITextField!
     @IBOutlet var addAmountTextField: UITextField!
-    
-    @IBOutlet var dateButton: UIButton!
-    @IBOutlet var chooseCategoryButton: UIButton!
+    @IBOutlet var categoryTextField: UITextField!
+    @IBOutlet var dateTextField: UITextField!
     
     @IBOutlet var addButton: UIButton!
     
-    let transationStore = TransactionStore.shared
-    var transaction: Transaction?
+    var categoryNames: [String] = []
+    
+    private let transationStore = TransactionStore.shared
+    private let categoriesStore = CategoriesStore.shared
+    private var transaction: Transaction?
+    private var pickerView = UIPickerView()
+    private let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        createDatePicker()
+        
         setTextField(nameExpenceTextField, withText: "Название расхода")
         setTextField(addAmountTextField, withText: "Введите сумму")
-        
-        dateButton.setOrdinaryButton()
-        chooseCategoryButton.setOrdinaryButton()
+        setTextField(categoryTextField, withText: "Выберите категорию")
+        setTextField(dateTextField, withText: "Выберите дату")
         
         addButton.setAccentButton()
         
         transaction?.type = .expense
-        transaction?.currency = CategoriesStore.shared.currency[0]
+        transaction?.currency = categoriesStore.currency[0]
         
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
+        categoryTextField.inputView = pickerView
         
         showTargetVC()
     }
@@ -64,6 +73,30 @@ final class AddExpenseViewController: UIViewController {
                 named: "customDarkGray"
             ) ?? .customDarkGray]
         )
+    }
+    
+    private func createDatePicker() {
+        dateTextField.textAlignment = .center
+        
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneButtonPressed))
+        toolBar.setItems([doneButton], animated: true)
+        
+        dateTextField.inputAccessoryView = toolBar
+        dateTextField.inputView = datePicker
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels
+    }
+    
+    @objc private func doneButtonPressed() {
+        let formattedDate = DateFormatter()
+        formattedDate.dateStyle = .medium
+        formattedDate.timeStyle = .none
+        
+        dateTextField.text = formattedDate.string(from: datePicker.date)
+        view.endEditing(true)
     }
     
     private func showTargetVC() {
@@ -111,14 +144,46 @@ extension AddExpenseViewController: UITextFieldDelegate {
                 return
             }
             transaction?.amount = text
-        default:
+        case nameExpenceTextField:
             guard let text = textField.text else {
                 showAlert(withTitle: "Wrong format!", andMessage: "Please enter correct value")
                 return
             }
             transaction?.description = text
+        case categoryTextField:
+            let categoryFromList = categoriesStore.categories.first { category in
+                category.name == categoryTextField.text
+            }
+            guard let category = categoryFromList else { return }
+            
+            transaction?.category = category
+        default:
+            transaction?.date = datePicker.date
         }
     }
+}
+
+// MARK: - UIPickerViewDataSource, UIPickerViewDelegate
+extension AddExpenseViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
     
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        categoriesStore.categories.count
+    }
     
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        categoriesStore.categories.forEach { category in
+            print(category.name)
+            categoryNames.append(category.name)
+        }
+        
+        return categoryNames[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        categoryTextField.text = categoryNames[row]
+    }
 }
