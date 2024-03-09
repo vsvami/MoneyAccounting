@@ -11,7 +11,14 @@ final class PersonViewController: UIViewController {
     
     @IBOutlet var logOutButton: UIButton!
     
-    @IBOutlet var grayView: UIView!
+    private var infoUser: (name: String, surname: String, email: String, password: String) {
+        let name = Person.getPerson().firstName
+        let surname = Person.getPerson().lastName
+        let email = User.getUser().email
+        let password = User.getUser().password
+        
+        return (name, surname, email, password)
+    }
     
     //MARK: Life Circle
     override func viewDidLoad() {
@@ -21,8 +28,6 @@ final class PersonViewController: UIViewController {
         photoImageView.image = UIImage.tc
         photoImageView.contentMode = .scaleAspectFill
         photoImageView.clipsToBounds = true
-        
-        grayView.layer.cornerRadius = 15
         
         logOutButton.backgroundColor = .systemBlue
         logOutButton.tintColor = .white
@@ -69,6 +74,16 @@ final class PersonViewController: UIViewController {
         present(actionSheet, animated: true)
     }
     
+}
+
+extension PersonViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
 }
 
 //MARK: Work with image
