@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		1A30663B2B99A9C400B27EA5 /* TextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A30663A2B99A9C400B27EA5 /* TextField+Ext.swift */; };
 		1A30663D2B9B6CE900B27EA5 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A30663C2B9B6CE900B27EA5 /* UIButton+Ext.swift */; };
+		201F4CE02B9BC2D9003471AE /* TransactionsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F4CDF2B9BC2D9003471AE /* TransactionsStore.swift */; };
 		20C1618B2B98DA0000AD22B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1618A2B98DA0000AD22B4 /* User.swift */; };
 		20C1618D2B98DA0F00AD22B4 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1618C2B98DA0F00AD22B4 /* Person.swift */; };
-		20C161902B98DA4500AD22B4 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1618F2B98DA4500AD22B4 /* DataStore.swift */; };
+		20C161902B98DA4500AD22B4 /* CategoriesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1618F2B98DA4500AD22B4 /* CategoriesStore.swift */; };
 		20C161932B98DA9800AD22B4 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C161922B98DA9800AD22B4 /* Transaction.swift */; };
 		20C161952B98DAA600AD22B4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C161942B98DAA600AD22B4 /* Category.swift */; };
 		20C161972B98DAB600AD22B4 /* FinancialGoalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C161962B98DAB600AD22B4 /* FinancialGoalSettings.swift */; };
@@ -52,9 +53,10 @@
 /* Begin PBXFileReference section */
 		1A30663A2B99A9C400B27EA5 /* TextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Ext.swift"; sourceTree = "<group>"; };
 		1A30663C2B9B6CE900B27EA5 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
+		201F4CDF2B9BC2D9003471AE /* TransactionsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsStore.swift; sourceTree = "<group>"; };
 		20C1618A2B98DA0000AD22B4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		20C1618C2B98DA0F00AD22B4 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		20C1618F2B98DA4500AD22B4 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		20C1618F2B98DA4500AD22B4 /* CategoriesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesStore.swift; sourceTree = "<group>"; };
 		20C161922B98DA9800AD22B4 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		20C161942B98DAA600AD22B4 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		20C161962B98DAB600AD22B4 /* FinancialGoalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialGoalSettings.swift; sourceTree = "<group>"; };
@@ -121,7 +123,8 @@
 		20C161912B98DA4F00AD22B4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				20C1618F2B98DA4500AD22B4 /* DataStore.swift */,
+				20C1618F2B98DA4500AD22B4 /* CategoriesStore.swift */,
+				201F4CDF2B9BC2D9003471AE /* TransactionsStore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -407,11 +410,12 @@
 				793CF8392B97BAE000C048B5 /* LoginViewController.swift in Sources */,
 				793CF8682B98771E00C048B5 /* AddIncomeViewController.swift in Sources */,
 				20C161952B98DAA600AD22B4 /* Category.swift in Sources */,
-				20C161902B98DA4500AD22B4 /* DataStore.swift in Sources */,
+				20C161902B98DA4500AD22B4 /* CategoriesStore.swift in Sources */,
 				644C2F192B97527C00DC2007 /* MainViewController.swift in Sources */,
 				644C2F152B97527C00DC2007 /* AppDelegate.swift in Sources */,
 				793CF84D2B97BB8F00C048B5 /* PersonViewController.swift in Sources */,
 				1A30663B2B99A9C400B27EA5 /* TextField+Ext.swift in Sources */,
+				201F4CE02B9BC2D9003471AE /* TransactionsStore.swift in Sources */,
 				793CF8572B97BBFB00C048B5 /* RegistrationViewController.swift in Sources */,
 				793CF8522B97BBBB00C048B5 /* DevelopersViewController.swift in Sources */,
 				20C161932B98DA9800AD22B4 /* Transaction.swift in Sources */,

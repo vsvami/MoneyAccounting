@@ -8,5 +8,5 @@ import UIKit
 struct Category {
     let name: String
     let icon: String
-    let colorImage: UIImage
+    let colorImage: String
 }

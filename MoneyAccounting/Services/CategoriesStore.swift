@@ -7,53 +7,54 @@
 
 import UIKit
 
-final class DataStore {
-    static let shared = DataStore()
+final class CategoriesStore {
+    static let shared = CategoriesStore()
     
     let categories = [
         Category(
             name: "Здоровье",
             icon: "cross.case.fill",
-            colorImage: UIImage(named: "gradient1") ?? .backgroundMain),
+            colorImage: "gradient1"),
         Category(
             name: "Одежда",
             icon: "tshirt.fill",
-            colorImage: UIImage(named: "gradient2") ?? .backgroundMain),
+            colorImage: "gradient2"),
         Category(
             name: "Питомцы",
             icon: "pawprint.fill",
-            colorImage: UIImage(named: "gradient3") ?? .backgroundMain),
+            colorImage: "gradient3"),
         Category(
             name: "Продукты",
             icon: "cart.fill",
-            colorImage: UIImage(named: "gradient4") ?? .backgroundMain),
+            colorImage: "gradient4"),
         Category(
             name: "Путешествия",
             icon: "airplane",
-            colorImage: UIImage(named: "gradient5") ?? .backgroundMain),
+            colorImage: "gradient5"),
         Category(
             name: "Развлечения",
             icon: "gamecontroller.fill",
-            colorImage: UIImage(named: "gradient6") ?? .backgroundMain),
+            colorImage: "gradient6"),
         Category(
             name: "Рестораны и кафе",
             icon: "fork.knife",
-            colorImage: UIImage(named: "gradient7") ?? .backgroundMain),
+            colorImage: "gradient7"),
         Category(
             name: "Транспорт",
             icon: "car.fill",
-            colorImage: UIImage(named: "gradient8") ?? .backgroundMain),
+            colorImage: "gradient8"),
         Category(
             name: "Фитнес",
             icon: "figure.cooldown",
-            colorImage: UIImage(named: "gradient9") ?? .backgroundMain),
+            colorImage: "gradient9"),
         Category(
             name: "Другое",
             icon: "ellipsis.circle.fill",
-            colorImage: UIImage(named: "gradient10") ?? .backgroundMain),
+            colorImage: "gradient10"),
     ]
     
     let currency: [Character] = ["₽", "€", "$"]
     
     private init() {}
 }
+
