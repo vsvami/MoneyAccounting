@@ -9,32 +9,36 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
+    @IBOutlet var categoryLabel: UILabel!
+    
     var category: Category!
+    
+    private var transactions: (dates: [Date], transactionArrays: [[Transaction]]) {
+        let allTransactions = Person.getPerson().financialPortfolio.transactions(
+            for: category.name,
+            from: Person.getPerson().financialPortfolio.getAllTransactions()
+        )
         
-    private var transactions: [Date: [Transaction]] {
-        let allTransactions = Person.getPerson().financialPortfolio.transactions(for: category.name, from: Person.getPerson().financialPortfolio.getAllTransactions())
-        var transactions: [Date: [Transaction]] = [:]
-        
+        var dates: [Date] = []
+        var transactionArrays: [[Transaction]] = []
+
         allTransactions.forEach { transaction in
-            if var existingTransactions = transactions[transaction.date] {
-                existingTransactions.append(transaction)
-                transactions[transaction.date] = existingTransactions
+            if let index = dates.firstIndex(of: transaction.date) {
+                transactionArrays[index].append(transaction)
             } else {
-                transactions[transaction.date] = [transaction]
+                dates.append(transaction.date)
+                transactionArrays.append([transaction])
             }
         }
 
-        return transactions
+        return (dates, transactionArrays)
     }
 
-    @IBOutlet var categoryLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryLabel.text = category.name
         setupBackBarButtonItem()
-        
-        print(transactions)
     }
     
     @objc private func backButtonPressed() {
@@ -60,34 +64,28 @@ class CategoryViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension CategoryViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        transactions.keys.count
+        transactions.dates.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let keys = Array(transactions.keys)
-        let date = keys[section]
-        
-        return transactions[date]?.count ?? 0
+        return transactions.transactionArrays[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
-        let date = Array(transactions.keys)[indexPath.section]
+        let transactionsForDate = transactions.transactionArrays[indexPath.section]
+        let transaction = transactionsForDate[indexPath.row]
         
-        if let transactionsForDate = transactions[date] {
-            let transaction = transactionsForDate[indexPath.row]
-            
-            var content = cell.defaultContentConfiguration()
-            content.text = transaction.description
-            content.textProperties.font = UIFont.systemFont(ofSize: 14)
-            
-            content.secondaryText = "-\(String(transaction.amount)) \(transaction.currency)"
-            content.secondaryTextProperties.font = UIFont.systemFont(ofSize: 18)
-            content.secondaryTextProperties.color = .red
-            
-            cell.contentConfiguration = content
-            cell.contentView.backgroundColor = UIColor(hex: "#F9F9FC")
-        }
+        var content = cell.defaultContentConfiguration()
+        content.text = transaction.description
+        content.textProperties.font = UIFont.systemFont(ofSize: 14)
+        
+        content.secondaryText = "-\(String(transaction.amount)) \(transaction.currency)"
+        content.secondaryTextProperties.font = UIFont.systemFont(ofSize: 18)
+        content.secondaryTextProperties.color = .red
+        
+        cell.contentConfiguration = content
+        cell.contentView.backgroundColor = UIColor(hex: "#F9F9FC")
         
         let cornerRadius: CGFloat = 10
         let maskLayer = CAShapeLayer()
@@ -115,11 +113,11 @@ extension CategoryViewController: UITableViewDataSource {
         }
         
         cell.layer.mask = maskLayer
-        
         return cell
     }
 }
 
+// MARK: - UITableViewDelegate
 extension CategoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
@@ -128,8 +126,10 @@ extension CategoryViewController: UITableViewDelegate {
         label.font = UIFont.systemFont(ofSize: 18)
         label.textColor = UIColor.black
         
-        let date = Array(transactions.keys)[section]
-        if let transactionsForDate = transactions[date], !transactionsForDate.isEmpty {
+        let date = transactions.dates[section]
+        let transactionsForDate = transactions.transactionArrays[section]
+        
+        if !transactionsForDate.isEmpty {
             let dateFormatter = DateFormatter()
             dateFormatter.locale = Locale(identifier: "ru_RU")
             dateFormatter.dateFormat = "dd MMMM yy"
