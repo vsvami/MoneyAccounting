@@ -34,6 +34,8 @@ final class AddExpenseViewController: UIViewController {
         setTextField(categoryTextField, withText: "Выберите категорию")
         setTextField(dateTextField, withText: "Выберите дату")
         
+        addAmountTextField.inputAccessoryView = createToolbar()
+        
         addButton.setAccentButton()
         
         transaction?.type = .expense
@@ -160,6 +162,29 @@ extension AddExpenseViewController: UITextFieldDelegate {
         default:
             transaction?.date = datePicker.date
         }
+    }
+    
+    func createToolbar() -> UIToolbar {
+        let toolbar = UIToolbar(
+            frame: CGRect(
+                x: 0,
+                y: 0,
+                width: UIScreen.main.bounds.width,
+                height: 44
+            )
+        )
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(
+            barButtonSystemItem: .done,
+            target: self,
+            action: #selector(doneButtonTapped)
+        )
+        toolbar.setItems([flexSpace, doneButton], animated: false)
+        return toolbar
+    }
+
+    @objc func doneButtonTapped() {
+        view.endEditing(true)
     }
 }
 
