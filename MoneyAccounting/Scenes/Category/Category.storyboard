@@ -18,9 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Категория" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaK-ab-Fv0">
-                                <rect key="frame" x="16" y="89" width="190" height="35"/>
+                                <rect key="frame" x="16" y="89" width="300" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="190" id="eNQ-IP-gY8"/>
+                                    <constraint firstAttribute="width" constant="300" id="eNQ-IP-gY8"/>
                                     <constraint firstAttribute="height" constant="35" id="orQ-uk-r3z"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>

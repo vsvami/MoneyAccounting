@@ -45,12 +45,16 @@ final class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = categoriesTableView.indexPathForSelectedRow else { return }
         
-        // FIXME: - жду параметр
-//        guard let indexPath = categoriesTableView.indexPathForSelectedRow else { return }
-//        let categoryVC = segue.destination as? CategoryViewController
-//        categoryVC.category = categories[indexPath.row]
+        if segue.identifier == "toCategoryVC" {
+            let selectedCategory = categories.categories[indexPath.row]
+            if let categoryVC = segue.destination as? CategoryViewController {
+                categoryVC.category = selectedCategory
+            }
+        }
     }
+
     
 //    // MARK: - IB Actions
     @IBAction func addIncomeButtonTapped(_ sender: UIButton) {
