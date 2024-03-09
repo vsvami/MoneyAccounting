@@ -46,7 +46,6 @@ final class AddExpenseViewController: UIViewController {
         
         categoryTextField.inputView = pickerView
         
-        showTargetVC()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -73,6 +72,7 @@ final class AddExpenseViewController: UIViewController {
       
         transationStore.addTransaction(transaction)
         
+        showTargetVC()
         dismiss(animated: true)
     }
     
@@ -129,7 +129,7 @@ final class AddExpenseViewController: UIViewController {
         
         if incomeTotal > incomeGoal || expenseTotal > expenseLimit {
             let storyboard = UIStoryboard(name: "Target", bundle: nil)
-            let targetVC = storyboard.instantiateViewController(withIdentifier: "TargetViewController") as! AddExpenseViewController
+            let targetVC = storyboard.instantiateViewController(withIdentifier: "TargetViewController") as? AddExpenseViewController
             present(targetVC, animated: true, completion: nil)
         }
     }
