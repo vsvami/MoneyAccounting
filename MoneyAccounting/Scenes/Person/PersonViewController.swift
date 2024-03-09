@@ -67,6 +67,14 @@ final class PersonViewController: UIViewController {
         present(actionSheet, animated: true)
     }
     
+    
+    @IBAction func logOutButtonAction() {
+        if let navigationController = self.navigationController {
+            // Возвращаемся на первый экран в стеке навигации
+            navigationController.popToRootViewController(animated: true)
+        }
+    }
+    
     @objc private func backButtonPressed() {
         navigationController?.popViewController(animated: true)
     }
