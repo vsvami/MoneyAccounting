@@ -7,23 +7,42 @@
 
 import UIKit
 
-class EditPersonViewController: UIViewController {
+final class EditPersonViewController: UIViewController {
 
+    @IBOutlet var grayView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        grayView.layer.cornerRadius = 15
+        setupNavigationBar()
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//MARK: - NavigationBar
+extension EditPersonViewController {
+    func setupNavigationBar() {
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
+        navigationController?.navigationBar.tintColor = .systemBlue
+        
+        navigationItem.hidesBackButton = false
+        
+        navigationItem.title = "Tim Cook"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "Назад",
+            style: .plain,
+            target: nil,
+            action: nil
+        )
+        navigationItem.leftBarButtonItem?.tintColor = .systemBlue
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Сохранить",
+            style: .plain,
+            target: self,
+            action: nil
+        )
+        navigationItem.rightBarButtonItem?.tintColor = .systemBlue
     }
-    */
-
 }
