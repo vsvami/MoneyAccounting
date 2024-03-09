@@ -48,6 +48,7 @@ final class TransactionStore {
         ),
         Transaction(
             type: .expense,
+            currency: CategoriesStore.shared.currency[1],
             currency: CategoriesStore.shared.currency[0],
             amount: 235,
             category: CategoriesStore.shared.categories[3],
