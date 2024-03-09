@@ -24,17 +24,17 @@ final class TransactionStore {
         ),
         Transaction(
             type: .expense,
-            currency: CategoriesStore.shared.currency[1],
+            currency: CategoriesStore.shared.currency[0],
             amount: 348,
-            category: CategoriesStore.shared.categories[0],
+            category: CategoriesStore.shared.categories[1],
             date: Date.parse("2024-03-09"),
             description: "Something yet"
         ),
         Transaction(
             type: .expense,
-            currency: CategoriesStore.shared.currency[2],
+            currency: CategoriesStore.shared.currency[0],
             amount: 540,
-            category: CategoriesStore.shared.categories[0],
+            category: CategoriesStore.shared.categories[2],
             date: Date.parse("2024-03-09"),
             description: "Do something"
         ),
@@ -42,32 +42,33 @@ final class TransactionStore {
             type: .expense,
             currency: CategoriesStore.shared.currency[0],
             amount: 820,
-            category: CategoriesStore.shared.categories[0],
+            category: CategoriesStore.shared.categories[1],
             date: Date.parse("2024-03-09"),
             description: "Buy something"
         ),
         Transaction(
             type: .expense,
             currency: CategoriesStore.shared.currency[1],
+            currency: CategoriesStore.shared.currency[0],
             amount: 235,
-            category: CategoriesStore.shared.categories[0],
-            date: Date.parse("2024-03-09"),
+            category: CategoriesStore.shared.categories[3],
+            date: Date.parse("2024-03-08"),
             description: "Put something"
         ),
         Transaction(
             type: .expense,
-            currency: CategoriesStore.shared.currency[2],
+            currency: CategoriesStore.shared.currency[0],
             amount: 140,
             category: CategoriesStore.shared.categories[0],
-            date: Date.parse("2024-03-09"),
+            date: Date.parse("2024-03-08"),
             description: "Sell something"
         ),
         Transaction(
             type: .expense,
             currency: CategoriesStore.shared.currency[0],
             amount: 740,
-            category: CategoriesStore.shared.categories[0],
-            date: Date.parse("2024-03-09"),
+            category: CategoriesStore.shared.categories[3],
+            date: Date.parse("2024-03-07"),
             description: "Fly something"
         )
     ]
