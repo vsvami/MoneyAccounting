@@ -48,7 +48,7 @@ final class TransactionStore {
         ),
         Transaction(
             type: .expense,
-            currency: CategoriesStore.shared.currency[3],
+            currency: CategoriesStore.shared.currency[1],
             amount: 235,
             category: CategoriesStore.shared.categories[0],
             date: Date.parse("2024-03-09"),
