@@ -28,8 +28,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="iconPlusButton" title=""/>
                                                 <connections>
-                                                    <action selector="addIncomeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d4U-2N-4MN"/>
-                                                    <segue destination="lIh-dt-5sS" kind="presentation" id="vWw-mP-h2f"/>
+                                                    <segue destination="lIh-dt-5sS" kind="presentation" identifier="toAddIncomeVC" id="vWw-mP-h2f"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZF-0c-99v">
@@ -67,8 +66,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="iconMinusButton" title=""/>
                                                 <connections>
-                                                    <action selector="addExpenseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2zH-SH-pD3"/>
-                                                    <segue destination="W6w-GL-U3W" kind="presentation" id="TKy-p1-v8G"/>
+                                                    <segue destination="W6w-GL-U3W" kind="presentation" identifier="toAddExpenseVC" id="TKy-p1-v8G"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ao0-bk-cG3">
@@ -199,8 +197,7 @@
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="addCategoryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="owP-Ug-Fen"/>
-                                                    <segue destination="Z4g-t5-WNF" kind="presentation" id="v6d-py-lbW"/>
+                                                    <segue destination="Z4g-t5-WNF" kind="presentation" identifier="toAddCategoryVC" id="v6d-py-lbW"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -220,11 +217,11 @@
                                                             <fontDescription key="subtitleFontDescription" type="system" pointSize="10"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <action selector="showIncomeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PBY-EA-CFU"/>
-                                                            <segue destination="oPS-aL-Nf0" kind="show" id="I3t-De-zBv"/>
+                                                            <action selector="showHistoryTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BZO-cY-3mQ"/>
+                                                            <segue destination="oPS-aL-Nf0" kind="show" identifier="toHistoryVCIncome" id="I3t-De-zBv"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5x-Pd-kxV">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5x-Pd-kxV">
                                                         <rect key="frame" x="0.0" y="51" width="83" height="46"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
@@ -233,8 +230,8 @@
                                                             <fontDescription key="subtitleFontDescription" type="system" pointSize="10"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <action selector="showExpenseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="762-OQ-SDy"/>
-                                                            <segue destination="oPS-aL-Nf0" kind="show" id="y6J-xL-im3"/>
+                                                            <action selector="showHistoryTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9G7-Jm-e1p"/>
+                                                            <segue destination="oPS-aL-Nf0" kind="show" identifier="toHistoryVCExpense" id="y6J-xL-im3"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -372,7 +369,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="I3t-De-zBv"/>
+        <segue reference="y6J-xL-im3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="iconMinusButton" width="50" height="50"/>
