@@ -38,11 +38,15 @@ final class MainViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         whiteView.roundCorners(corners: [.topLeft, .topRight], radius: 15.0)
+        
+        // FIXME: - временный код для UITableView+Ext
 //        greyView.roundCorners(corners: [.topLeft, .topRight], radius: 15.0)
         greyView.layer.cornerRadius = 15 // TODO: - fix
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // FIXME: - временный код для UITableView+Ext
 //        guard let indexPath = categoriesTableView.indexPathForSelectedRow else { return }
 //        let categoryVC = segue.destination as? CategoryViewController
 //        categoryVC.table = categories[indexPath.row]
@@ -73,13 +77,17 @@ final class MainViewController: UIViewController {
     // MARK: - Public Methods
     @objc func leftButtonTapped() {
         let storyboard = UIStoryboard(name: "Person", bundle: nil)
-        let personVC = storyboard.instantiateViewController(withIdentifier: "PersonViewController") as! PersonViewController
+        let personVC = storyboard.instantiateViewController(
+            withIdentifier: "PersonViewController"
+        ) as! PersonViewController
         navigationController?.pushViewController(personVC, animated: true)
     }
     
     @objc func rightButtonTapped() {
         let storyboard = UIStoryboard(name: "Settings", bundle: nil)
-        let settingsVC = storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        let settingsVC = storyboard.instantiateViewController(
+            withIdentifier: "SettingsViewController"
+        ) as! SettingsViewController
         navigationController?.pushViewController(settingsVC, animated: true)
     }
     
@@ -100,10 +108,16 @@ private extension MainViewController {
     func setupNavigationBar() {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.tintColor = .white
-        
         navigationItem.hidesBackButton = true
         
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "Назад",
+            style: .plain,
+            target: nil,
+            action: nil
+        )
+        
+        // FIXME: - временный код для UITableView+Ext
         
 //        let personButton = UIButton(type: .system)
 //        personButton.setImage(
@@ -146,24 +160,40 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
         
-        var content = cell.defaultContentConfiguration()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell")
+        
+        let categoryCell = cell as? CategoryViewCell
         let category = categories.categories[indexPath.row]
         
-        cell.textLabel?.text = "Cell index: \(indexPath.description)"
-        content.text = category.name
-        content.textProperties.font = UIFont.systemFont(ofSize: 14)
+        categoryCell?.categoryLabel.text = category.name
         
-        content.secondaryText = "3564 ₽"
-        content.secondaryTextProperties.font = UIFont.systemFont(ofSize: 18)
-        content.secondaryTextProperties.color = UIColor.black
+        // FIXME: - временный код для UITableView+Ext
+        categoryCell?.amountCategoryLabel.text = "3564 ₽"
         
-        content.image = UIImage(named: category.colorImage)
-        content.imageProperties.cornerRadius = tableView.rowHeight / 2
+        categoryCell?.gradientImageView.image = UIImage(named: category.colorImage)
+        categoryCell?.iconImageView.image = UIImage(systemName: category.icon)
+        categoryCell?.iconImageView.tintColor = .white
         
-        cell.contentConfiguration = content
+        // FIXME: - временный код для UITableView+Ext
         
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+//        
+//        var content = cell.defaultContentConfiguration()
+//        let category = categories.categories[indexPath.row]
+//        
+//        content.text = category.name
+//        content.textProperties.font = UIFont.systemFont(ofSize: 14)
+//        
+//        content.secondaryText = "3564 ₽"
+//        content.secondaryTextProperties.font = UIFont.systemFont(ofSize: 18)
+//        content.secondaryTextProperties.color = UIColor.black
+//        
+//        content.image = UIImage(named: category.colorImage)
+//        content.imageProperties.cornerRadius = tableView.rowHeight / 2
+//        
+//        cell.contentConfiguration = content
+//        
 //        // Проверка, является ли ячейка первой или последней в секции
 //            if indexPath.row == 0 {
 //                // Скругление верхних углов первой ячейки
@@ -179,7 +209,7 @@ extension MainViewController: UITableViewDataSource {
 //                cell.layer.maskedCorners = []
 //            }
         
-        return cell
+        return cell ?? UITableViewCell()
     }
 }
 
@@ -188,6 +218,8 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    // FIXME: - временный код для UITableView+Ext
     
 //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 //        
@@ -212,9 +244,12 @@ extension MainViewController: UITableViewDelegate {
 //        50
 //    }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        // Установка цвета выделения ячейки
+    func tableView(
+        _ tableView: UITableView,
+        willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath
+    ) {
+        // Установка цвета выделения ячейки, нужно для всех таблиц
         let backgroundColorView = UIView()
         backgroundColorView.backgroundColor = UIColor.white
         cell.selectedBackgroundView = backgroundColorView
