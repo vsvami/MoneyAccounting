@@ -10,21 +10,15 @@ final class PersonViewController: UIViewController {
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var logOutButton: UIButton!
     
-    private var person = Person.getPerson()
+    private let personStore = PersonsStore.shared
+    private let usersStore = UsersStore.shared
     
-    private var infoUser: [String: String] {
-        let name = Person.getPerson().firstName
-        let surname = Person.getPerson().lastName
-        let email = User.getUser().email
-        let password = String(User.getUser().password.map { _ in "*" })
-        
-        return ["Имя": name, "Фамилия": surname, "Почта": email, "Пароль": password]
-    }
+    var infoUser: [String] = []
     
     //MARK: Life Circle
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updateInfoUser()
         setupNavigationTittle()
         setupBarButtonItems()
     }
@@ -40,8 +34,15 @@ final class PersonViewController: UIViewController {
         logOutButton.backgroundColor = .systemBlue
         logOutButton.tintColor = .white
         logOutButton.layer.cornerRadius = logOutButton.frame.height / 2
-
-        
+    }
+    
+    private func updateInfoUser() {
+        infoUser = [
+            personStore.person.firstName,
+            personStore.person.lastName,
+            usersStore.users.email,
+            String(usersStore.users.password.map { _ in "*" }),
+       ]
     }
     
     //MARK: - Public Methods
@@ -94,7 +95,7 @@ extension PersonViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath)
         let positions = ["Имя", "Фамилия", "Почта", "Пароль"]
-        let target = infoUser[positions[indexPath.row]]
+        let target = infoUser[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
         content.text = positions[indexPath.row]
@@ -190,7 +191,7 @@ extension PersonViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
         navigationController?.navigationBar.tintColor = .systemBlue
         navigationItem.hidesBackButton = false
-        navigationItem.title = person.fullName
+        navigationItem.title = personStore.person.fullName
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
       

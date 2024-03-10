@@ -4,8 +4,8 @@
 //
 
 struct User {
-    let email: String
-    let password: String
+    var email: String
+    var password: String
    // let login: String
     var person: Person? // Ссылка на личные данные пользователя
     

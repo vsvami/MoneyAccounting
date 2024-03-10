@@ -12,6 +12,7 @@
 		1A30663F2B9C876000B27EA5 /* GoalsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A30663E2B9C876000B27EA5 /* GoalsStore.swift */; };
 		1A3066472B9E09AC00B27EA5 /* EditPersonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3066462B9E09AC00B27EA5 /* EditPersonViewCell.swift */; };
 		201F4CE02B9BC2D9003471AE /* TransactionsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201F4CDF2B9BC2D9003471AE /* TransactionsStore.swift */; };
+		20A265E32B9E4E1A0036F742 /* PersonsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A265E22B9E4E1A0036F742 /* PersonsStore.swift */; };
 		20B90F202B9D272E009E6787 /* UsersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B90F1F2B9D272E009E6787 /* UsersStore.swift */; };
 		20C1618B2B98DA0000AD22B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1618A2B98DA0000AD22B4 /* User.swift */; };
 		20C1618D2B98DA0F00AD22B4 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C1618C2B98DA0F00AD22B4 /* Person.swift */; };
@@ -63,6 +64,7 @@
 		1A30663E2B9C876000B27EA5 /* GoalsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsStore.swift; sourceTree = "<group>"; };
 		1A3066462B9E09AC00B27EA5 /* EditPersonViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonViewCell.swift; sourceTree = "<group>"; };
 		201F4CDF2B9BC2D9003471AE /* TransactionsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsStore.swift; sourceTree = "<group>"; };
+		20A265E22B9E4E1A0036F742 /* PersonsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsStore.swift; sourceTree = "<group>"; };
 		20B90F1F2B9D272E009E6787 /* UsersStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersStore.swift; sourceTree = "<group>"; };
 		20C1618A2B98DA0000AD22B4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		20C1618C2B98DA0F00AD22B4 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				20C1618F2B98DA4500AD22B4 /* CategoriesStore.swift */,
 				201F4CDF2B9BC2D9003471AE /* TransactionsStore.swift */,
 				20B90F1F2B9D272E009E6787 /* UsersStore.swift */,
+				20A265E22B9E4E1A0036F742 /* PersonsStore.swift */,
 				1A30663E2B9C876000B27EA5 /* GoalsStore.swift */,
 			);
 			path = Services;
@@ -438,6 +441,7 @@
 			files = (
 				20B90F202B9D272E009E6787 /* UsersStore.swift in Sources */,
 				793CF8392B97BAE000C048B5 /* LoginViewController.swift in Sources */,
+				20A265E32B9E4E1A0036F742 /* PersonsStore.swift in Sources */,
 				793CF8682B98771E00C048B5 /* AddIncomeViewController.swift in Sources */,
 				20C161952B98DAA600AD22B4 /* Category.swift in Sources */,
 				20C161902B98DA4500AD22B4 /* CategoriesStore.swift in Sources */,
