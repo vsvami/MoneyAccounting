@@ -129,7 +129,7 @@ final class AddExpenseViewController: UIViewController {
         
         if incomeTotal > incomeGoal || expenseTotal > expenseLimit {
             let storyboard = UIStoryboard(name: "Target", bundle: nil)
-            let targetVC = storyboard.instantiateViewController(withIdentifier: "TargetViewController") as? AddExpenseViewController
+            let targetVC = storyboard.instantiateViewController(withIdentifier: "TargetViewController") as! TargetViewController
             present(targetVC, animated: true, completion: nil)
         }
     }

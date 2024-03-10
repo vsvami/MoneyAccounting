@@ -10,10 +10,12 @@ import UIKit
 final class HistoryViewController: UIViewController {
 
     @IBOutlet var segmentedControl: UISegmentedControl!
+    var selectedIndex: Int!
     
     override func viewDidLoad() {
         setupBackBarButtonItem()
         setupFirstConfigSegmentedControl()
+        segmentedControl.selectedSegmentIndex = selectedIndex
     }
     
     // MARK: IBActions

@@ -8,7 +8,7 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-
+    
     // MARK: - IB Outlets
     @IBOutlet var balanceLabel: UILabel!
     @IBOutlet var incomeLabel: UILabel!
@@ -53,25 +53,21 @@ final class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let historyVC = segue.destination as? HistoryViewController {
+            if let senderButton = sender as? UIButton {
+                if senderButton.tag == 0 {
+                    historyVC.selectedIndex = 0
+                } else {
+                    historyVC.selectedIndex = 1
+                }
+            }
+        }
+        
         guard let indexPath = categoriesTableView.indexPathForSelectedRow else { return }
         
-        //FIXME: - add selectedSegmentIndex
-        
-        switch segue.identifier {
-        case "toCategoryVC":
+        if let categoryVC = segue.destination as? CategoryViewController {
             let selectedCategory = categories.categories[indexPath.row]
-            if let categoryVC = segue.destination as? CategoryViewController {
-                categoryVC.category = selectedCategory
-            }
-        case "toHistoryVCIncome":
-            if let destinationVC = segue.destination as? HistoryViewController {
-//                destinationVC.selectedSegmentIndex = 0
-            }
-        case "toHistoryVCExpense":
-            if let destinationVC = segue.destination as? HistoryViewController {
-//                destinationVC.selectedSegmentIndex = 1
-            }
-        default: break
+            categoryVC.category = selectedCategory
         }
         
     }
@@ -91,15 +87,6 @@ final class MainViewController: UIViewController {
             withIdentifier: "SettingsViewController"
         ) as! SettingsViewController
         navigationController?.pushViewController(settingsVC, animated: true)
-    }
-    
-    // MARK: - IB Actions
-    @IBAction func showHistoryTapped(_ sender: UIButton) {
-        if sender.tag == 0 {
-                performSegue(withIdentifier: "toHistoryVCIncome", sender: nil)
-            } else if sender.tag == 1 {
-                performSegue(withIdentifier: "toHistoryVCExpense", sender: nil)
-            }
     }
 }
 
