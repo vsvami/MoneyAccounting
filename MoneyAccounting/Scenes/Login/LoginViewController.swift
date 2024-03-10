@@ -9,6 +9,7 @@ import UIKit
 
 final class LoginViewController: UIViewController {
     
+    // MARK: - IB Outlets
     @IBOutlet var logInTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
@@ -17,34 +18,14 @@ final class LoginViewController: UIViewController {
     // MARK: - Private Properties
     private let user = User.getUser()
     
+    // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginButton.layer.borderWidth = 1
-        loginButton.layer.borderColor = UIColor.white.cgColor
-        loginButton.layer.cornerRadius = loginButton.frame.height / 2
+        setupBackgroundImage(image: "backgroundLogin")
+        setupButton()
+        setupTextField()
         
-        logInTextField.setCornerRadius()
-        passwordTextField.setCornerRadius()
-        
-        logInTextField.setBorderStyle()
-        passwordTextField.setBorderStyle()
-        
-        logInTextField.setLeftPaddingPoints(20)
-        logInTextField.setRightPaddingPoints(20)
-        
-        passwordTextField.setLeftPaddingPoints(20)
-        passwordTextField.setRightPaddingPoints(20)
-        
-        let backgroundImage = UIImageView(image: UIImage(named: "backgroundLogin"))
-        backgroundImage.frame = view.bounds
-        backgroundImage.contentMode = .scaleAspectFill
-        view.addSubview(backgroundImage)
-        view.sendSubviewToBack(backgroundImage)
-        
-        //
-//        logInTextField.text = "Timcook666"
-//        passwordTextField.text = "param-pam-pam"
         logInTextField.text = "developers@icloid.com"
         passwordTextField.text = "param-pam-pam"
     }
@@ -66,14 +47,45 @@ final class LoginViewController: UIViewController {
         return true
     }
     
+    // MARK: - IB Actions
     @IBAction func forgotRegisterData(_ sender: UIButton) {
         sender.tag == 0
         ? showAlert(withTitle: "Oops!", andMessage: "Your name is \(user.email)")
         : showAlert(withTitle: "Oops!", andMessage: "Your password is \(user.password)")
     }
+}
+
+// MARK: - Private Methods
+private extension LoginViewController {
+    func setupBackgroundImage(image: String) {
+        let backgroundImage = UIImageView(image: UIImage(named: image))
+        backgroundImage.frame = view.bounds
+        backgroundImage.contentMode = .scaleAspectFill
+        view.addSubview(backgroundImage)
+        view.sendSubviewToBack(backgroundImage)
+    }
     
-    // MARK: - Private Methods
-    private func showAlert(
+    func setupButton() {
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.white.cgColor
+        loginButton.layer.cornerRadius = loginButton.frame.height / 2
+    }
+    
+    func setupTextField() {
+        logInTextField.setCornerRadius()
+        passwordTextField.setCornerRadius()
+        
+        logInTextField.setBorderStyle()
+        passwordTextField.setBorderStyle()
+        
+        logInTextField.setLeftPaddingPoints(20)
+        logInTextField.setRightPaddingPoints(20)
+        
+        passwordTextField.setLeftPaddingPoints(20)
+        passwordTextField.setRightPaddingPoints(20)
+    }
+    
+    func showAlert(
         withTitle title: String,
         andMessage message: String,
         complition: (() -> Void)? = nil
@@ -86,4 +98,3 @@ final class LoginViewController: UIViewController {
         present(alert, animated: true)
     }
 }
-
