@@ -65,11 +65,11 @@ final class MainViewController: UIViewController {
             }
         case "toHistoryVCIncome":
             if let destinationVC = segue.destination as? HistoryViewController {
-//                destinationVC.selectedSegmentIndex = 0
+                destinationVC.segmentedControl.selectedSegmentIndex = 0
             }
         case "toHistoryVCExpense":
             if let destinationVC = segue.destination as? HistoryViewController {
-//                destinationVC.selectedSegmentIndex = 1
+                destinationVC.segmentedControl.selectedSegmentIndex = 1
             }
         default: break
         }
