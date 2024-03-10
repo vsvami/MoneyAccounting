@@ -74,7 +74,7 @@ final class TransactionStore {
             type: .income,
             currency: CategoriesStore.shared.currency[0],
             amount: 270000,
-            category: CategoriesStore.shared.categories[3],
+            category: CategoriesStore.shared.categories[9],
             date: Date(timeIntervalSinceReferenceDate: 470050000),
             description: "Зарплата"
         ),
@@ -82,7 +82,7 @@ final class TransactionStore {
             type: .income,
             currency: CategoriesStore.shared.currency[0],
             amount: 120000,
-            category: CategoriesStore.shared.categories[3],
+            category: CategoriesStore.shared.categories[9],
             date: Date(timeIntervalSinceReferenceDate: 470100000),
             description: "Процент(тачки)"
         ),
@@ -90,7 +90,7 @@ final class TransactionStore {
             type: .income,
             currency: CategoriesStore.shared.currency[0],
             amount: 40000,
-            category: CategoriesStore.shared.categories[3],
+            category: CategoriesStore.shared.categories[9],
             date: Date(timeIntervalSinceReferenceDate: 470020000),
             description: "Премия"
         )
