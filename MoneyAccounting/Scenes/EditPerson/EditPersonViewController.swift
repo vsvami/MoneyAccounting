@@ -79,11 +79,10 @@ extension EditPersonViewController: UITableViewDataSource, UITableViewDelegate {
         let editPersonCell = cell as? EditPersonViewCell
         
         let positions = ["Имя", "Фамилия", "Почта", "Пароль"]
-        let target = infoUser[positions[indexPath.row]]
+        let target = positions[indexPath.row]
         editPersonCell?.dataLabel.text = target
         
         let placeholders = ["Введите имя", "Введите фамилию", "Введите почту", "Введите телефон"]
-        
         editPersonCell?.enterTextField.attributedPlaceholder = NSAttributedString(
             string: placeholders[indexPath.row],
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(
