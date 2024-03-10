@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol DataViewControllerDelegate {
+protocol DataViewControllerDelegate: AnyObject {
     func showDataMainVC()
 }
 
@@ -67,6 +67,18 @@ final class MainViewController: UIViewController {
                 } else {
                     historyVC.selectedIndex = 1
                 }
+            }
+        }
+        
+        if segue.identifier == "toAddIncomeVC" {
+            if let addIncomeVC = segue.destination as? AddIncomeViewController {
+                addIncomeVC.delegate = self
+            }
+        }
+        
+        if segue.identifier == "toAddExpenseVC" {
+            if let addExpenseVC = segue.destination as? AddExpenseViewController {
+                addExpenseVC.delegate = self
             }
         }
         
