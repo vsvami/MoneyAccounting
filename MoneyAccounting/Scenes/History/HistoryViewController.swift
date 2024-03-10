@@ -79,6 +79,8 @@ final class HistoryViewController: UIViewController {
         setupBackBarButtonItem()
         setupFirstConfigSegmentedControl()
         segmentedControl.selectedSegmentIndex = selectedIndex
+        historyTableView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 10)
+        historyTableView.separatorColor = UIColor.lightGray.withAlphaComponent(0.3)
     }
     
     // MARK: IBActions
@@ -170,41 +172,62 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
             cell.amountLabel.textColor = .red
         }
         
-        let cornerRadius: CGFloat = 10
-        let maskLayer = CAShapeLayer()
+        cell.backgroundColor = UIColor(hex: "#F9F9FC")
         
+        let cornerRadius: CGFloat = 10
+
         if tableView.numberOfRows(inSection: indexPath.section) == 1 {
             // Если в секции только одна ячейка, скругляем все углы
-            let bounds = cell.bounds
-            let rectPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
-            maskLayer.path = rectPath.cgPath
+            cell.layer.cornerRadius = cornerRadius
+            cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         } else {
             if indexPath.row == 0 {
                 // Скругление верхних углов первой ячейки
-                let bounds = cell.bounds
-                let rectPath = UIBezierPath(
-                    roundedRect: bounds,
-                    byRoundingCorners: [.topLeft, .topRight],
-                    cornerRadii: CGSize(width: cornerRadius, height: cornerRadius)
-                )
-                maskLayer.path = rectPath.cgPath
+                cell.layer.cornerRadius = cornerRadius
+                cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             } else if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
                 // Скругление нижних углов последней ячейки
-                let bounds = cell.bounds
-                let rectPath = UIBezierPath(
-                    roundedRect: bounds,
-                    byRoundingCorners: [.bottomLeft, .bottomRight],
-                    cornerRadii: CGSize(width: cornerRadius, height: cornerRadius)
-                )
-                maskLayer.path = rectPath.cgPath
+                cell.layer.cornerRadius = cornerRadius
+                cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
             } else {
                 // Для остальных ячеек не применяем скругление углов
-                maskLayer.path = UIBezierPath(rect: cell.bounds).cgPath
+                cell.layer.cornerRadius = 0
+                cell.layer.maskedCorners = []
             }
         }
+
+
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let date = transactions.dates[section]
+        let transactionsForDate = transactions.transactionArrays[section]
+        
+        if !transactionsForDate.isEmpty {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "ru_RU")
+            dateFormatter.dateFormat = "dd MMMM yy"
+            return dateFormatter.string(from: date)
+        } else {
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        50
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else {
+            return
+        }
+        
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        header.textLabel?.textColor = .black
+    }
+
 }
     
 // MARK: - CustomizableSegmentControl

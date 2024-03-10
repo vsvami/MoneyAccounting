@@ -51,24 +51,17 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="160" height="50.333333333333336"/>
                                                             <subviews>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Desription" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mgS-xN-5og">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="14.666666666666666"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="23.666666666666668"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iWs-1n-kFY">
-                                                                    <rect key="frame" x="0.0" y="17.666666666666668" width="160" height="15.000000000000004"/>
+                                                                    <rect key="frame" x="0.0" y="26.666666666666664" width="160" height="23.666666666666664"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                     <color key="textColor" red="0.52549019607843139" green="0.5607843137254902" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1C-Pe-B5H">
-                                                                    <rect key="frame" x="0.0" y="35.666666666666664" width="160" height="14.666666666666664"/>
-                                                                    <accessibility key="accessibilityConfiguration" label="Empty Label"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
