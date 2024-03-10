@@ -225,9 +225,15 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         header.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        header.roundCorners(corners: .allCorners, radius: 10)
         header.textLabel?.textColor = .black
     }
-
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let backgroundColorView = UIView()
+            backgroundColorView.backgroundColor = UIColor.white
+            cell.selectedBackgroundView = backgroundColorView
+    }
 }
     
 // MARK: - CustomizableSegmentControl

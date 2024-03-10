@@ -75,6 +75,7 @@
                     </view>
                     <connections>
                         <outlet property="categoryLabel" destination="UaK-ab-Fv0" id="kia-fB-9i5"/>
+                        <outlet property="categoryTableView" destination="7Wj-85-tCb" id="gAd-K2-LBR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

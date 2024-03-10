@@ -10,6 +10,7 @@ import UIKit
 class CategoryViewController: UIViewController {
     
     @IBOutlet var categoryLabel: UILabel!
+    @IBOutlet var categoryTableView: UITableView!
     
     var category: Category!
     
@@ -39,6 +40,7 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
         categoryLabel.text = category.name
         setupBackBarButtonItem()
+        categoryTableView.separatorColor = UIColor.lightGray.withAlphaComponent(0.3)
     }
     
     @objc private func backButtonPressed() {
@@ -127,13 +129,7 @@ extension CategoryViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension CategoryViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
-        
-        let label = UILabel(frame: CGRect(x: 10, y: 10, width: tableView.frame.width - 20, height: 40))
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textColor = UIColor.black
-        
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let date = transactions.dates[section]
         let transactionsForDate = transactions.transactionArrays[section]
         
@@ -141,16 +137,27 @@ extension CategoryViewController: UITableViewDelegate {
             let dateFormatter = DateFormatter()
             dateFormatter.locale = Locale(identifier: "ru_RU")
             dateFormatter.dateFormat = "dd MMMM yy"
-            label.text = dateFormatter.string(from: date)
+            return dateFormatter.string(from: date)
         } else {
-            label.text = ""
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else {
+            return
         }
         
-        headerView.addSubview(label)
-        return headerView
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        header.roundCorners(corners: .allCorners, radius: 10)
+        header.textLabel?.textColor = .black
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         50
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60
     }
 }
