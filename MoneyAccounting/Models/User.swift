@@ -6,6 +6,7 @@
 struct User {
     let email: String
     let password: String
+   // let login: String
     var person: Person? // Ссылка на личные данные пользователя
     
     static func getUser() -> User {
