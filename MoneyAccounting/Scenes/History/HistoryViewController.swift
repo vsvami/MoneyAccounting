@@ -152,20 +152,64 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as? HistoryViewCell else {
+            return UITableViewCell()
+        }
+        
         let transactions = targetTransactions.transactionArrays[indexPath.section]
         let transaction = transactions[indexPath.row]
         
-        let content = cell.defaultContentConfiguration()
-//        content.text = transaction.
+        cell.descriptionLabel.text = transaction.description
+        cell.categoryLabel.text = transaction.category.name
+        
+        if transaction.type == .income {
+            cell.amountLabel.text = "+\(transaction.amount) \(transaction.currency)"
+            cell.amountLabel.textColor = .green
+        } else {
+            cell.amountLabel.text = "-\(transaction.amount) \(transaction.currency)"
+            cell.amountLabel.textColor = .red
+        }
+        
+        let cornerRadius: CGFloat = 10
+        let maskLayer = CAShapeLayer()
+        
+        if tableView.numberOfRows(inSection: indexPath.section) == 1 {
+            // Если в секции только одна ячейка, скругляем все углы
+            let bounds = cell.bounds
+            let rectPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
+            maskLayer.path = rectPath.cgPath
+        } else {
+            if indexPath.row == 0 {
+                // Скругление верхних углов первой ячейки
+                let bounds = cell.bounds
+                let rectPath = UIBezierPath(
+                    roundedRect: bounds,
+                    byRoundingCorners: [.topLeft, .topRight],
+                    cornerRadii: CGSize(width: cornerRadius, height: cornerRadius)
+                )
+                maskLayer.path = rectPath.cgPath
+            } else if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
+                // Скругление нижних углов последней ячейки
+                let bounds = cell.bounds
+                let rectPath = UIBezierPath(
+                    roundedRect: bounds,
+                    byRoundingCorners: [.bottomLeft, .bottomRight],
+                    cornerRadii: CGSize(width: cornerRadius, height: cornerRadius)
+                )
+                maskLayer.path = rectPath.cgPath
+            } else {
+                // Для остальных ячеек не применяем скругление углов
+                maskLayer.path = UIBezierPath(rect: cell.bounds).cgPath
+            }
+        }
         
         return cell
     }
 }
-
+    
 // MARK: - CustomizableSegmentControl
 final class CustomizableSegmentControl: UISegmentedControl {
-
+    
     private lazy var radius: CGFloat = self.bounds.height / 2
     
     private var segmentInset: CGFloat = 0.1 {
