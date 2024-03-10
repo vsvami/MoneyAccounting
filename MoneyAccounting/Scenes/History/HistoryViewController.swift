@@ -27,6 +27,38 @@ final class HistoryViewController: UIViewController {
     }
 }
 
+// MARK: Private Methods
+extension HistoryViewController {
+    private func setupFirstConfigSegmentedControl() {
+        let fontSize = UIFont.systemFont(ofSize: 10)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontSize], for: .normal)
+        
+        segmentedControl.layer.borderWidth = 5
+        segmentedControl.layer.borderColor = UIColor(hex: "#F9F9FC").cgColor
+        segmentedControl.setDividerImage(
+            UIImage(),
+            forLeftSegmentState: .normal,
+            rightSegmentState: .normal,
+            barMetrics: .default
+        )
+    }
+    
+    private func setupBackBarButtonItem() {
+        let arrowImage = UIImage(systemName: "chevron.backward")
+        
+        let backButton = UIButton(type: .system)
+        backButton.setImage(arrowImage, for: .normal)
+        backButton.setTitle("Назад", for: .normal)
+        backButton.sizeToFit()
+        backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
+        backButton.tintColor = .systemBlue
+        
+        let backBarButtonItem = UIBarButtonItem(customView: backButton)
+        
+        navigationItem.leftBarButtonItem = backBarButtonItem
+    }
+}
+
 // MARK: - CustomizableSegmentControl
 final class CustomizableSegmentControl: UISegmentedControl {
 
@@ -73,55 +105,5 @@ final class CustomizableSegmentControl: UISegmentedControl {
             // Fix weird effect
             selectedImageView.layer.removeAnimation(forKey: "SelectionBounds")
         }
-    }
-}
-
-// MARK: Private Methods
-extension HistoryViewController {
-    private func setupFirstConfigSegmentedControl() {
-        let fontSize = UIFont.systemFont(ofSize: 10)
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: fontSize], for: .normal)
-        
-        segmentedControl.layer.borderWidth = 5
-        segmentedControl.layer.borderColor = UIColor(hex: "#F9F9FC").cgColor
-        segmentedControl.setDividerImage(
-            UIImage(),
-            forLeftSegmentState: .normal,
-            rightSegmentState: .normal,
-            barMetrics: .default
-        )
-    }
-    
-    private func setupBackBarButtonItem() {
-        let arrowImage = UIImage(systemName: "chevron.backward")
-        
-        let backButton = UIButton(type: .system)
-        backButton.setImage(arrowImage, for: .normal)
-        backButton.setTitle("Назад", for: .normal)
-        backButton.sizeToFit()
-        backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
-        backButton.tintColor = .systemBlue
-        
-        let backBarButtonItem = UIBarButtonItem(customView: backButton)
-        
-        navigationItem.leftBarButtonItem = backBarButtonItem
-    }
-}
-
-// MARK: - UIColor hex
-extension UIColor {
-    convenience init(hex: String) {
-        var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
-        hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
-
-        var rgb: UInt64 = 0
-
-        Scanner(string: hexSanitized).scanHexInt64(&rgb)
-
-        let red = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
-        let green = CGFloat((rgb & 0x00FF00) >> 8) / 255.0
-        let blue = CGFloat(rgb & 0x0000FF) / 255.0
-
-        self.init(red: red, green: green, blue: blue, alpha: 1.0)
     }
 }

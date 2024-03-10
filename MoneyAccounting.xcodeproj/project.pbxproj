@@ -28,6 +28,7 @@
 		6486CFE02B99476C00CE14F1 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6486CFDF2B99476C00CE14F1 /* UIView+Ext.swift */; };
 		648F8FA62B9C6A940053BAA6 /* CategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648F8FA52B9C6A940053BAA6 /* CategoryViewCell.swift */; };
 		64BEEB912B9BD48500AC7D2C /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BEEB902B9BD48500AC7D2C /* UITableView+Ext.swift */; };
+		790993282B9DA0CF0004F2DD /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790993272B9DA0CF0004F2DD /* UIColor+Ext.swift */; };
 		793CF8372B97BAD700C048B5 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF8362B97BAD700C048B5 /* Login.storyboard */; };
 		793CF8392B97BAE000C048B5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CF8382B97BAE000C048B5 /* LoginViewController.swift */; };
 		793CF83C2B97BB0600C048B5 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CF83B2B97BB0600C048B5 /* History.storyboard */; };
@@ -78,6 +79,7 @@
 		6486CFDF2B99476C00CE14F1 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		648F8FA52B9C6A940053BAA6 /* CategoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewCell.swift; sourceTree = "<group>"; };
 		64BEEB902B9BD48500AC7D2C /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
+		790993272B9DA0CF0004F2DD /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		793CF8362B97BAD700C048B5 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		793CF8382B97BAE000C048B5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		793CF83B2B97BB0600C048B5 /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				1A30663A2B99A9C400B27EA5 /* TextField+Ext.swift */,
 				1A30663C2B9B6CE900B27EA5 /* UIButton+Ext.swift */,
 				64BEEB902B9BD48500AC7D2C /* UITableView+Ext.swift */,
+				790993272B9DA0CF0004F2DD /* UIColor+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				20C161952B98DAA600AD22B4 /* Category.swift in Sources */,
 				20C161902B98DA4500AD22B4 /* CategoriesStore.swift in Sources */,
 				644C2F192B97527C00DC2007 /* MainViewController.swift in Sources */,
+				790993282B9DA0CF0004F2DD /* UIColor+Ext.swift in Sources */,
 				64BEEB912B9BD48500AC7D2C /* UITableView+Ext.swift in Sources */,
 				648F8FA62B9C6A940053BAA6 /* CategoryViewCell.swift in Sources */,
 				644C2F152B97527C00DC2007 /* AppDelegate.swift in Sources */,
