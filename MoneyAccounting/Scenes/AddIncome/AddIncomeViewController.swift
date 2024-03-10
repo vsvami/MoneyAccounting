@@ -18,6 +18,7 @@ final class AddIncomeViewController: UIViewController {
     @IBOutlet var addButton: UIButton!
     
 // MARK: - Public Properties
+    weak var delegate: DataViewControllerDelegate?
     var categoryNames: [String] = []
     
 // MARK: - Private Properties
@@ -99,6 +100,8 @@ final class AddIncomeViewController: UIViewController {
         } else {
             dismiss(animated: true)
         }
+        
+        delegate?.showDataMainVC()
     }
 }
 

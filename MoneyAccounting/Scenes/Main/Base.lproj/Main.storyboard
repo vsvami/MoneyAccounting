@@ -332,7 +332,7 @@
         <!--AddExpenseViewController-->
         <scene sceneID="odO-Ba-k9e">
             <objects>
-                <viewControllerPlaceholder storyboardName="AddExpense" referencedIdentifier="AddExpenseViewController" id="W6w-GL-U3W" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="toAddExpenseVC" storyboardName="AddExpense" referencedIdentifier="AddExpenseViewController" id="W6w-GL-U3W" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P2Z-hx-HvF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="759" y="-130"/>

@@ -18,6 +18,7 @@ final class AddExpenseViewController: UIViewController {
     @IBOutlet var addButton: UIButton!
     
 // MARK: - Public Properties
+    weak var delegate: DataViewControllerDelegate?
     var categoryNames: [String] = []
     
 // MARK: - Private Properties
@@ -97,6 +98,8 @@ final class AddExpenseViewController: UIViewController {
         } else {
             dismiss(animated: true)
         }
+        
+        delegate?.showDataMainVC()
     }
     
 // MARK: - Private Methods
@@ -216,7 +219,6 @@ extension AddExpenseViewController: UIPickerViewDataSource, UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         categoriesStore.categories.forEach { category in
-            print(category.name)
             categoryNames.append(category.name)
         }
         
