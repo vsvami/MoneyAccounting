@@ -14,6 +14,66 @@ final class HistoryViewController: UIViewController {
     
     var selectedIndex: Int!
     
+    private var transactions: (dates: [Date], transactionArrays: [[Transaction]]) {
+        let allTransactions = Person.getPerson().financialPortfolio.getAllTransactions()
+        
+        var dates: [Date] = []
+        var transactionArrays: [[Transaction]] = []
+
+        allTransactions.forEach { transaction in
+            if let index = dates.firstIndex(of: transaction.date) {
+                transactionArrays[index].append(transaction)
+            } else {
+                dates.append(transaction.date)
+                transactionArrays.append([transaction])
+            }
+        }
+
+        return (dates, transactionArrays)
+    }
+    
+    private var incomeTransactions: (dates: [Date], transactionArrays: [[Transaction]]) {
+        let allTransactions = Person.getPerson().financialPortfolio.getAllTransactions()
+        
+        var dates: [Date] = []
+        var transactionArrays: [[Transaction]] = []
+
+        allTransactions.forEach { transaction in
+            if transaction.type == .income {
+                if let index = dates.firstIndex(of: transaction.date) {
+                    transactionArrays[index].append(transaction)
+                } else {
+                    dates.append(transaction.date)
+                    transactionArrays.append([transaction])
+                }
+            }
+        }
+
+        return (dates, transactionArrays)
+    }
+    
+    private var expenseTransactions: (dates: [Date], transactionArrays: [[Transaction]]) {
+        let allTransactions = Person.getPerson().financialPortfolio.getAllTransactions()
+        
+        var dates: [Date] = []
+        var transactionArrays: [[Transaction]] = []
+
+        allTransactions.forEach { transaction in
+            if transaction.type == .expense {
+                if let index = dates.firstIndex(of: transaction.date) {
+                    transactionArrays[index].append(transaction)
+                } else {
+                    dates.append(transaction.date)
+                    transactionArrays.append([transaction])
+                }
+            }
+        }
+        
+        return (dates, transactionArrays)
+    }
+    
+    private var targetTransactions: (dates: [Date], transactionArrays: [[Transaction]]) = ([],[])
+    
     override func viewDidLoad() {
         setupNavigationTittle()
         setupBackBarButtonItem()
@@ -74,14 +134,26 @@ extension HistoryViewController {
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
 extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(segmentedControl.selectedSegmentIndex)
+    func numberOfSections(in tableView: UITableView) -> Int {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            targetTransactions = incomeTransactions
+        case 1:
+            targetTransactions = expenseTransactions
+        default:
+            targetTransactions = transactions
+        }
         
-        return 1
+        return targetTransactions.dates.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        targetTransactions.transactionArrays[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
+        
         
         return cell
     }
