@@ -9,6 +9,7 @@ import UIKit
 
 final class AddExpenseViewController: UIViewController {
 
+// MARK: - IB Outlets
     @IBOutlet var nameExpenceTextField: UITextField!
     @IBOutlet var addAmountTextField: UITextField!
     @IBOutlet var categoryTextField: UITextField!
@@ -16,13 +17,16 @@ final class AddExpenseViewController: UIViewController {
     
     @IBOutlet var addButton: UIButton!
     
+// MARK: - Public Properties
     var categoryNames: [String] = []
     
+// MARK: - Private Properties
     private let transationStore = TransactionStore.shared
     private let categoriesStore = CategoriesStore.shared
     private var pickerView = UIPickerView()
     private let datePicker = UIDatePicker()
     
+// MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,19 +52,22 @@ final class AddExpenseViewController: UIViewController {
         
     }
     
+// MARK: - Overrides Methods
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
     
+// MARK: - IB Actions
     @IBAction func addAction() {
+        // Делаем проверку полей транзакции
         guard let amount = Double(addAmountTextField.text ?? "") else { return }
         let categoryFromList = categoriesStore.categories.first { category in
             category.name == categoryTextField.text
         }
         guard let category = categoryFromList else { return }
         
-        
+        // Если все поля транзакции прошли проверку, то они добавляются в транзакцию
         let transaction = Transaction(
             type: .expense,
             currency: categoriesStore.currency[0],
@@ -69,13 +76,30 @@ final class AddExpenseViewController: UIViewController {
             date: datePicker.date,
             description: nameExpenceTextField.text
         )
-      
+        // Добавляем транзакцию в хранилище
         transationStore.addTransaction(transaction)
         
-        showTargetVC()
-        dismiss(animated: true)
+        // Проверка на превышение лимита по расходам
+        let transactionStore = TransactionStore.shared
+        let goalsStore = GoalsStore.shared
+        
+        let transactions = transactionStore.getAllTransactions()
+        
+        let incomeTotal = transactions.filter { $0.type == .income }.reduce(0) { $0 + $1.amount }
+        let expenseTotal = transactions.filter { $0.type == .expense }.reduce(0) { $0 + $1.amount }
+        
+        let incomeGoal = goalsStore.goals.incomeGoal
+        let expenseLimit = goalsStore.goals.expenseLimit
+        
+        // Если расходы превысили лимит, открывается экран таргет
+        if incomeTotal > incomeGoal || expenseTotal > expenseLimit {
+            showTargetVC()
+        } else {
+            dismiss(animated: true)
+        }
     }
     
+// MARK: - Private Methods
     private func setTextField(_ textField: UITextField, withText placeholder: String) {
         textField.setLeftPaddingPoints(20)
         textField.setRightPaddingPoints(20)
@@ -116,22 +140,9 @@ final class AddExpenseViewController: UIViewController {
     }
     
     private func showTargetVC() {
-        let transactionStore = TransactionStore.shared
-        let goalsStore = GoalsStore.shared
-        
-        let transactions = transactionStore.getAllTransactions()
-        
-        let incomeTotal = transactions.filter { $0.type == .income }.reduce(0) { $0 + $1.amount }
-        let expenseTotal = transactions.filter { $0.type == .expense }.reduce(0) { $0 + $1.amount }
-        
-        let incomeGoal = goalsStore.goals.incomeGoal
-        let expenseLimit = goalsStore.goals.expenseLimit
-        
-        if incomeTotal > incomeGoal || expenseTotal > expenseLimit {
-            let storyboard = UIStoryboard(name: "Target", bundle: nil)
-            let targetVC = storyboard.instantiateViewController(withIdentifier: "TargetViewController") as! TargetViewController
-            present(targetVC, animated: true, completion: nil)
-        }
+        let storyboard = UIStoryboard(name: "Target", bundle: nil)
+        let targetVC = storyboard.instantiateViewController(withIdentifier: "TargetViewController") as! TargetViewController
+        present(targetVC, animated: true, completion: nil)
     }
     
     private func showAlert(withTitle title: String, andMessage message: String, textField: UITextField? = nil) {
@@ -143,7 +154,6 @@ final class AddExpenseViewController: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
-    
 }
 
 // MARK: - UITextFieldDelegate
