@@ -8,7 +8,7 @@
 import UIKit
 
 final class RegistrationViewController: UIViewController {
-
+    
     @IBOutlet var loginTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     @IBOutlet var emailTF: UITextField!
@@ -24,6 +24,19 @@ final class RegistrationViewController: UIViewController {
     }
     
     @IBAction func saveAction() {
+        guard let email = emailTF.text, !email.isEmpty,
+              let password = passwordTF.text, !password.isEmpty,
+              let login = loginTF.text, !login.isEmpty else {
+            //TODO:
+            //прописать алерт неверный логин и пароль
+            return
+        }
+        
+        let newUser = User(email: email, password: password, person: Person.getPerson())
+        
+        // Добавление нового пользователя в UsersStore
+        UsersStore.shared.addUser(newUser)
+        
         self.dismiss(animated: true)
     }
     
