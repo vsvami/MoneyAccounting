@@ -14,7 +14,7 @@ final class HistoryViewController: UIViewController {
     
     var selectedIndex: Int!
     
-    // MARK: - Public Properties
+    // MARK: - Private Properties
     private var transactions: (dates: [Date], transactionArrays: [[Transaction]]) {
         let allTransactions = Person.getPerson().financialPortfolio.getAllTransactions()
         let sortedTransactions = allTransactions.sorted { $0.date > $1.date }

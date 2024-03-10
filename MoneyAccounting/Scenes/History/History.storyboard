@@ -38,27 +38,27 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HistoryCell" id="YVH-nR-Ssg" customClass="HistoryViewCell" customModule="MoneyAccounting" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="361" height="50.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="50" width="361" height="47.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YVH-nR-Ssg" id="ZQ3-lE-BQP">
-                                            <rect key="frame" x="0.0" y="0.0" width="361" height="50.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="47.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="y6g-Mp-snD">
-                                                    <rect key="frame" x="20" y="0.0" width="321" height="50.333333333333336"/>
+                                                    <rect key="frame" x="20" y="0.0" width="321" height="47.666666666666664"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="a3P-aj-JDr">
-                                                            <rect key="frame" x="0.0" y="0.0" width="160" height="50.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="160" height="47.666666666666664"/>
                                                             <subviews>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Desription" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mgS-xN-5og">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="23.666666666666668"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="22.333333333333332"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iWs-1n-kFY">
-                                                                    <rect key="frame" x="0.0" y="26.666666666666664" width="160" height="23.666666666666664"/>
+                                                                    <rect key="frame" x="0.0" y="25.333333333333329" width="160" height="22"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                     <color key="textColor" red="0.52549019607843139" green="0.5607843137254902" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
@@ -70,7 +70,7 @@
                                                             </constraints>
                                                         </stackView>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uYu-HT-qWl">
-                                                            <rect key="frame" x="161" y="0.0" width="160" height="50.333333333333336"/>
+                                                            <rect key="frame" x="161" y="0.0" width="160" height="47.333333333333336"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <nil key="textColor"/>
@@ -108,9 +108,9 @@
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="KGp-Mc-ptP" secondAttribute="trailing" constant="16" id="6EV-Re-P5S"/>
                             <constraint firstItem="KGp-Mc-ptP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="DYH-v7-ci3"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="KGp-Mc-ptP" secondAttribute="bottom" constant="16" id="GsO-pO-Ptz"/>
                             <constraint firstItem="KGp-Mc-ptP" firstAttribute="top" secondItem="lVL-X6-LKr" secondAttribute="bottom" constant="30" id="OPF-cr-jth"/>
                             <constraint firstItem="lVL-X6-LKr" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Q4N-B4-Kh5"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="KGp-Mc-ptP" secondAttribute="bottom" constant="16" id="khe-Cc-oSH"/>
                             <constraint firstItem="lVL-X6-LKr" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="n6w-u2-1XZ"/>
                         </constraints>
                     </view>
