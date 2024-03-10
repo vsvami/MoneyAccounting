@@ -35,12 +35,21 @@ class DevelopersViewController: UIViewController {
         dariaImageView.layer.cornerRadius = dariaImageView.frame.height / 2
         ivanImageView.layer.cornerRadius = ivanImageView.frame.height / 2
         
-        donationButton.backgroundColor = UIColor(
-            red: 249/255,
-            green: 249/255,
-            blue: 252/255,
-            alpha: 1
+        donationButton.setAccentButton()
+    }
+    
+    @IBAction func closeButtonAction() {
+        dismiss(animated: true)
+    }
+    
+    @IBAction func donationButtonAction() {
+        let alert = UIAlertController(
+            title: "Спасибо за донат",
+            message: "Мы рады, что вам нравится наше приложение",
+            preferredStyle: .alert
         )
-        donationButton.layer.cornerRadius = donationButton.frame.height / 2
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }
