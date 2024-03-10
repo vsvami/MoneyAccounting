@@ -83,9 +83,8 @@ final class SettingsViewController: UIViewController, UITextFieldDelegate {
     
 }
 
-// MARK: - UITextFieldDelegate
+    // MARK: - UITextFieldDelegate
 func textFieldDidBeginEditing(_ textField: UITextField) {
-    
     textField.rightViewMode = .never
 }
 
@@ -96,7 +95,7 @@ func textFieldDidEndEditing(_ textField: UITextField) {
     }
 }
 
-//MARK: - NavigationBar
+    //MARK: - NavigationBar
 extension SettingsViewController {
     func setupNavigationBar() {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
@@ -115,7 +114,7 @@ extension SettingsViewController {
     }
 }
 
-// MARK: - Extentions
+    // MARK: - Extentions
 extension UILabel {
     static func createLabel(withText text: String) -> UILabel {
         let label = UILabel()
