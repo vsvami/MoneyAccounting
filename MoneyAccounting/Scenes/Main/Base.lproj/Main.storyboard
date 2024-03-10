@@ -217,7 +217,6 @@
                                                             <fontDescription key="subtitleFontDescription" type="system" pointSize="10"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <action selector="showHistoryTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BZO-cY-3mQ"/>
                                                             <segue destination="oPS-aL-Nf0" kind="show" identifier="toHistoryVCIncome" id="I3t-De-zBv"/>
                                                         </connections>
                                                     </button>
@@ -230,7 +229,6 @@
                                                             <fontDescription key="subtitleFontDescription" type="system" pointSize="10"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <action selector="showHistoryTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9G7-Jm-e1p"/>
                                                             <segue destination="oPS-aL-Nf0" kind="show" identifier="toHistoryVCExpense" id="y6J-xL-im3"/>
                                                         </connections>
                                                     </button>
@@ -369,7 +367,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="y6J-xL-im3"/>
+        <segue reference="I3t-De-zBv"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="iconMinusButton" width="50" height="50"/>
