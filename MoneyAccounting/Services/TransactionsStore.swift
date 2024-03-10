@@ -20,7 +20,7 @@ final class TransactionStore {
             amount: 1200,
             category: CategoriesStore.shared.categories[0],
             date: Date(timeIntervalSinceReferenceDate: 500000000),
-            description: "Something"
+            description: "Спортзал"
         ),
         Transaction(
             type: .expense,
@@ -28,7 +28,7 @@ final class TransactionStore {
             amount: 348,
             category: CategoriesStore.shared.categories[1],
             date: Date(timeIntervalSinceReferenceDate: 50000000),
-            description: "Something yet"
+            description: "Две футболки"
         ),
         Transaction(
             type: .expense,
@@ -36,7 +36,7 @@ final class TransactionStore {
             amount: 540,
             category: CategoriesStore.shared.categories[2],
             date: Date(timeIntervalSinceReferenceDate: 500000000),
-            description: "Do something"
+            description: "Корм для котика"
         ),
         Transaction(
             type: .expense,
@@ -44,7 +44,7 @@ final class TransactionStore {
             amount: 820,
             category: CategoriesStore.shared.categories[1],
             date: Date(timeIntervalSinceReferenceDate: 50000000),
-            description: "Buy something"
+            description: "Новые джинсы"
         ),
         Transaction(
             type: .expense,
@@ -52,7 +52,7 @@ final class TransactionStore {
             amount: 235,
             category: CategoriesStore.shared.categories[3],
             date: Date(timeIntervalSinceReferenceDate: 470000000),
-            description: "Put something"
+            description: "Продукты домой"
         ),
         Transaction(
             type: .expense,
@@ -60,7 +60,7 @@ final class TransactionStore {
             amount: 140,
             category: CategoriesStore.shared.categories[0],
             date: Date(timeIntervalSinceReferenceDate: 470000000),
-            description: "Sell something"
+            description: "Витамины"
         ),
         Transaction(
             type: .expense,
@@ -68,7 +68,31 @@ final class TransactionStore {
             amount: 740,
             category: CategoriesStore.shared.categories[3],
             date: Date(timeIntervalSinceReferenceDate: 470000000),
-            description: "Fly something"
+            description: "Суши"
+        ),
+        Transaction(
+            type: .income,
+            currency: CategoriesStore.shared.currency[0],
+            amount: 270000,
+            category: CategoriesStore.shared.categories[3],
+            date: Date(timeIntervalSinceReferenceDate: 470050000),
+            description: "Зарплата"
+        ),
+        Transaction(
+            type: .income,
+            currency: CategoriesStore.shared.currency[0],
+            amount: 120000,
+            category: CategoriesStore.shared.categories[3],
+            date: Date(timeIntervalSinceReferenceDate: 470100000),
+            description: "Процент(тачки)"
+        ),
+        Transaction(
+            type: .income,
+            currency: CategoriesStore.shared.currency[0],
+            amount: 40000,
+            category: CategoriesStore.shared.categories[3],
+            date: Date(timeIntervalSinceReferenceDate: 470020000),
+            description: "Премия"
         )
     ]
     
