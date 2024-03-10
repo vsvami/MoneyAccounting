@@ -20,7 +20,6 @@ final class AddExpenseViewController: UIViewController {
     
     private let transationStore = TransactionStore.shared
     private let categoriesStore = CategoriesStore.shared
-    private var transaction: Transaction?
     private var pickerView = UIPickerView()
     private let datePicker = UIDatePicker()
     
@@ -38,15 +37,15 @@ final class AddExpenseViewController: UIViewController {
         
         addButton.setAccentButton()
         
-        transaction?.type = .expense
-        transaction?.currency = categoriesStore.currency[0]
-        
         pickerView.delegate = self
         pickerView.dataSource = self
+        nameExpenceTextField.delegate = self
+        addAmountTextField.delegate = self
+        categoryTextField.delegate = self
+        dateTextField.delegate = self
         
         categoryTextField.inputView = pickerView
         
-        showTargetVC()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -55,10 +54,25 @@ final class AddExpenseViewController: UIViewController {
     }
     
     @IBAction func addAction() {
-        if let transaction {
-            transationStore.addTransaction(transaction)
+        guard let amount = Double(addAmountTextField.text ?? "") else { return }
+        let categoryFromList = categoriesStore.categories.first { category in
+            category.name == categoryTextField.text
         }
+        guard let category = categoryFromList else { return }
         
+        
+        let transaction = Transaction(
+            type: .expense,
+            currency: categoriesStore.currency[0],
+            amount: amount,
+            category: category,
+            date: datePicker.date,
+            description: nameExpenceTextField.text
+        )
+      
+        transationStore.addTransaction(transaction)
+        
+        showTargetVC()
         dismiss(animated: true)
     }
     
@@ -115,7 +129,7 @@ final class AddExpenseViewController: UIViewController {
         
         if incomeTotal > incomeGoal || expenseTotal > expenseLimit {
             let storyboard = UIStoryboard(name: "Target", bundle: nil)
-            let targetVC = storyboard.instantiateViewController(withIdentifier: "TargetViewController") as! AddExpenseViewController
+            let targetVC = storyboard.instantiateViewController(withIdentifier: "TargetViewController") as? AddExpenseViewController
             present(targetVC, animated: true, completion: nil)
         }
     }
@@ -141,26 +155,17 @@ extension AddExpenseViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField {
         case addAmountTextField:
-            guard let text = Double(textField.text ?? "") else {
+            guard (Double(textField.text ?? "") != nil) else {
                 showAlert(withTitle: "Wrong format!", andMessage: "Please enter correct value")
                 return
             }
-            transaction?.amount = text
-        case nameExpenceTextField:
-            guard let text = textField.text else {
+        case nameExpenceTextField, categoryTextField:
+            if (textField.text == "") {
                 showAlert(withTitle: "Wrong format!", andMessage: "Please enter correct value")
                 return
             }
-            transaction?.description = text
-        case categoryTextField:
-            let categoryFromList = categoriesStore.categories.first { category in
-                category.name == categoryTextField.text
-            }
-            guard let category = categoryFromList else { return }
-            
-            transaction?.category = category
         default:
-            transaction?.date = datePicker.date
+            return
         }
     }
     
