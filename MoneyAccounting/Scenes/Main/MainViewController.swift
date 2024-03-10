@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DataViewControllerDelegate: AnyObject {
+    func showDataMainVC()
+}
+
 final class MainViewController: UIViewController {
     
     // MARK: - IB Outlets
@@ -25,6 +29,18 @@ final class MainViewController: UIViewController {
     private let categories = CategoriesStore.shared
     private let transactions = TransactionStore.shared
     
+    private var sumIncomeTransactions: Double {
+        transactions.getAllTransactions()
+            .filter { $0.type == .income }
+            .reduce(0) { $0 + $1.amount }
+    }
+    
+    private var sumExpenseTransactions: Double {
+        transactions.getAllTransactions()
+            .filter { $0.type == .expense }
+            .reduce(0) { $0 + $1.amount }
+    }
+    
     // MARK: - View Life Cycles
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -34,16 +50,7 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Tim Cook"
-        
-        balanceLabel.text = String(format: "%.2f", transactions.totalBalance())
-        
-        //FIXME: - add methods for all income and all expence
-        
-        incomeLabel.text = "1000"
-        expenseLabel.text = "2000"
-        
-        categoriesTableView.rowHeight = 50
+        showDataMainVC()
     }
     
     override func viewDidLayoutSubviews() {
@@ -60,6 +67,18 @@ final class MainViewController: UIViewController {
                 } else {
                     historyVC.selectedIndex = 1
                 }
+            }
+        }
+        
+        if segue.identifier == "toAddIncomeVC" {
+            if let addIncomeVC = segue.destination as? AddIncomeViewController {
+                addIncomeVC.delegate = self
+            }
+        }
+        
+        if segue.identifier == "toAddExpenseVC" {
+            if let addExpenseVC = segue.destination as? AddExpenseViewController {
+                addExpenseVC.delegate = self
             }
         }
         
@@ -152,6 +171,23 @@ private extension MainViewController {
     }
 }
 
+extension MainViewController: DataViewControllerDelegate {
+    func showDataMainVC() {
+        title = Person.getPerson().fullName
+        
+        balanceLabel.text = String(format: "%.2f", transactions.totalBalance())
+        
+        incomeLabel.text = String(sumIncomeTransactions)
+        expenseLabel.text = String(sumExpenseTransactions)
+        
+        targetIncomeLabel.text = String(GoalsStore.shared.goals.incomeGoal)
+        targetExpenseLabel.text = String(GoalsStore.shared.goals.expenseLimit)
+        
+        categoriesTableView.rowHeight = 50
+        categoriesTableView.separatorColor = UIColor.lightGray.withAlphaComponent(0.3)
+    }
+}
+
 // MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -195,6 +231,10 @@ extension MainViewController: UITableViewDelegate {
         let backgroundColorView = UIView()
         backgroundColorView.backgroundColor = UIColor.white
         cell.selectedBackgroundView = backgroundColorView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60
     }
     
 }
