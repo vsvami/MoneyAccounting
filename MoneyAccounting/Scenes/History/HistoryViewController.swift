@@ -14,13 +14,15 @@ final class HistoryViewController: UIViewController {
     
     var selectedIndex: Int!
     
+    // MARK: - Public Properties
     private var transactions: (dates: [Date], transactionArrays: [[Transaction]]) {
         let allTransactions = Person.getPerson().financialPortfolio.getAllTransactions()
+        let sortedTransactions = allTransactions.sorted { $0.date > $1.date }
         
         var dates: [Date] = []
         var transactionArrays: [[Transaction]] = []
 
-        allTransactions.forEach { transaction in
+        sortedTransactions.forEach { transaction in
             if let index = dates.firstIndex(of: transaction.date) {
                 transactionArrays[index].append(transaction)
             } else {
@@ -34,11 +36,12 @@ final class HistoryViewController: UIViewController {
     
     private var incomeTransactions: (dates: [Date], transactionArrays: [[Transaction]]) {
         let allTransactions = Person.getPerson().financialPortfolio.getAllTransactions()
+        let sortedTransactions = allTransactions.sorted { $0.date > $1.date }
         
         var dates: [Date] = []
         var transactionArrays: [[Transaction]] = []
 
-        allTransactions.forEach { transaction in
+        sortedTransactions.forEach { transaction in
             if transaction.type == .income {
                 if let index = dates.firstIndex(of: transaction.date) {
                     transactionArrays[index].append(transaction)
@@ -54,11 +57,12 @@ final class HistoryViewController: UIViewController {
     
     private var expenseTransactions: (dates: [Date], transactionArrays: [[Transaction]]) {
         let allTransactions = Person.getPerson().financialPortfolio.getAllTransactions()
+        let sortedTransactions = allTransactions.sorted { $0.date > $1.date }
         
         var dates: [Date] = []
         var transactionArrays: [[Transaction]] = []
 
-        allTransactions.forEach { transaction in
+        sortedTransactions.forEach { transaction in
             if transaction.type == .expense {
                 if let index = dates.firstIndex(of: transaction.date) {
                     transactionArrays[index].append(transaction)
@@ -195,8 +199,6 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.layer.maskedCorners = []
             }
         }
-
-
         
         return cell
     }
@@ -217,6 +219,10 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         50
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -262,11 +268,9 @@ final class CustomizableSegmentControl: UISegmentedControl {
         super.layoutSubviews()
         self.backgroundColor = UIColor(hex: "#F9F9FC")
         
-        // Background Radius
         self.layer.cornerRadius = self.radius
         self.layer.masksToBounds = true
         
-        // Find selectedImageView
         let selectedImageViewIndex = numberOfSegments
         
         if let selectedImageView = subviews[selectedImageViewIndex] as? UIImageView {

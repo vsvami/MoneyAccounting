@@ -19,11 +19,12 @@ class CategoryViewController: UIViewController {
             for: category.name,
             from: Person.getPerson().financialPortfolio.getAllTransactions()
         )
+        let sortedTransactions = allTransactions.sorted { $0.date > $1.date }
         
         var dates: [Date] = []
         var transactionArrays: [[Transaction]] = []
 
-        allTransactions.forEach { transaction in
+        sortedTransactions.forEach { transaction in
             if let index = dates.firstIndex(of: transaction.date) {
                 transactionArrays[index].append(transaction)
             } else {
@@ -34,7 +35,6 @@ class CategoryViewController: UIViewController {
 
         return (dates, transactionArrays)
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
