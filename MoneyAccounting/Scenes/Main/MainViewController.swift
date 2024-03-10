@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DataViewControllerDelegate {
+    func showDataMainVC()
+}
+
 final class MainViewController: UIViewController {
     
     // MARK: - IB Outlets
@@ -46,16 +50,7 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Tim Cook"
-        
-        balanceLabel.text = String(format: "%.2f", transactions.totalBalance())
-        
-        //FIXME: - add methods for all income and all expence
-        
-        incomeLabel.text = String(sumIncomeTransactions)
-        expenseLabel.text = String(sumExpenseTransactions)
-        
-        categoriesTableView.rowHeight = 50
+        showDataMainVC()
     }
     
     override func viewDidLayoutSubviews() {
@@ -164,6 +159,23 @@ private extension MainViewController {
     }
 }
 
+extension MainViewController: DataViewControllerDelegate {
+    func showDataMainVC() {
+        title = Person.getPerson().fullName
+        
+        balanceLabel.text = String(format: "%.2f", transactions.totalBalance())
+        
+        incomeLabel.text = String(sumIncomeTransactions)
+        expenseLabel.text = String(sumExpenseTransactions)
+        
+        targetIncomeLabel.text = String(GoalsStore.shared.goals.incomeGoal)
+        targetExpenseLabel.text = String(GoalsStore.shared.goals.expenseLimit)
+        
+        categoriesTableView.rowHeight = 50
+        categoriesTableView.separatorColor = UIColor.lightGray.withAlphaComponent(0.3)
+    }
+}
+
 // MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -207,6 +219,10 @@ extension MainViewController: UITableViewDelegate {
         let backgroundColorView = UIView()
         backgroundColorView.backgroundColor = UIColor.white
         cell.selectedBackgroundView = backgroundColorView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60
     }
     
 }
