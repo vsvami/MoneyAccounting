@@ -17,7 +17,6 @@ struct Person {
     }
     
     static func getPerson() -> Person {
-        
         Person(
             firstName: "Tim",
             lastName: "Cook",
