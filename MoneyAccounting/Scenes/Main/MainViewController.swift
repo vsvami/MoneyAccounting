@@ -25,6 +25,18 @@ final class MainViewController: UIViewController {
     private let categories = CategoriesStore.shared
     private let transactions = TransactionStore.shared
     
+    private var sumIncomeTransactions: Double {
+        transactions.getAllTransactions()
+            .filter { $0.type == .income }
+            .reduce(0) { $0 + $1.amount }
+    }
+    
+    private var sumExpenseTransactions: Double {
+        transactions.getAllTransactions()
+            .filter { $0.type == .expense }
+            .reduce(0) { $0 + $1.amount }
+    }
+    
     // MARK: - View Life Cycles
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -40,8 +52,8 @@ final class MainViewController: UIViewController {
         
         //FIXME: - add methods for all income and all expence
         
-        incomeLabel.text = "1000"
-        expenseLabel.text = "2000"
+        incomeLabel.text = String(sumIncomeTransactions)
+        expenseLabel.text = String(sumExpenseTransactions)
         
         categoriesTableView.rowHeight = 50
     }
