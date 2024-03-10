@@ -28,6 +28,7 @@ final class MainViewController: UIViewController {
     // MARK: - Private Properties
     private let categories = CategoriesStore.shared
     private let transactions = TransactionStore.shared
+    private let personsStore = PersonsStore.shared
     
     private var sumIncomeTransactions: Double {
         transactions.getAllTransactions()
@@ -173,7 +174,7 @@ private extension MainViewController {
 
 extension MainViewController: DataViewControllerDelegate {
     func showDataMainVC() {
-        title = Person.getPerson().fullName
+        title = personsStore.person.fullName
         
         balanceLabel.text = String(format: "%.2f", transactions.totalBalance())
         

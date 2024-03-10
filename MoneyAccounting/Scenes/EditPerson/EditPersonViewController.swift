@@ -14,8 +14,8 @@ final class EditPersonViewController: UIViewController {
     private let personStore = PersonsStore.shared
     private let usersStore = UsersStore.shared
     
-    var infoUser: [String] = []
-   
+    private var infoUser: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
@@ -23,7 +23,6 @@ final class EditPersonViewController: UIViewController {
         tableViewTV.delegate = self
         tableViewTV.dataSource = self
         updateInfoUser()
-        
     }
     
     private func updateInfoUser() {
@@ -32,44 +31,44 @@ final class EditPersonViewController: UIViewController {
             personStore.person.lastName,
             usersStore.users.email,
             String(usersStore.users.password.map { _ in "*" }),
-       ]
+        ]
     }
     
     @objc func saveButtonTapped() {
         var collectedData = [String: String]()
-
-          for row in 0..<infoUser.count {
-              if let cell = tableViewTV.cellForRow(at: IndexPath(row: row, section: 0)) as? EditPersonViewCell,
-                 let text = cell.enterTextField.text {
-                  switch row {
-                  case 0:
-                      collectedData["firstName"] = text
-                  case 1:
-                      collectedData["lastName"] = text
-                  case 2:
-                      collectedData["email"] = text
-                  case 3:
-                      collectedData["password"] = text
-                  default:
-                      break
-                  }
-              }
-          }
-          
-          // Обновляеме person в DataStore
-          if let firstName = collectedData["firstName"],
-             let lastName = collectedData["lastName"],
-             let email = collectedData["email"],
-             let password = collectedData["password"] {
-              
-              // Обновляем данные person и user в DataStore
-              personStore.person.firstName = firstName
-              personStore.person.lastName = lastName
-              usersStore.users.email = email
-              usersStore.users.password = password
-              
-          }
-        navigationController?.popViewController(animated: true)
+        
+        for row in 0..<infoUser.count {
+            if let cell = tableViewTV.cellForRow(at: IndexPath(row: row, section: 0)) as? EditPersonViewCell,
+               let text = cell.enterTextField.text {
+                switch row {
+                case 0:
+                    collectedData["firstName"] = text
+                case 1:
+                    collectedData["lastName"] = text
+                case 2:
+                    collectedData["email"] = text
+                case 3:
+                    collectedData["password"] = text
+                default:
+                    break
+                }
+            }
+        }
+        
+        // Обновляеме person в DataStore
+        if let firstName = collectedData["firstName"],
+           let lastName = collectedData["lastName"],
+           let email = collectedData["email"],
+           let password = collectedData["password"] {
+            
+            // Обновляем данные person и user в DataStore
+            personStore.person.firstName = firstName
+            personStore.person.lastName = lastName
+            usersStore.users.email = email
+            usersStore.users.password = password
+            
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     // MARK: - Overrides Methods
@@ -77,7 +76,6 @@ final class EditPersonViewController: UIViewController {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
-    
 }
 
 //MARK: - NavigationBar
@@ -109,7 +107,6 @@ extension EditPersonViewController {
         navigationItem.rightBarButtonItem = saveBarButton
         saveBarButton.tintColor = .systemBlue
     }
-    
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
@@ -141,7 +138,7 @@ extension EditPersonViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cornerRadius: CGFloat = 10
         let maskLayer = CAShapeLayer()
-       
+        
         if tableView.numberOfSections == 1 && tableView.numberOfRows(inSection: indexPath.section) == 4 {
             if indexPath.row == 0 {
                 // Скругление верхних углов первой ячейки
@@ -158,7 +155,7 @@ extension EditPersonViewController: UITableViewDataSource, UITableViewDelegate {
             }
             cell.layer.mask = maskLayer
         }
-
+        
         return cell
     }
     
@@ -172,5 +169,4 @@ extension EditPersonViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
     }
-    
 }

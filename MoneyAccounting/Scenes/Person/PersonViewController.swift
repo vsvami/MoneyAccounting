@@ -10,10 +10,11 @@ final class PersonViewController: UIViewController {
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var logOutButton: UIButton!
     
+    @IBOutlet var infoTableView: UITableView!
     private let personStore = PersonsStore.shared
     private let usersStore = UsersStore.shared
     
-    var infoUser: [String] = []
+    private var infoUser: [String] = []
     
     //MARK: Life Circle
     override func viewWillAppear(_ animated: Bool) {
@@ -21,11 +22,15 @@ final class PersonViewController: UIViewController {
         updateInfoUser()
         setupNavigationTittle()
         setupBarButtonItems()
+        infoTableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
+        infoTableView.delegate = self
+        infoTableView.dataSource = self
+        
         photoImageView.layer.cornerRadius = photoImageView.frame.height / 2
         photoImageView.image = UIImage.tc
         photoImageView.contentMode = .scaleAspectFill
@@ -42,7 +47,7 @@ final class PersonViewController: UIViewController {
             personStore.person.lastName,
             usersStore.users.email,
             String(usersStore.users.password.map { _ in "*" }),
-       ]
+        ]
     }
     
     //MARK: - Public Methods
@@ -110,7 +115,7 @@ extension PersonViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cornerRadius: CGFloat = 10
         let maskLayer = CAShapeLayer()
-
+        
         if tableView.numberOfSections == 1 && tableView.numberOfRows(inSection: indexPath.section) == 4 {
             if indexPath.row == 0 {
                 // Скругление верхних углов первой ячейки
@@ -127,7 +132,7 @@ extension PersonViewController: UITableViewDataSource, UITableViewDelegate {
             }
             cell.layer.mask = maskLayer
         }
-
+        
         return cell
     }
     
@@ -185,8 +190,15 @@ extension PersonViewController {
         let editBarButtonItem = UIBarButtonItem(customView: editButton)
         
         navigationItem.rightBarButtonItem = editBarButtonItem
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "Назад",
+            style: .plain,
+            target: nil,
+            action: nil
+        )
     }
-
+    
     func setupNavigationTittle() {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
         navigationController?.navigationBar.tintColor = .systemBlue
@@ -194,6 +206,5 @@ extension PersonViewController {
         navigationItem.title = personStore.person.fullName
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
-      
     }
 }
