@@ -10,6 +10,7 @@ import UIKit
 class CategoryViewController: UIViewController {
     
     @IBOutlet var categoryLabel: UILabel!
+    @IBOutlet var categoryTableView: UITableView!
     
     var category: Category!
     
@@ -18,11 +19,12 @@ class CategoryViewController: UIViewController {
             for: category.name,
             from: Person.getPerson().financialPortfolio.getAllTransactions()
         )
+        let sortedTransactions = allTransactions.sorted { $0.date > $1.date }
         
         var dates: [Date] = []
         var transactionArrays: [[Transaction]] = []
 
-        allTransactions.forEach { transaction in
+        sortedTransactions.forEach { transaction in
             if let index = dates.firstIndex(of: transaction.date) {
                 transactionArrays[index].append(transaction)
             } else {
@@ -33,12 +35,12 @@ class CategoryViewController: UIViewController {
 
         return (dates, transactionArrays)
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryLabel.text = category.name
         setupBackBarButtonItem()
+        categoryTableView.separatorColor = UIColor.lightGray.withAlphaComponent(0.3)
     }
     
     @objc private func backButtonPressed() {
@@ -99,12 +101,20 @@ extension CategoryViewController: UITableViewDataSource {
             if indexPath.row == 0 {
                 // Скругление верхних углов первой ячейки
                 let bounds = cell.bounds
-                let rectPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+                let rectPath = UIBezierPath(
+                    roundedRect: bounds,
+                    byRoundingCorners: [.topLeft, .topRight],
+                    cornerRadii: CGSize(width: cornerRadius, height: cornerRadius)
+                )
                 maskLayer.path = rectPath.cgPath
             } else if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
                 // Скругление нижних углов последней ячейки
                 let bounds = cell.bounds
-                let rectPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+                let rectPath = UIBezierPath(
+                    roundedRect: bounds,
+                    byRoundingCorners: [.bottomLeft, .bottomRight],
+                    cornerRadii: CGSize(width: cornerRadius, height: cornerRadius)
+                )
                 maskLayer.path = rectPath.cgPath
             } else {
                 // Для остальных ячеек не применяем скругление углов
@@ -119,13 +129,7 @@ extension CategoryViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension CategoryViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
-        
-        let label = UILabel(frame: CGRect(x: 10, y: 10, width: tableView.frame.width - 20, height: 40))
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textColor = UIColor.black
-        
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let date = transactions.dates[section]
         let transactionsForDate = transactions.transactionArrays[section]
         
@@ -133,16 +137,27 @@ extension CategoryViewController: UITableViewDelegate {
             let dateFormatter = DateFormatter()
             dateFormatter.locale = Locale(identifier: "ru_RU")
             dateFormatter.dateFormat = "dd MMMM yy"
-            label.text = dateFormatter.string(from: date)
+            return dateFormatter.string(from: date)
         } else {
-            label.text = ""
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else {
+            return
         }
         
-        headerView.addSubview(label)
-        return headerView
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        header.roundCorners(corners: .allCorners, radius: 10)
+        header.textLabel?.textColor = .black
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         50
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60
     }
 }
