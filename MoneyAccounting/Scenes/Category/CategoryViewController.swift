@@ -99,12 +99,20 @@ extension CategoryViewController: UITableViewDataSource {
             if indexPath.row == 0 {
                 // Скругление верхних углов первой ячейки
                 let bounds = cell.bounds
-                let rectPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+                let rectPath = UIBezierPath(
+                    roundedRect: bounds,
+                    byRoundingCorners: [.topLeft, .topRight],
+                    cornerRadii: CGSize(width: cornerRadius, height: cornerRadius)
+                )
                 maskLayer.path = rectPath.cgPath
             } else if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
                 // Скругление нижних углов последней ячейки
                 let bounds = cell.bounds
-                let rectPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+                let rectPath = UIBezierPath(
+                    roundedRect: bounds,
+                    byRoundingCorners: [.bottomLeft, .bottomRight],
+                    cornerRadii: CGSize(width: cornerRadius, height: cornerRadius)
+                )
                 maskLayer.path = rectPath.cgPath
             } else {
                 // Для остальных ячеек не применяем скругление углов

@@ -10,9 +10,12 @@ import UIKit
 final class HistoryViewController: UIViewController {
 
     @IBOutlet var segmentedControl: UISegmentedControl!
+    @IBOutlet var historyTableView: UITableView!
+    
     var selectedIndex: Int!
     
     override func viewDidLoad() {
+        setupNavigationTittle()
         setupBackBarButtonItem()
         setupFirstConfigSegmentedControl()
         segmentedControl.selectedSegmentIndex = selectedIndex
@@ -20,6 +23,7 @@ final class HistoryViewController: UIViewController {
     
     // MARK: IBActions
     @IBAction func segmentedControlAction() {
+        historyTableView.reloadData()
     }
     
     @objc private func backButtonPressed() {
@@ -56,6 +60,30 @@ extension HistoryViewController {
         let backBarButtonItem = UIBarButtonItem(customView: backButton)
         
         navigationItem.leftBarButtonItem = backBarButtonItem
+    }
+    
+    func setupNavigationTittle() {
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
+        navigationController?.navigationBar.tintColor = .systemBlue
+        navigationItem.hidesBackButton = false
+        navigationItem.title = "История"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+    }
+}
+
+// MARK: - UITableViewDataSource, UITableViewDelegate
+extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(segmentedControl.selectedSegmentIndex)
+        
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
+        
+        return cell
     }
 }
 
