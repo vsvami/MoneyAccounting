@@ -37,13 +37,59 @@
                                 <rect key="frame" x="16" y="169" width="361" height="633"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="historyCell" id="YVH-nR-Ssg">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HistoryCell" id="YVH-nR-Ssg" customClass="HistoryViewCell" customModule="MoneyAccounting" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="361" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YVH-nR-Ssg" id="ZQ3-lE-BQP">
                                             <rect key="frame" x="0.0" y="0.0" width="361" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="205" translatesAutoresizingMaskIntoConstraints="NO" id="E8g-Bl-VP6">
+                                                    <rect key="frame" x="20" y="-3.3333333333333321" width="321" height="50.333333333333329"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Yuz-NP-83S">
+                                                            <rect key="frame" x="0.0" y="0.0" width="72" height="50.333333333333336"/>
+                                                            <subviews>
+                                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Desription" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mgS-xN-5og">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="66.333333333333329" height="23.666666666666668"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iWs-1n-kFY">
+                                                                    <rect key="frame" x="0.0" y="26.666666666666664" width="44.333333333333336" height="23.666666666666664"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                    <color key="textColor" red="0.52549019607843139" green="0.5607843137254902" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uYu-HT-qWl">
+                                                            <rect key="frame" x="277" y="0.0" width="44" height="50.333333333333336"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="dQa-bf-OtW"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="E8g-Bl-VP6" secondAttribute="trailing" constant="20" id="IHv-fd-jjp"/>
+                                                <constraint firstItem="E8g-Bl-VP6" firstAttribute="leading" secondItem="ZQ3-lE-BQP" secondAttribute="leading" constant="20" id="UGN-wZ-Tgh"/>
+                                                <constraint firstItem="E8g-Bl-VP6" firstAttribute="centerY" secondItem="ZQ3-lE-BQP" secondAttribute="centerY" id="py0-LJ-Eon"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="amountLabel" destination="uYu-HT-qWl" id="qP1-Uc-haP"/>
+                                            <outlet property="categoryLabel" destination="iWs-1n-kFY" id="u8S-cm-2RS"/>
+                                            <outlet property="descriptionLabel" destination="mgS-xN-5og" id="GEz-0Z-g0B"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

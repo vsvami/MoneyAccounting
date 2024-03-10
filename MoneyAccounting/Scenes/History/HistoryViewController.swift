@@ -153,7 +153,11 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
+        let transactions = targetTransactions.transactionArrays[indexPath.section]
+        let transaction = transactions[indexPath.row]
         
+        let content = cell.defaultContentConfiguration()
+//        content.text = transaction.
         
         return cell
     }
