@@ -83,6 +83,7 @@ final class HistoryViewController: UIViewController {
         setupBackBarButtonItem()
         setupFirstConfigSegmentedControl()
         segmentedControl.selectedSegmentIndex = selectedIndex
+        
         historyTableView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 10)
         historyTableView.separatorColor = UIColor.lightGray.withAlphaComponent(0.3)
     }
@@ -170,7 +171,7 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
         
         if transaction.type == .income {
             cell.amountLabel.text = "+\(transaction.amount) \(transaction.currency)"
-            cell.amountLabel.textColor = .green
+            cell.amountLabel.textColor = .systemGreen
         } else {
             cell.amountLabel.text = "-\(transaction.amount) \(transaction.currency)"
             cell.amountLabel.textColor = .red

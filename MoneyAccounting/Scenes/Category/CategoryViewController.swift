@@ -25,11 +25,13 @@ class CategoryViewController: UIViewController {
         var transactionArrays: [[Transaction]] = []
 
         sortedTransactions.forEach { transaction in
-            if let index = dates.firstIndex(of: transaction.date) {
-                transactionArrays[index].append(transaction)
-            } else {
-                dates.append(transaction.date)
-                transactionArrays.append([transaction])
+            if transaction.type == .expense {
+                if let index = dates.firstIndex(of: transaction.date) {
+                    transactionArrays[index].append(transaction)
+                } else {
+                    dates.append(transaction.date)
+                    transactionArrays.append([transaction])
+                }
             }
         }
 
