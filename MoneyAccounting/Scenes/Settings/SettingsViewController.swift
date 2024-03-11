@@ -9,9 +9,9 @@ import UIKit
 
 final class SettingsViewController: UIViewController, UITextFieldDelegate {
     
-    //MARK: - Properties
-    var incomeGoal: Double?
-    var expenseLimit: Double?
+    //MARK: - Private Properties
+    private var incomeGoal: Double?
+    private var expenseLimit: Double?
     
     //MARK: - IB Outlets
     
@@ -70,9 +70,8 @@ final class SettingsViewController: UIViewController, UITextFieldDelegate {
             incomeGoal = incomeGoalValue
             expenseLimit = expenseLimitValue
             
-            let goalsStore = GoalsStore.shared
-            goalsStore.goals.incomeGoal = incomeGoalValue
-            goalsStore.goals.expenseLimit = expenseLimitValue
+            GoalsStore.shared.goals.incomeGoal = incomeGoalValue
+            GoalsStore.shared.goals.expenseLimit = expenseLimitValue
             
             navigationController?.popViewController(animated: true)
         }
@@ -84,9 +83,8 @@ final class SettingsViewController: UIViewController, UITextFieldDelegate {
     
 }
 
-// MARK: - UITextFieldDelegate
+    // MARK: - UITextFieldDelegate
 func textFieldDidBeginEditing(_ textField: UITextField) {
-    
     textField.rightViewMode = .never
 }
 
@@ -97,7 +95,7 @@ func textFieldDidEndEditing(_ textField: UITextField) {
     }
 }
 
-//MARK: - NavigationBar
+    //MARK: - NavigationBar
 extension SettingsViewController {
     func setupNavigationBar() {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
@@ -116,7 +114,7 @@ extension SettingsViewController {
     }
 }
 
-// MARK: - Extentions
+    // MARK: - Extentions
 extension UILabel {
     static func createLabel(withText text: String) -> UILabel {
         let label = UILabel()

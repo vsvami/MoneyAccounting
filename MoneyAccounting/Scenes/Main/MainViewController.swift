@@ -47,11 +47,11 @@ final class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         setupBackground()
         setupNavigationBar()
+        showDataMainVC()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showDataMainVC()
     }
     
     override func viewDidLayoutSubviews() {
