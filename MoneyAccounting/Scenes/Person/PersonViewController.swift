@@ -10,28 +10,27 @@ final class PersonViewController: UIViewController {
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var logOutButton: UIButton!
     
-    private var person = Person.getPerson()
+    @IBOutlet var infoTableView: UITableView!
+    private let personStore = PersonsStore.shared
+    private let usersStore = UsersStore.shared
     
-    private var infoUser: [String: String] {
-        let name = Person.getPerson().firstName
-        let surname = Person.getPerson().lastName
-        let email = User.getUser().email
-        let password = String(User.getUser().password.map { _ in "*" })
-        
-        return ["Имя": name, "Фамилия": surname, "Почта": email, "Пароль": password]
-    }
+    private var infoUser: [String] = []
     
     //MARK: Life Circle
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updateInfoUser()
         setupNavigationTittle()
         setupBarButtonItems()
+        infoTableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
+        infoTableView.delegate = self
+        infoTableView.dataSource = self
+        
         photoImageView.layer.cornerRadius = photoImageView.frame.height / 2
         photoImageView.image = UIImage.tc
         photoImageView.contentMode = .scaleAspectFill
@@ -40,8 +39,15 @@ final class PersonViewController: UIViewController {
         logOutButton.backgroundColor = .systemBlue
         logOutButton.tintColor = .white
         logOutButton.layer.cornerRadius = logOutButton.frame.height / 2
-
-        
+    }
+    
+    private func updateInfoUser() {
+        infoUser = [
+            personStore.person.firstName,
+            personStore.person.lastName,
+            usersStore.users.email,
+            String(usersStore.users.password.map { _ in "*" }),
+        ]
     }
     
     //MARK: - Public Methods
@@ -94,7 +100,7 @@ extension PersonViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath)
         let positions = ["Имя", "Фамилия", "Почта", "Пароль"]
-        let target = infoUser[positions[indexPath.row]]
+        let target = infoUser[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
         content.text = positions[indexPath.row]
@@ -109,7 +115,7 @@ extension PersonViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cornerRadius: CGFloat = 10
         let maskLayer = CAShapeLayer()
-
+        
         if tableView.numberOfSections == 1 && tableView.numberOfRows(inSection: indexPath.section) == 4 {
             if indexPath.row == 0 {
                 // Скругление верхних углов первой ячейки
@@ -126,7 +132,7 @@ extension PersonViewController: UITableViewDataSource, UITableViewDelegate {
             }
             cell.layer.mask = maskLayer
         }
-
+        
         return cell
     }
     
@@ -184,15 +190,21 @@ extension PersonViewController {
         let editBarButtonItem = UIBarButtonItem(customView: editButton)
         
         navigationItem.rightBarButtonItem = editBarButtonItem
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "Назад",
+            style: .plain,
+            target: nil,
+            action: nil
+        )
     }
-
+    
     func setupNavigationTittle() {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
         navigationController?.navigationBar.tintColor = .systemBlue
         navigationItem.hidesBackButton = false
-        navigationItem.title = person.fullName
+        navigationItem.title = personStore.person.fullName
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
-      
     }
 }

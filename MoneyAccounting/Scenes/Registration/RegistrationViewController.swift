@@ -31,9 +31,9 @@ final class RegistrationViewController: UIViewController {
             return
         }
         
-        let newUser = User(email: email, password: password, person: Person.getPerson())
+        //let newUser = User(email: email, password: password, person: Person.getPerson())
         // Добавление нового пользователя в UsersStore
-        UsersStore.shared.addUser(newUser)
+        //UsersStore.shared.addUser(newUser)
         
         //TODO: не отрабатывает закрытие?
         self.dismiss(animated: true)

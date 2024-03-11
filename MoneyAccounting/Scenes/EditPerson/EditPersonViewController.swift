@@ -11,16 +11,10 @@ final class EditPersonViewController: UIViewController {
     
     @IBOutlet var tableViewTV: UITableView!
     
-    private var person = Person.getPerson()
+    private let personStore = PersonsStore.shared
+    private let usersStore = UsersStore.shared
     
-    private var infoUser: [String: String] {
-        let name = Person.getPerson().firstName
-        let surname = Person.getPerson().lastName
-        let email = User.getUser().email
-        let password = String(User.getUser().password.map { _ in "*" })
-        
-        return ["Имя": name, "Фамилия": surname, "Почта": email, "Пароль": password]
-    }
+    private var infoUser: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +22,53 @@ final class EditPersonViewController: UIViewController {
         
         tableViewTV.delegate = self
         tableViewTV.dataSource = self
+        updateInfoUser()
+    }
+    
+    private func updateInfoUser() {
+        infoUser = [
+            personStore.person.firstName,
+            personStore.person.lastName,
+            usersStore.users.email,
+            String(usersStore.users.password.map { _ in "*" }),
+        ]
+    }
+    
+    @objc func saveButtonTapped() {
+        var collectedData = [String: String]()
         
+        for row in 0..<infoUser.count {
+            if let cell = tableViewTV.cellForRow(at: IndexPath(row: row, section: 0)) as? EditPersonViewCell,
+               let text = cell.enterTextField.text {
+                switch row {
+                case 0:
+                    collectedData["firstName"] = text
+                case 1:
+                    collectedData["lastName"] = text
+                case 2:
+                    collectedData["email"] = text
+                case 3:
+                    collectedData["password"] = text
+                default:
+                    break
+                }
+            }
+        }
+        
+        // Обновляеме person в DataStore
+        if let firstName = collectedData["firstName"],
+           let lastName = collectedData["lastName"],
+           let email = collectedData["email"],
+           let password = collectedData["password"] {
+            
+            // Обновляем данные person и user в DataStore
+            personStore.person.firstName = firstName
+            personStore.person.lastName = lastName
+            usersStore.users.email = email
+            usersStore.users.password = password
+            
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     // MARK: - Overrides Methods
@@ -46,7 +86,7 @@ extension EditPersonViewController {
         
         navigationItem.hidesBackButton = false
         
-        navigationItem.title = "Tim Cook"
+        navigationItem.title = personStore.person.fullName
         navigationController?.navigationBar.prefersLargeTitles = true
         
         navigationItem.largeTitleDisplayMode = .always
@@ -57,13 +97,15 @@ extension EditPersonViewController {
             action: nil
         )
         navigationItem.leftBarButtonItem?.tintColor = .systemBlue
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
+        
+        let saveBarButton = UIBarButtonItem(
             title: "Сохранить",
             style: .plain,
             target: self,
-            action: nil
+            action: #selector(saveButtonTapped)
         )
-        navigationItem.rightBarButtonItem?.tintColor = .systemBlue
+        navigationItem.rightBarButtonItem = saveBarButton
+        saveBarButton.tintColor = .systemBlue
     }
 }
 
@@ -75,6 +117,7 @@ extension EditPersonViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell", for: indexPath)
+        cell.tag = indexPath.row
         
         let editPersonCell = cell as? EditPersonViewCell
         
@@ -89,13 +132,13 @@ extension EditPersonViewController: UITableViewDataSource, UITableViewDelegate {
                 named: "customDarkGray"
             ) ?? .customDarkGray]
         )
-        
+        editPersonCell?.enterTextField.text = infoUser[indexPath.row]
         
         cell.contentView.backgroundColor = UIColor(hex: "#F9F9FC")
         
         let cornerRadius: CGFloat = 10
         let maskLayer = CAShapeLayer()
-       
+        
         if tableView.numberOfSections == 1 && tableView.numberOfRows(inSection: indexPath.section) == 4 {
             if indexPath.row == 0 {
                 // Скругление верхних углов первой ячейки
@@ -112,7 +155,7 @@ extension EditPersonViewController: UITableViewDataSource, UITableViewDelegate {
             }
             cell.layer.mask = maskLayer
         }
-
+        
         return cell
     }
     
@@ -126,5 +169,4 @@ extension EditPersonViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
     }
-    
 }

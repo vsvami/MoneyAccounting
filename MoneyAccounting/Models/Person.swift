@@ -7,9 +7,9 @@ import Foundation
 
 struct Person {
     
-    let firstName: String
-    let lastName: String
-    let profileImage: Data?
+    var firstName: String
+    var lastName: String
+    var profileImage: Data?
     let financialPortfolio: TransactionStore
     
     var fullName: String {
