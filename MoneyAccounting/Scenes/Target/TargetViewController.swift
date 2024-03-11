@@ -44,15 +44,12 @@ final class TargetViewController: UIViewController {
         let incomeGoal = goalsStore.goals.incomeGoal
         let expenseLimit = goalsStore.goals.expenseLimit
         
-        if expenseTotal > expenseLimit {
-            emotionImageView.image = UIImage(named: "sad")
-            mainLabel.text = "Слишком много расходов"
-        }
-        
         if incomeTotal > incomeGoal {
             emotionImageView.image = UIImage(named: "happy")
             mainLabel.text = "Красавчик!"
+        } else if expenseTotal > expenseLimit {
+            emotionImageView.image = UIImage(named: "sad")
+            mainLabel.text = "Слишком много расходов"
         }
-        
     }
 }
