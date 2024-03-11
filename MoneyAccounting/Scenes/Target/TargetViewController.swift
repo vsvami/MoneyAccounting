@@ -29,6 +29,16 @@ final class TargetViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    @IBAction func limitButtonAction() {
+        // Переход к экрану с лимитами
+//        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+//        let settingsVC = storyboard.instantiateViewController(
+//            withIdentifier: "SettingsViewController"
+//        ) as! SettingsViewController
+//        navigationController?.pushViewController(settingsVC, animated: true)
+//        navigationController?.popViewController(animated: true)
+    }
+    
     private func setupUI() {
         switch typeOfTransaction {
         case .income:
