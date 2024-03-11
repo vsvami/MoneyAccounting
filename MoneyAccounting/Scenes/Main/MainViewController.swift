@@ -186,6 +186,7 @@ extension MainViewController: DataViewControllerDelegate {
         
         categoriesTableView.rowHeight = 50
         categoriesTableView.separatorColor = UIColor.lightGray.withAlphaComponent(0.3)
+        categoriesTableView.reloadData()
     }
 }
 
