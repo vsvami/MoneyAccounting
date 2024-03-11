@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--TargetViewController-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="TargetViewController" title="TargetViewController" id="Y6W-OH-hqX" customClass="TargetViewController" customModule="MoneyAccounting" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Слишком много расходов" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57H-Xo-db2">
+                                <rect key="frame" x="40" y="40" width="240" height="72"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mhi-g2-YHn">
+                                <rect key="frame" x="20" y="132" width="280" height="276"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Txm-oX-9qu">
+                                <rect key="frame" x="40" y="428" width="240" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHe-u4-Bli">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="re9-bY-qx4"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Изменить лимит на расходы">
+                                            <color key="titleColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="limitButtonAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="45W-HV-dAq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1P5-0Q-3E4">
+                                        <rect key="frame" x="0.0" y="70" width="240" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="bR4-u4-i7b"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Буду меньше тратить">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doneAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="LxG-6z-9WI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="57H-Xo-db2" secondAttribute="trailing" constant="40" id="9RE-CC-qL4"/>
+                            <constraint firstItem="Txm-oX-9qu" firstAttribute="top" secondItem="Mhi-g2-YHn" secondAttribute="bottom" constant="20" id="Cdh-LC-0N3"/>
+                            <constraint firstItem="Mhi-g2-YHn" firstAttribute="top" secondItem="57H-Xo-db2" secondAttribute="bottom" constant="20" id="N0j-p2-lRn"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Txm-oX-9qu" secondAttribute="trailing" constant="40" id="RJ3-Cu-gui"/>
+                            <constraint firstItem="Mhi-g2-YHn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="VOR-IK-VBB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Mhi-g2-YHn" secondAttribute="trailing" constant="20" id="X8C-XQ-7sm"/>
+                            <constraint firstItem="57H-Xo-db2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="e6s-2P-0UJ"/>
+                            <constraint firstItem="Txm-oX-9qu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="eui-6l-MzV"/>
+                            <constraint firstItem="57H-Xo-db2" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="f6C-Zc-pv6"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Txm-oX-9qu" secondAttribute="bottom" constant="20" id="oJI-E2-ztk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emotionImageView" destination="Mhi-g2-YHn" id="f2m-1f-82n"/>
+                        <outlet property="expenceLimitButton" destination="LHe-u4-Bli" id="BHo-4C-wu5"/>
+                        <outlet property="mainLabel" destination="57H-Xo-db2" id="4gf-cf-MsF"/>
+                        <outlet property="okayButton" destination="1P5-0Q-3E4" id="fOk-ca-ZcA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="48" y="-2"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="scrollViewTexturedBackgroundColor">
+            <color red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

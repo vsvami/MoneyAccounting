@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--AddCategoryViewController-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AddCategoryViewController" title="AddCategoryViewController" id="Y6W-OH-hqX" customClass="AddCategoryViewController" customModule="MoneyAccounting" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавить категорию" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5t-4I-uX9">
+                                <rect key="frame" x="109" y="109" width="175" height="21.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UQe-I6-ftV">
+                                <rect key="frame" x="171.66666666666666" y="170.66666666666666" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3vf-QN-h4W"/>
+                                    <constraint firstAttribute="width" constant="50" id="OpT-9p-2yC"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="A9d-p5-vic">
+                                <rect key="frame" x="60" y="260.66666666666669" width="273" height="130"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gtb-fL-ect">
+                                        <rect key="frame" x="0.0" y="0.0" width="273" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="zQv-o3-DOq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScB-5k-JYK">
+                                        <rect key="frame" x="0.0" y="80" width="273" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="2l0-rV-Vxb"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Добавить"/>
+                                        <connections>
+                                            <action selector="addAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="kKD-Qn-Hdy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UQe-I6-ftV" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="EpZ-6v-Wk6"/>
+                            <constraint firstItem="Y5t-4I-uX9" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Lkc-hP-uHZ"/>
+                            <constraint firstItem="A9d-p5-vic" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="T4h-2D-N7R"/>
+                            <constraint firstItem="A9d-p5-vic" firstAttribute="top" secondItem="UQe-I6-ftV" secondAttribute="bottom" constant="40" id="Whf-bJ-PBf"/>
+                            <constraint firstItem="Y5t-4I-uX9" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="YI0-yr-wcR"/>
+                            <constraint firstItem="UQe-I6-ftV" firstAttribute="top" secondItem="Y5t-4I-uX9" secondAttribute="bottom" constant="40" id="aoU-sb-af3"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="A9d-p5-vic" secondAttribute="trailing" constant="60" id="slA-9O-iU7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="ScB-5k-JYK" id="ANu-s1-ihL"/>
+                        <outlet property="categoryImageView" destination="UQe-I6-ftV" id="SBh-R5-HFB"/>
+                        <outlet property="categoryTextField" destination="gtb-fL-ect" id="wxR-hE-NQT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="48" y="-23"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
