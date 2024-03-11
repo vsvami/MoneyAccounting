@@ -54,6 +54,7 @@ final class CategoriesStore {
     ]
     
     let currency: [Character] = ["₽", "€", "$"]
+    let currentCurrency = "₽"
     
     private init() {}
 }
