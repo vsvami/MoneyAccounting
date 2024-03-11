@@ -29,22 +29,28 @@ final class TargetViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    @IBAction func limitButtonAction() {
+        // Переход к экрану с лимитами
+//        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+//        let settingsVC = storyboard.instantiateViewController(
+//            withIdentifier: "SettingsViewController"
+//        ) as! SettingsViewController
+//        navigationController?.pushViewController(settingsVC, animated: true)
+//        navigationController?.popViewController(animated: true)
+    }
+    
     private func setupUI() {
-
         switch typeOfTransaction {
         case .income:
-                emotionImageView.image = UIImage(named: "happy")
-                mainLabel.text = "Красавчик!"
+            emotionImageView.image = UIImage(named: "happy")
+            mainLabel.text = "Красавчик!"
+            expenceLimitButton.setTitle("Изменить цели", for: .normal)
+            okayButton.setTitle("Да, я молодец", for: .normal)
         default:
-                emotionImageView.image = UIImage(named: "sad")
-                mainLabel.text = "Слишком много расходов"
+            emotionImageView.image = UIImage(named: "sad")
+            mainLabel.text = "Слишком много расходов"
+            expenceLimitButton.setTitle("Изменить лимиты", for: .normal)
+            okayButton.setTitle("Буду меньше тратить", for: .normal)
         }
-//        if incomeTotal > incomeGoal {
-//            emotionImageView.image = UIImage(named: "happy")
-//            mainLabel.text = "Красавчик!"
-//        } else if expenseTotal > expenseLimit {
-//            emotionImageView.image = UIImage(named: "sad")
-//            mainLabel.text = "Слишком много расходов"
-//        }
     }
 }
