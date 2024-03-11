@@ -30,14 +30,17 @@ final class TargetViewController: UIViewController {
     }
     
     private func setupUI() {
-
         switch typeOfTransaction {
         case .income:
-                emotionImageView.image = UIImage(named: "happy")
-                mainLabel.text = "Красавчик!"
+            emotionImageView.image = UIImage(named: "happy")
+            mainLabel.text = "Красавчик!"
+            expenceLimitButton.setTitle("Изменить цели", for: .normal)
+            okayButton.setTitle("Да, я молодец", for: .normal)
         default:
-                emotionImageView.image = UIImage(named: "sad")
-                mainLabel.text = "Слишком много расходов"
+            emotionImageView.image = UIImage(named: "sad")
+            mainLabel.text = "Слишком много расходов"
+            expenceLimitButton.setTitle("Изменить лимиты", for: .normal)
+            okayButton.setTitle("Буду меньше тратить", for: .normal)
         }
     }
 }
