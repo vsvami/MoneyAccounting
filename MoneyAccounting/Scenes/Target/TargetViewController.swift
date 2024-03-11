@@ -30,13 +30,11 @@ final class TargetViewController: UIViewController {
     }
     
     @IBAction func limitButtonAction() {
-        // Переход к экрану с лимитами
+        
+        // Не реализован переход к целям
 //        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
-//        let settingsVC = storyboard.instantiateViewController(
-//            withIdentifier: "SettingsViewController"
-//        ) as! SettingsViewController
+//        let settingsVC = storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
 //        navigationController?.pushViewController(settingsVC, animated: true)
-//        navigationController?.popViewController(animated: true)
     }
     
     private func setupUI() {
