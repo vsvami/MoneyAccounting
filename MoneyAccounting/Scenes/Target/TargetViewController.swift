@@ -39,12 +39,5 @@ final class TargetViewController: UIViewController {
                 emotionImageView.image = UIImage(named: "sad")
                 mainLabel.text = "Слишком много расходов"
         }
-//        if incomeTotal > incomeGoal {
-//            emotionImageView.image = UIImage(named: "happy")
-//            mainLabel.text = "Красавчик!"
-//        } else if expenseTotal > expenseLimit {
-//            emotionImageView.image = UIImage(named: "sad")
-//            mainLabel.text = "Слишком много расходов"
-//        }
     }
 }
