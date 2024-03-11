@@ -14,6 +14,7 @@ final class TargetViewController: UIViewController {
     @IBOutlet var okayButton: UIButton!
     @IBOutlet var expenceLimitButton: UIButton!
     @IBOutlet var mainLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
     
     var typeOfTransaction: TransactionType!
     
@@ -44,11 +45,13 @@ final class TargetViewController: UIViewController {
             mainLabel.text = "Красавчик!"
             expenceLimitButton.setTitle("Изменить цели", for: .normal)
             okayButton.setTitle("Да, я молодец", for: .normal)
+            descriptionLabel.text = "Поздравляю, вы умеете добиваться своих целей, поставьте новые цели или просто похвалите себя"
         default:
             emotionImageView.image = UIImage(named: "sad")
             mainLabel.text = "Слишком много расходов"
             expenceLimitButton.setTitle("Изменить лимиты", for: .normal)
             okayButton.setTitle("Буду меньше тратить", for: .normal)
+            descriptionLabel.text = "Так можно без штанов остаться! Если ваши доходы выросли и вы можете тратить больше увеличьте лимиты или тратьте меньше"
         }
     }
 }

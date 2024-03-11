@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,14 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Слишком много расходов" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57H-Xo-db2">
-                                <rect key="frame" x="40" y="40" width="240" height="72"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Заголовок!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57H-Xo-db2">
+                                <rect key="frame" x="40" y="40" width="240" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mhi-g2-YHn">
-                                <rect key="frame" x="20" y="132" width="280" height="276"/>
+                                <rect key="frame" x="20" y="96" width="280" height="280"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Mhi-g2-YHn" secondAttribute="height" multiplier="1:1" id="INE-EU-edG"/>
+                                </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Txm-oX-9qu">
                                 <rect key="frame" x="40" y="428" width="240" height="120"/>
@@ -57,16 +60,24 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnI-CV-rk4">
+                                <rect key="frame" x="20" y="396" width="280" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="57H-Xo-db2" secondAttribute="trailing" constant="40" id="9RE-CC-qL4"/>
-                            <constraint firstItem="Txm-oX-9qu" firstAttribute="top" secondItem="Mhi-g2-YHn" secondAttribute="bottom" constant="20" id="Cdh-LC-0N3"/>
                             <constraint firstItem="Mhi-g2-YHn" firstAttribute="top" secondItem="57H-Xo-db2" secondAttribute="bottom" constant="20" id="N0j-p2-lRn"/>
+                            <constraint firstItem="FnI-CV-rk4" firstAttribute="top" secondItem="Mhi-g2-YHn" secondAttribute="bottom" constant="20" id="NxC-xP-kFq"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Txm-oX-9qu" secondAttribute="trailing" constant="40" id="RJ3-Cu-gui"/>
                             <constraint firstItem="Mhi-g2-YHn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="VOR-IK-VBB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Mhi-g2-YHn" secondAttribute="trailing" constant="20" id="X8C-XQ-7sm"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FnI-CV-rk4" secondAttribute="trailing" constant="20" id="aG0-XN-LZp"/>
+                            <constraint firstItem="FnI-CV-rk4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="ch7-z5-6Pj"/>
                             <constraint firstItem="57H-Xo-db2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="e6s-2P-0UJ"/>
                             <constraint firstItem="Txm-oX-9qu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="eui-6l-MzV"/>
                             <constraint firstItem="57H-Xo-db2" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="f6C-Zc-pv6"/>
@@ -74,6 +85,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="descriptionLabel" destination="FnI-CV-rk4" id="35U-XW-qOy"/>
                         <outlet property="emotionImageView" destination="Mhi-g2-YHn" id="f2m-1f-82n"/>
                         <outlet property="expenceLimitButton" destination="LHe-u4-Bli" id="BHo-4C-wu5"/>
                         <outlet property="mainLabel" destination="57H-Xo-db2" id="4gf-cf-MsF"/>
@@ -82,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="-2"/>
+            <point key="canvasLocation" x="46.875" y="-2.112676056338028"/>
         </scene>
     </scenes>
     <resources>
