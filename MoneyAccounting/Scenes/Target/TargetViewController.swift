@@ -48,7 +48,7 @@ final class TargetViewController: UIViewController {
             descriptionLabel.text = "Поздравляю, вы умеете добиваться своих целей, поставьте новые цели или просто похвалите себя"
         default:
             emotionImageView.image = UIImage(named: "sad")
-            mainLabel.text = "Слишком много расходов"
+            mainLabel.text = "Осторожно!"
             expenceLimitButton.setTitle("Изменить лимиты", for: .normal)
             okayButton.setTitle("Буду меньше тратить", for: .normal)
             descriptionLabel.text = "Так можно без штанов остаться! Если ваши доходы выросли и вы можете тратить больше увеличьте лимиты или тратьте меньше"
