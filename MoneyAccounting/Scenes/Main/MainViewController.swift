@@ -50,10 +50,6 @@ final class MainViewController: UIViewController {
         showDataMainVC()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         whiteView.roundCorners(corners: [.topLeft, .topRight], radius: 15.0)
@@ -172,20 +168,22 @@ private extension MainViewController {
     }
 }
 
+// MARK: - DataViewControllerDelegate
 extension MainViewController: DataViewControllerDelegate {
     func showDataMainVC() {
         title = personsStore.person.fullName
         
         balanceLabel.text = String(format: "%.2f", transactions.totalBalance())
         
-        incomeLabel.text = String(sumIncomeTransactions)
-        expenseLabel.text = String(sumExpenseTransactions)
+        incomeLabel.text = "\(sumIncomeTransactions) \(transactions.categoriesStore.currentCurrency)"
+        expenseLabel.text = "\(sumExpenseTransactions) \(transactions.categoriesStore.currentCurrency)"
         
         targetIncomeLabel.text = String(GoalsStore.shared.goals.incomeGoal)
         targetExpenseLabel.text = String(GoalsStore.shared.goals.expenseLimit)
         
         categoriesTableView.rowHeight = 50
         categoriesTableView.separatorColor = UIColor.lightGray.withAlphaComponent(0.3)
+        categoriesTableView.reloadData()
     }
 }
 
