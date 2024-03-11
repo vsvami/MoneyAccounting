@@ -13,12 +13,12 @@ final class TargetViewController: UIViewController {
     
     @IBOutlet var okayButton: UIButton!
     @IBOutlet var expenceLimitButton: UIButton!
-    
     @IBOutlet var mainLabel: UILabel!
+    
+    var typeOfTransaction: TransactionType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         expenceLimitButton.setOrdinaryButton()
         okayButton.setAccentButton()
         
@@ -30,29 +30,21 @@ final class TargetViewController: UIViewController {
     }
     
     private func setupUI() {
-        let transactionStore = TransactionStore.shared
-        let goalsStore = GoalsStore.shared
-        
-        let transactions = transactionStore.getAllTransactions()
-        
-        let incomes = transactions.filter({ $0.type == .income })
-        let incomeTotal = incomes.reduce(0) { $0 + $1.amount }
-        
-        let expenses = transactions.filter { $0.type == .expense }
-        let expenseTotal = expenses.reduce(0) { $0 + $1.amount }
-        
-        let incomeGoal = goalsStore.goals.incomeGoal
-        let expenseLimit = goalsStore.goals.expenseLimit
-        
-        if expenseTotal > expenseLimit {
-            emotionImageView.image = UIImage(named: "sad")
-            mainLabel.text = "Слишком много расходов"
+
+        switch typeOfTransaction {
+        case .income:
+                emotionImageView.image = UIImage(named: "happy")
+                mainLabel.text = "Красавчик!"
+        default:
+                emotionImageView.image = UIImage(named: "sad")
+                mainLabel.text = "Слишком много расходов"
         }
-        
-        if incomeTotal > incomeGoal {
-            emotionImageView.image = UIImage(named: "happy")
-            mainLabel.text = "Красавчик!"
-        }
-        
+//        if incomeTotal > incomeGoal {
+//            emotionImageView.image = UIImage(named: "happy")
+//            mainLabel.text = "Красавчик!"
+//        } else if expenseTotal > expenseLimit {
+//            emotionImageView.image = UIImage(named: "sad")
+//            mainLabel.text = "Слишком много расходов"
+//        }
     }
 }

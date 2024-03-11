@@ -17,7 +17,7 @@ final class TransactionStore {
         Transaction(
             type: .expense,
             currency: CategoriesStore.shared.currency[0],
-            amount: 1200,
+            amount: 12000,
             category: CategoriesStore.shared.categories[0],
             date: Date(timeIntervalSinceReferenceDate: 500000000),
             description: "Спортзал"
@@ -25,15 +25,7 @@ final class TransactionStore {
         Transaction(
             type: .expense,
             currency: CategoriesStore.shared.currency[0],
-            amount: 348,
-            category: CategoriesStore.shared.categories[1],
-            date: Date(timeIntervalSinceReferenceDate: 50000000),
-            description: "Две футболки"
-        ),
-        Transaction(
-            type: .expense,
-            currency: CategoriesStore.shared.currency[0],
-            amount: 540,
+            amount: 1200,
             category: CategoriesStore.shared.categories[2],
             date: Date(timeIntervalSinceReferenceDate: 500000000),
             description: "Корм для котика"
@@ -41,58 +33,26 @@ final class TransactionStore {
         Transaction(
             type: .expense,
             currency: CategoriesStore.shared.currency[0],
-            amount: 820,
+            amount: 12000,
             category: CategoriesStore.shared.categories[1],
             date: Date(timeIntervalSinceReferenceDate: 50000000),
             description: "Новые джинсы"
         ),
         Transaction(
-            type: .expense,
-            currency: CategoriesStore.shared.currency[1],
-            amount: 235,
-            category: CategoriesStore.shared.categories[3],
-            date: Date(timeIntervalSinceReferenceDate: 470000000),
-            description: "Продукты домой"
-        ),
-        Transaction(
-            type: .expense,
-            currency: CategoriesStore.shared.currency[0],
-            amount: 140,
-            category: CategoriesStore.shared.categories[0],
-            date: Date(timeIntervalSinceReferenceDate: 470000000),
-            description: "Витамины"
-        ),
-        Transaction(
-            type: .expense,
-            currency: CategoriesStore.shared.currency[0],
-            amount: 740,
-            category: CategoriesStore.shared.categories[3],
-            date: Date(timeIntervalSinceReferenceDate: 470000000),
-            description: "Суши"
-        ),
-        Transaction(
             type: .income,
             currency: CategoriesStore.shared.currency[0],
-            amount: 270000,
+            amount: 80000,
             category: CategoriesStore.shared.categories[9],
-            date: Date(timeIntervalSinceReferenceDate: 470050000),
+            date: Date(timeIntervalSinceReferenceDate: 470100000),
             description: "Зарплата"
         ),
         Transaction(
             type: .income,
             currency: CategoriesStore.shared.currency[0],
-            amount: 120000,
+            amount: 15500,
             category: CategoriesStore.shared.categories[9],
             date: Date(timeIntervalSinceReferenceDate: 470100000),
-            description: "Процент(тачки)"
-        ),
-        Transaction(
-            type: .income,
-            currency: CategoriesStore.shared.currency[0],
-            amount: 40000,
-            category: CategoriesStore.shared.categories[9],
-            date: Date(timeIntervalSinceReferenceDate: 470020000),
-            description: "Премия"
+            description: "Процент с продаж"
         )
     ]
     

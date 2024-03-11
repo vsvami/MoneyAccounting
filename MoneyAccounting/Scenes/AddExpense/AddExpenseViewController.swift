@@ -85,15 +85,15 @@ final class AddExpenseViewController: UIViewController {
         let goalsStore = GoalsStore.shared
         
         let transactions = transactionStore.getAllTransactions()
-        
-        let incomeTotal = transactions.filter { $0.type == .income }.reduce(0) { $0 + $1.amount }
         let expenseTotal = transactions.filter { $0.type == .expense }.reduce(0) { $0 + $1.amount }
-        
-        let incomeGoal = goalsStore.goals.incomeGoal
         let expenseLimit = goalsStore.goals.expenseLimit
         
         // Если расходы превысили лимит, открывается экран таргет
-        if incomeTotal > incomeGoal || expenseTotal > expenseLimit {
+        if expenseTotal > expenseLimit {
+            addButton.setOrdinaryButton()
+            addButton.setTitle("Добавлено", for: .normal)
+            addButton.isEnabled = false
+            
             showTargetVC()
         } else {
             dismiss(animated: true)
@@ -145,6 +145,7 @@ final class AddExpenseViewController: UIViewController {
     private func showTargetVC() {
         let storyboard = UIStoryboard(name: "Target", bundle: nil)
         let targetVC = storyboard.instantiateViewController(withIdentifier: "TargetViewController") as! TargetViewController
+        targetVC.typeOfTransaction = .expense
         present(targetVC, animated: true, completion: nil)
     }
     
