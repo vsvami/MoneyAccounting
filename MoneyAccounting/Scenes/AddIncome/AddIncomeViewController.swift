@@ -145,6 +145,7 @@ extension AddIncomeViewController {
     private func showTargetVC() {
         let storyboard = UIStoryboard(name: "Target", bundle: nil)
         let targetVC = storyboard.instantiateViewController(withIdentifier: "TargetViewController") as! TargetViewController
+        targetVC.typeOfTransaction = .income
         present(targetVC, animated: true, completion: nil)
     }
     
@@ -218,7 +219,6 @@ extension AddIncomeViewController: UIPickerViewDataSource, UIPickerViewDelegate 
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         categoriesStore.categories.forEach { category in
-            print(category.name)
             categoryNames.append(category.name)
         }
         

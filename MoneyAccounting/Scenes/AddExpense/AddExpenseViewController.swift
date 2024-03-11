@@ -90,6 +90,10 @@ final class AddExpenseViewController: UIViewController {
         
         // Если расходы превысили лимит, открывается экран таргет
         if expenseTotal > expenseLimit {
+            addButton.setOrdinaryButton()
+            addButton.setTitle("Добавлено", for: .normal)
+            addButton.isEnabled = false
+            
             showTargetVC()
         } else {
             dismiss(animated: true)
@@ -141,6 +145,7 @@ final class AddExpenseViewController: UIViewController {
     private func showTargetVC() {
         let storyboard = UIStoryboard(name: "Target", bundle: nil)
         let targetVC = storyboard.instantiateViewController(withIdentifier: "TargetViewController") as! TargetViewController
+        targetVC.typeOfTransaction = .expense
         present(targetVC, animated: true, completion: nil)
     }
     
