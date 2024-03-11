@@ -178,8 +178,8 @@ extension MainViewController: DataViewControllerDelegate {
         incomeLabel.text = "\(sumIncomeTransactions) \(transactions.categoriesStore.currentCurrency)"
         expenseLabel.text = "\(sumExpenseTransactions) \(transactions.categoriesStore.currentCurrency)"
         
-        targetIncomeLabel.text = String(GoalsStore.shared.goals.incomeGoal)
-        targetExpenseLabel.text = String(GoalsStore.shared.goals.expenseLimit)
+        targetIncomeLabel.text = "\(GoalsStore.shared.goals.incomeGoal) \(transactions.categoriesStore.currentCurrency)"
+        targetExpenseLabel.text = "\(GoalsStore.shared.goals.expenseLimit) \(transactions.categoriesStore.currentCurrency)"
         
         categoriesTableView.rowHeight = 50
         categoriesTableView.separatorColor = UIColor.lightGray.withAlphaComponent(0.3)
